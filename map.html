@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vinh Vong">
+    <title>Transportation Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+  <header>
+    <h1>Transit Data Charts</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="charts.html">Chart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <form>
+      <input type="checkbox" id="Silver" onChange="toggleVisibility('SilverBusStop1'); toggleVisibility('Silver_Route'); 
+      toggleVisibility('SilverBusStop2'); toggleVisibility('SilverBusStop3'); toggleVisibility('SilverBusStop4');
+      toggleVisibility('SilverBusStop5'); toggleVisibility('SilverBusStop6');">
+      <label for="Silver"> Display Silver Route</label><br>
+      <input type="checkbox" id="Green" onChange="toggleVisibility('Green_Route');">
+      <label for="Green"> Display Green Route</label><br>
+    </form>
+  
+    <script>
+      function toggleVisibility(id) {
+        var el = document.getElementById(id);
+        if (el.style.visibility=="visible") {
+          el.style.visibility="hidden";
+        }
+        else {
+          el.style.visibility="visible";
+        }
+      }
+  
+  
+      function myFunction() {
+        var x = document.getElementById("SilverStop1Stats");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+  
+    <div class="imgbox">
+      <img class="center-fit1" src="Uncc_Campus_Temporal.jpg" alt="Map">
+      <img class="center-fit2" id="Silver_Route" src="Uncc_Campus_Temporal_Silver.jpg"  style="visibility:hidden">
+      <img class="center-fit2" id="Green_Route" src="Uncc_Campus_Temporal_Green.jpg"  style="visibility:hidden">
+      <img class="silverBus1" id="SilverBusStop1" src="BusPoint.png" style="visibility:hidden" onclick="myFunction()">
+      <div class="text" id="SilverStop1Stats">Stats for CRI Deck</div>
+      <img class="silverBus2" id="SilverBusStop2" src="BusPoint.png" style="visibility:hidden">
+      <img class="silverBus3" id="SilverBusStop3" src="BusPoint.png" style="visibility:hidden">
+      <img class="silverBus4" id="SilverBusStop4" src="BusPoint.png" style="visibility:hidden">
+      <img class="silverBus5" id="SilverBusStop5" src="BusPoint.png" style="visibility:hidden">
+      <img class="silverBus6" id="SilverBusStop6" src="BusPoint.png" style="visibility:hidden">
+    </div>
+  </main>
+  
+  <footer>
+    <p class="font-sm center-text">&copy;2022 PATs Services. All rights reserved.</p>
+  </footer> 
+</body>
+</html>

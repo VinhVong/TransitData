@@ -1,0 +1,78 @@
+
+.imgbox {
+    display: grid;
+    height: 100%;
+}
+.text{
+    z-index:4;
+}
+.center-fit1 {
+    width: 1500px;
+    height: 750px;
+    position:absolute;
+    top: 40px;
+    z-index: 1;
+}
+.center-fit2 {
+    width: 1500px;
+    height: 750px;
+    position:absolute;
+    top: 40px;
+    z-index: 2;
+}
+.silverBus1{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:250px;
+    left:335px;
+    z-index: 3;
+}
+.silverBus2{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:185px;
+    left:410px;
+    z-index: 3;
+}
+.silverBus3{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:160px;
+    left:445px;
+    z-index: 3;
+}
+.silverBus4{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:280px;
+    left:450px;
+    z-index: 3;
+}
+.silverBus5{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:350px;
+    left:505px;
+    z-index: 3;
+}
+.silverBus6{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:330px;
+    left:830px;
+    z-index: 3;
+}
+.silverBusUnion2{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:325px;
+    left:825px;
+    z-index: 3;
+}
