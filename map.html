@@ -1,73 +1,1159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Vinh Vong">
-    <title>Transportation Data</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="map.css">
-</head>
-<body>
-  <header>
-    <h1>Transit Data Charts</h1>
-    <nav>
+<link rel="stylesheet" href="map.css">
+<header class="nav">
+  <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="charts.html">Chart</a></li>
+          <h3>&nbsp &nbsp<a href="index.html">Home</a>&nbsp &nbsp
+          <a href="map.html">Map</a>&nbsp &nbsp
+          <a href="charts.html">Chart</a>&nbsp &nbsp
+          <a href="login.html">Login</a>&nbsp &nbsp
+          <a href="upload.html">Upload</a></h3>&nbsp &nbsp
       </ul>
-    </nav>
-  </header>
-  <main>
-    <form>
-      <input type="checkbox" id="Silver" onChange="toggleVisibility('SilverBusStop1'); toggleVisibility('Silver_Route'); 
-      toggleVisibility('SilverBusStop2'); toggleVisibility('SilverBusStop3'); toggleVisibility('SilverBusStop4');
-      toggleVisibility('SilverBusStop5'); toggleVisibility('SilverBusStop6');">
-      <label for="Silver"> Display Silver Route</label><br>
-      <input type="checkbox" id="Green" onChange="toggleVisibility('Green_Route');">
-      <label for="Green"> Display Green Route</label><br>
-    </form>
-  
-    <script>
-      function toggleVisibility(id) {
-        var el = document.getElementById(id);
-        if (el.style.visibility=="visible") {
-          el.style.visibility="hidden";
+  </nav>
+</header>
+<form class="check">
+  <!--Silver Checkbox-->
+    <input type="checkbox" id="Silver" onChange="uncheckOthers('Green'); toggleVisibility('Green_Route', 'Green'); toggleVisibility('GreenBusStop1', 'Green'); toggleVisibility('GreenBusStop2', 'Green'); toggleVisibility('GreenBusStop3', 'Green');
+    toggleVisibility('GreenBusStop4', 'Green'); toggleVisibility('GreenBusStop5', 'Green'); toggleVisibility('GreenBusStop6', 'Green'); toggleVisibility('GreenBusStop7', 'Green');
+    toggleVisibility('GreenBusStop8', 'Green'); toggleVisibility('GreenBusStop9', 'Green'); toggleVisibility('GreenBusStop10', 'Green'); toggleVisibility('GreenBusStop11', 'Green');
+    toggleVisibility('GreenBusStop12', 'Green'); toggleVisibility('GreenBusStop13', 'Green'); toggleVisibility('GreenBusStop14', 'Green'); toggleVisibility('GreenBusStop15', 'Green');
+    toggleVisibility('GreenBusStop16', 'Green'); toggleVisibility('GreenBusStop17', 'Green'); toggleVisibility('GreenBusStop18', 'Green');
+    dissapearData('GreenStop1Stats'); dissapearData('GreenStop2Stats'); dissapearData('GreenStop3Stats'); dissapearData('GreenStop4Stats'); dissapearData('GreenStop5Stats');
+    dissapearData('GreenStop6Stats'); dissapearData('GreenStop7Stats'); dissapearData('GreenStop8Stats'); dissapearData('GreenStop9Stats'); dissapearData('GreenStop10Stats');
+    dissapearData('GreenStop11Stats'); dissapearData('GreenStop12Stats'); dissapearData('GreenStop13Stats'); dissapearData('GreenStop14Stats'); dissapearData('GreenStop15Stats');
+    dissapearData('GreenStop16Stats'); dissapearData('GreenStop17Stats'); dissapearData('GreenStop18Stats');
+    
+    uncheckOthers('Gold'); toggleVisibility('Gold_Route', 'Gold'); toggleVisibility('GoldBusStop1', 'Gold'); toggleVisibility('GoldBusStop2', 'Gold'); toggleVisibility('GoldBusStop3', 'Gold');
+    toggleVisibility('GoldBusStop4', 'Gold'); toggleVisibility('GoldBusStop5', 'Gold'); toggleVisibility('GoldBusStop6', 'Gold'); toggleVisibility('GoldBusStop7', 'Gold');
+    toggleVisibility('GoldBusStop8', 'Gold'); toggleVisibility('GoldBusStop9', 'Gold'); toggleVisibility('GoldBusStop10', 'Gold'); toggleVisibility('GoldBusStop11', 'Gold');
+    toggleVisibility('GoldBusStop12', 'Gold'); toggleVisibility('GoldBusStop13', 'Gold'); toggleVisibility('GoldBusStop14', 'Gold');
+    dissapearData('GoldStop1Stats'); dissapearData('GoldStop2Stats'); dissapearData('GoldStop3Stats'); dissapearData('GoldStop4Stats'); dissapearData('GoldStop5Stats');
+    dissapearData('GoldStop6Stats'); dissapearData('GoldStop7Stats'); dissapearData('GoldStop8Stats'); dissapearData('GoldStop9Stats'); dissapearData('GoldStop10Stats');
+    dissapearData('GoldStop11Stats'); dissapearData('GoldStop12Stats'); dissapearData('GoldStop13Stats'); dissapearData('GoldStop14Stats');
+    
+    toggleVisibility('Silver_Route', 'Silver'); toggleVisibility('SilverBusStop1', 'Silver'); 
+    toggleVisibility('SilverBusStop2', 'Silver'); toggleVisibility('SilverBusStop3', 'Silver'); toggleVisibility('SilverBusStop4', 'Silver');
+    toggleVisibility('SilverBusStop5', 'Silver'); toggleVisibility('SilverBusStop6', 'Silver'); toggleVisibility('SilverBusStop7', 'Silver');
+    toggleVisibility('SilverBusStop8', 'Silver'); toggleVisibility('SilverBusStop9', 'Silver'); toggleVisibility('SilverBusStop10', 'Silver');
+    toggleVisibility('SilverBusStop11', 'Silver'); toggleVisibility('SilverBusStop12', 'Silver'); toggleVisibility('SilverBusStop13', 'Silver');
+    toggleVisibility('SilverBusStop14', 'Silver'); toggleVisibility('SilverBusStop15', 'Silver'); toggleVisibility('SilverBusStop16', 'Silver');
+    toggleVisibility('SilverBusStop17', 'Silver'); toggleVisibility('SilverBusStop18', 'Silver'); toggleVisibility('SilverBusStop19', 'Silver');">
+    <label for="Silver"><b>Display Silver Route</b></label>
+    
+  <!--Green Checkbox-->
+    <input type="checkbox" id="Green" onChange="uncheckOthers('Silver'); toggleVisibility('Silver_Route', 'Silver'); toggleVisibility('SilverBusStop1', 'Silver'); 
+    toggleVisibility('SilverBusStop2', 'Silver'); toggleVisibility('SilverBusStop3', 'Silver'); toggleVisibility('SilverBusStop4', 'Silver');
+    toggleVisibility('SilverBusStop5', 'Silver'); toggleVisibility('SilverBusStop6', 'Silver'); toggleVisibility('SilverBusStop7', 'Silver');
+    toggleVisibility('SilverBusStop8', 'Silver'); toggleVisibility('SilverBusStop9', 'Silver'); toggleVisibility('SilverBusStop10', 'Silver');
+    toggleVisibility('SilverBusStop11', 'Silver'); toggleVisibility('SilverBusStop12', 'Silver'); toggleVisibility('SilverBusStop13', 'Silver');
+    toggleVisibility('SilverBusStop14', 'Silver'); toggleVisibility('SilverBusStop15', 'Silver'); toggleVisibility('SilverBusStop16', 'Silver');
+    toggleVisibility('SilverBusStop17', 'Silver'); toggleVisibility('SilverBusStop18', 'Silver'); toggleVisibility('SilverBusStop19', 'Silver'); 
+    dissapearData('SilverStop1Stats'); dissapearData('SilverStop2Stats'); dissapearData('SilverStop3Stats'); dissapearData('SilverStop4Stats'); dissapearData('SilverStop5Stats');
+    dissapearData('SilverStop6Stats'); dissapearData('SilverStop7Stats'); dissapearData('SilverStop8Stats'); dissapearData('SilverStop9Stats'); dissapearData('SilverStop10Stats');
+    dissapearData('SilverStop11Stats'); dissapearData('SilverStop12Stats'); dissapearData('SilverStop13Stats'); dissapearData('SilverStop14Stats'); dissapearData('SilverStop15Stats');
+    dissapearData('SilverStop16Stats'); dissapearData('SilverStop17Stats'); dissapearData('SilverStop18Stats'); dissapearData('SilverStop19Stats');
+    
+    uncheckOthers('Gold'); toggleVisibility('Gold_Route', 'Gold'); toggleVisibility('GoldBusStop1', 'Gold'); toggleVisibility('GoldBusStop2', 'Gold'); toggleVisibility('GoldBusStop3', 'Gold');
+    toggleVisibility('GoldBusStop4', 'Gold'); toggleVisibility('GoldBusStop5', 'Gold'); toggleVisibility('GoldBusStop6', 'Gold'); toggleVisibility('GoldBusStop7', 'Gold');
+    toggleVisibility('GoldBusStop8', 'Gold'); toggleVisibility('GoldBusStop9', 'Gold'); toggleVisibility('GoldBusStop10', 'Gold'); toggleVisibility('GoldBusStop11', 'Gold');
+    toggleVisibility('GoldBusStop12', 'Gold'); toggleVisibility('GoldBusStop13', 'Gold'); toggleVisibility('GoldBusStop14', 'Gold');
+    dissapearData('GoldStop1Stats'); dissapearData('GoldStop2Stats'); dissapearData('GoldStop3Stats'); dissapearData('GoldStop4Stats'); dissapearData('GoldStop5Stats');
+    dissapearData('GoldStop6Stats'); dissapearData('GoldStop7Stats'); dissapearData('GoldStop8Stats'); dissapearData('GoldStop9Stats'); dissapearData('GoldStop10Stats');
+    dissapearData('GoldStop11Stats'); dissapearData('GoldStop12Stats'); dissapearData('GoldStop13Stats'); dissapearData('GoldStop14Stats');
+
+    toggleVisibility('Green_Route', 'Green'); toggleVisibility('GreenBusStop1', 'Green'); toggleVisibility('GreenBusStop2', 'Green'); toggleVisibility('GreenBusStop3', 'Green');
+    toggleVisibility('GreenBusStop4', 'Green'); toggleVisibility('GreenBusStop5', 'Green'); toggleVisibility('GreenBusStop6', 'Green'); toggleVisibility('GreenBusStop7', 'Green');
+    toggleVisibility('GreenBusStop8', 'Green'); toggleVisibility('GreenBusStop9', 'Green'); toggleVisibility('GreenBusStop10', 'Green'); toggleVisibility('GreenBusStop11', 'Green');
+    toggleVisibility('GreenBusStop12', 'Green'); toggleVisibility('GreenBusStop13', 'Green'); toggleVisibility('GreenBusStop14', 'Green'); toggleVisibility('GreenBusStop15', 'Green');
+    toggleVisibility('GreenBusStop16', 'Green'); toggleVisibility('GreenBusStop17', 'Green'); toggleVisibility('GreenBusStop18', 'Green');">
+    <label for="Green"><b>Display Green Route</b></label>
+    
+  <!--Gold Checkbox-->
+    <input type="checkbox" id="Gold" onChange="uncheckOthers('Silver'); toggleVisibility('Silver_Route', 'Silver'); toggleVisibility('SilverBusStop1', 'Silver'); 
+    toggleVisibility('SilverBusStop2', 'Silver'); toggleVisibility('SilverBusStop3', 'Silver'); toggleVisibility('SilverBusStop4', 'Silver');
+    toggleVisibility('SilverBusStop5', 'Silver'); toggleVisibility('SilverBusStop6', 'Silver'); toggleVisibility('SilverBusStop7', 'Silver');
+    toggleVisibility('SilverBusStop8', 'Silver'); toggleVisibility('SilverBusStop9', 'Silver'); toggleVisibility('SilverBusStop10', 'Silver');
+    toggleVisibility('SilverBusStop11', 'Silver'); toggleVisibility('SilverBusStop12', 'Silver'); toggleVisibility('SilverBusStop13', 'Silver');
+    toggleVisibility('SilverBusStop14', 'Silver'); toggleVisibility('SilverBusStop15', 'Silver'); toggleVisibility('SilverBusStop16', 'Silver');
+    toggleVisibility('SilverBusStop17', 'Silver'); toggleVisibility('SilverBusStop18', 'Silver'); toggleVisibility('SilverBusStop19', 'Silver');
+    dissapearData('SilverStop1Stats'); dissapearData('SilverStop2Stats'); dissapearData('SilverStop3Stats'); dissapearData('SilverStop4Stats'); dissapearData('SilverStop5Stats');
+    dissapearData('SilverStop6Stats'); dissapearData('SilverStop7Stats'); dissapearData('SilverStop8Stats'); dissapearData('SilverStop9Stats'); dissapearData('SilverStop10Stats');
+    dissapearData('SilverStop11Stats'); dissapearData('SilverStop12Stats'); dissapearData('SilverStop13Stats'); dissapearData('SilverStop14Stats'); dissapearData('SilverStop15Stats');
+    dissapearData('SilverStop16Stats'); dissapearData('SilverStop17Stats'); dissapearData('SilverStop18Stats'); dissapearData('SilverStop19Stats');
+    
+    uncheckOthers('Green'); toggleVisibility('Green_Route', 'Green'); toggleVisibility('GreenBusStop1', 'Green'); toggleVisibility('GreenBusStop2', 'Green'); toggleVisibility('GreenBusStop3', 'Green');
+    toggleVisibility('GreenBusStop4', 'Green'); toggleVisibility('GreenBusStop5', 'Green'); toggleVisibility('GreenBusStop6', 'Green'); toggleVisibility('GreenBusStop7', 'Green');
+    toggleVisibility('GreenBusStop8', 'Green'); toggleVisibility('GreenBusStop9', 'Green'); toggleVisibility('GreenBusStop10', 'Green'); toggleVisibility('GreenBusStop11', 'Green');
+    toggleVisibility('GreenBusStop12', 'Green'); toggleVisibility('GreenBusStop13', 'Green'); toggleVisibility('GreenBusStop14', 'Green'); toggleVisibility('GreenBusStop15', 'Green');
+    toggleVisibility('GreenBusStop16', 'Green'); toggleVisibility('GreenBusStop17', 'Green'); toggleVisibility('GreenBusStop18', 'Green');
+    dissapearData('GreenStop1Stats'); dissapearData('GreenStop2Stats'); dissapearData('GreenStop3Stats'); dissapearData('GreenStop4Stats'); dissapearData('GreenStop5Stats');
+    dissapearData('GreenStop6Stats'); dissapearData('GreenStop7Stats'); dissapearData('GreenStop8Stats'); dissapearData('GreenStop9Stats'); dissapearData('GreenStop10Stats');
+    dissapearData('GreenStop11Stats'); dissapearData('GreenStop12Stats'); dissapearData('GreenStop13Stats'); dissapearData('GreenStop14Stats'); dissapearData('GreenStop15Stats');
+    dissapearData('GreenStop16Stats'); dissapearData('GreenStop17Stats'); dissapearData('GreenStop18Stats');
+    
+    toggleVisibility('Gold_Route', 'Gold'); toggleVisibility('GoldBusStop1', 'Gold'); toggleVisibility('GoldBusStop2', 'Gold'); toggleVisibility('GoldBusStop3', 'Gold');
+    toggleVisibility('GoldBusStop4', 'Gold'); toggleVisibility('GoldBusStop5', 'Gold'); toggleVisibility('GoldBusStop6', 'Gold'); toggleVisibility('GoldBusStop7', 'Gold');
+    toggleVisibility('GoldBusStop8', 'Gold'); toggleVisibility('GoldBusStop9', 'Gold'); toggleVisibility('GoldBusStop10', 'Gold'); toggleVisibility('GoldBusStop11', 'Gold');
+    toggleVisibility('GoldBusStop12', 'Gold'); toggleVisibility('GoldBusStop13', 'Gold'); toggleVisibility('GoldBusStop14', 'Gold');">
+    <label for="Gold"><b>Display Gold Route</b></label><br>
+
+</form>
+
+<!--Functions for Visibility and Check boxes-->
+<script>
+    function toggleVisibility(id, checkbox) {
+        var image = document.getElementById(id);
+        var check = document.getElementById(checkbox);
+        if(check.checked){
+        image.style.visibility = 'visible';
+        }else{
+          image.style.visibility = 'hidden';
         }
+    }
+
+    function toggleData(id){
+      var textbox = document.getElementById(id);
+      if (textbox.style.visibility=='hidden') {
+                textbox.style.visibility='visible';
+            }
         else {
-          el.style.visibility="visible";
+            textbox.style.visibility='hidden';
         }
+    }
+
+    function dissapearData(id){
+      var textbox = document.getElementById(id);
+      textbox.style.visibility='hidden';
+    }
+
+    function uncheckOthers(id){
+      var checkbox = document.getElementById(id);
+      if(checkbox.checked){
+        checkbox.checked = false;
       }
-  
-  
-      function myFunction() {
-        var x = document.getElementById("SilverStop1Stats");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-    </script>
-  
-    <div class="imgbox">
-      <img class="center-fit1" src="Uncc_Campus_Temporal.jpg" alt="Map">
+    }
+</script>
+<div>
+  <!--Route Images & Stat Popups-->
+  <div class="imgbox">
+      <!--Campus Map-->
+      <img class="center-fit1" id="Map" src="Uncc_Campus_Temporal.jpg" alt="Map">
+
+      <!--Silver Route-->
       <img class="center-fit2" id="Silver_Route" src="Uncc_Campus_Temporal_Silver.jpg"  style="visibility:hidden">
+      <img class="silverBus1" id="SilverBusStop1" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop1Stats')">
+      <div class="silverBus1Stats" id="SilverStop1Stats" style="visibility:hidden" onclick="toggleData('SilverStop1Stats');"><b>CRI Deck:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus2" id="SilverBusStop2" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop2Stats')">
+      <div class="silverBus2Stats" id="SilverStop2Stats" style="visibility:hidden" onclick="toggleData('SilverStop2Stats');"><b>Duke Centennial Hall:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus3" id="SilverBusStop3" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop3Stats')">
+      <div class="silverBus3Stats" id="SilverStop3Stats" style="visibility:hidden" onclick="toggleData('SilverStop3Stats');"><b>EPIC-South:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus4" id="SilverBusStop4" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop4Stats')">
+      <div class="silverBus4Stats" id="SilverStop4Stats" style="visibility:hidden" onclick="toggleData('SilverStop4Stats');"><b>Athletics Complex-East:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus5" id="SilverBusStop5" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop5Stats')">
+      <div class="silverBus5Stats" id="SilverStop5Stats" style="visibility:hidden" onclick="toggleData('SilverStop5Stats');"><b>Student Union-East:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus6" id="SilverBusStop6" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop6Stats')">
+      <div class="silverBus6Stats" id="SilverStop6Stats" style="visibility:hidden" onclick="toggleData('SilverStop6Stats');"><b>Auxilary Services:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus7" id="SilverBusStop7" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop7Stats')">
+      <div class="silverBus7Stats" id="SilverStop7Stats" style="visibility:hidden" onclick="toggleData('SilverStop7Stats');"><b>Student Health-North:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus8" id="SilverBusStop8" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop8Stats')">
+      <div class="silverBus8Stats" id="SilverStop8Stats" style="visibility:hidden" onclick="toggleData('SilverStop8Stats');"><b>Martin Hall:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus9" id="SilverBusStop9" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop9Stats')">
+      <div class="silverBus9Stats" id="SilverStop9Stats" style="visibility:hidden" onclick="toggleData('SilverStop9Stats');"><b>Lot 6:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus10" id="SilverBusStop10" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop10Stats')">
+      <div class="silverBus10Stats" id="SilverStop10Stats" style="visibility:hidden" onclick="toggleData('SilverStop10Stats');"><b>Lot 5A:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus11" id="SilverBusStop11" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop11Stats')">
+      <div class="silverBus11Stats" id="SilverStop11Stats" style="visibility:hidden" onclick="toggleData('SilverStop11Stats');"><b>East Deck 2:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus12" id="SilverBusStop12" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop12Stats')">
+      <div class="silverBus12Stats" id="SilverStop12Stats" style="visibility:hidden" onclick="toggleData('SilverStop12Stats');"><b>Fretwell-North:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus13" id="SilverBusStop13" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop13Stats')">
+      <div class="silverBus13Stats" id="SilverStop13Stats" style="visibility:hidden" onclick="toggleData('SilverStop13Stats');"><b>Science Building:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus14" id="SilverBusStop14" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop14Stats')">
+      <div class="silverBus14Stats" id="SilverStop14Stats" style="visibility:hidden" onclick="toggleData('SilverStop14Stats');"><b>Student Union-West:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus15" id="SilverBusStop15" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop15Stats')">
+      <div class="silverBus15Stats" id="SilverStop15Stats" style="visibility:hidden" onclick="toggleData('SilverStop15Stats');"><b>Athletics Complex-West:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus16" id="SilverBusStop16" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop16Stats')">
+      <div class="silverBus16Stats" id="SilverStop16Stats" style="visibility:hidden" onclick="toggleData('SilverStop16Stats');"><b>EPIC-North:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus17" id="SilverBusStop17" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop17Stats')">
+      <div class="silverBus17Stats" id="SilverStop17Stats" style="visibility:hidden" onclick="toggleData('SilverStop17Stats');"><b>Grigg Hall:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus18" id="SilverBusStop18" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop18Stats')">
+      <div class="silverBus18Stats" id="SilverStop18Stats" style="visibility:hidden" onclick="toggleData('SilverStop18Stats');"><b>Motorsports:</b><br> Enter Excel File for Stats</div>
+      <img class="silverBus19" id="SilverBusStop19" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('SilverStop19Stats')">
+      <div class="silverBus19Stats" id="SilverStop19Stats" style="visibility:hidden" onclick="toggleData('SilverStop19Stats');"><b>Portal:</b><br> Enter Excel File for Stats</div>
+      <!--Green Route-->
       <img class="center-fit2" id="Green_Route" src="Uncc_Campus_Temporal_Green.jpg"  style="visibility:hidden">
-      <img class="silverBus1" id="SilverBusStop1" src="BusPoint.png" style="visibility:hidden" onclick="myFunction()">
-      <div class="text" id="SilverStop1Stats">Stats for CRI Deck</div>
-      <img class="silverBus2" id="SilverBusStop2" src="BusPoint.png" style="visibility:hidden">
-      <img class="silverBus3" id="SilverBusStop3" src="BusPoint.png" style="visibility:hidden">
-      <img class="silverBus4" id="SilverBusStop4" src="BusPoint.png" style="visibility:hidden">
-      <img class="silverBus5" id="SilverBusStop5" src="BusPoint.png" style="visibility:hidden">
-      <img class="silverBus6" id="SilverBusStop6" src="BusPoint.png" style="visibility:hidden">
+      <img class="greenBus1" id="GreenBusStop1" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop1Stats')">
+      <div class="greenBus1Stats" id="GreenStop1Stats" style="visibility:hidden" onclick="toggleData('GreenStop1Stats');"><b>North Deck:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus2" id="GreenBusStop2" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop2Stats')">
+      <div class="greenBus2Stats" id="GreenStop2Stats" style="visibility:hidden" onclick="toggleData('GreenStop2Stats');"><b>Wallis West/Light Rail West:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus3" id="GreenBusStop3" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop3Stats')">
+      <div class="greenBus3Stats" id="GreenStop3Stats" style="visibility:hidden" onclick="toggleData('GreenStop3Stats');"><b>Belk South:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus4" id="GreenBusStop4" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop4Stats')">
+      <div class="greenBus4Stats" id="GreenStop4Stats" style="visibility:hidden" onclick="toggleData('GreenStop4Stats');"><b>Student Union East:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus5" id="GreenBusStop5" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop5Stats')">
+      <div class="greenBus5Stats" id="GreenStop5Stats" style="visibility:hidden" onclick="toggleData('GreenStop5Stats');"><b>Auxilary Services:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus6" id="GreenBusStop6" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop6Stats')">
+      <div class="greenBus6Stats" id="GreenStop6Stats" style="visibility:hidden" onclick="toggleData('GreenStop6Stats');"><b>Fretwell South:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus7" id="GreenBusStop7" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop7Stats')">
+      <div class="greenBus7Stats" id="GreenStop7Stats" style="visibility:hidden" onclick="toggleData('GreenStop7Stats');"><b>Cato South:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus8" id="GreenBusStop8" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop8Stats')">
+      <div class="greenBus8Stats" id="GreenStop8Stats" style="visibility:hidden" onclick="toggleData('GreenStop8Stats');"><b>Robinson South:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus9" id="GreenBusStop9" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop9Stats')">
+      <div class="greenBus9Stats" id="GreenStop9Stats" style="visibility:hidden" onclick="toggleData('GreenStop9Stats');"><b>Reese West:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus10" id="GreenBusStop10" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop10Stats')">
+      <div class="greenBus10Stats" id="GreenStop10Stats" style="visibility:hidden" onclick="toggleData('GreenStop10Stats');"><b>Cone Deck:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus11" id="GreenBusStop11" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop11Stats')">
+      <div class="greenBus11Stats" id="GreenStop11Stats" style="visibility:hidden" onclick="toggleData('GreenStop11Stats');"><b>Alumni Way East:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus12" id="GreenBusStop12" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop12Stats')">
+      <div class="greenBus12Stats" id="GreenStop12Stats" style="visibility:hidden" onclick="toggleData('GreenStop12Stats');"><b>South Village Deck:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus13" id="GreenBusStop13" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop13Stats')">
+      <div class="greenBus13Stats" id="GreenStop13Stats" style="visibility:hidden" onclick="toggleData('GreenStop13Stats');"><b>Gage Center:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus14" id="GreenBusStop14" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop14Stats')">
+      <div class="greenBus14Stats" id="GreenStop14Stats" style="visibility:hidden" onclick="toggleData('GreenStop14Stats');"><b>Robinson North:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus15" id="GreenBusStop15" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop15Stats')">
+      <div class="greenBus15Stats" id="GreenStop15Stats" style="visibility:hidden" onclick="toggleData('GreenStop15Stats');"><b>Cato North:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus16" id="GreenBusStop16" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop16Stats')">
+      <div class="greenBus16Stats" id="GreenStop16Stats" style="visibility:hidden" onclick="toggleData('GreenStop16Stats');"><b>Fretwell North:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus17" id="GreenBusStop17" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop17Stats')">
+      <div class="greenBus17Stats" id="GreenStop17Stats" style="visibility:hidden" onclick="toggleData('GreenStop17Stats');"><b>Student Health North:</b><br> Enter Excel File for Stats</div>
+      <img class="greenBus18" id="GreenBusStop18" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GreenStop18Stats')">
+      <div class="greenBus18Stats" id="GreenStop18Stats" style="visibility:hidden" onclick="toggleData('GreenStop18Stats');"><b>Police/Facilities Management West:</b><br> Enter Excel File for Stats</div>
+
+
+      <!--Gold Route-->
+      <img class="center-fit2" id="Gold_Route" src="Uncc_Campus_Temporal_Gold.jpg"  style="visibility:hidden">
+      <img class="goldBus1" id="GoldBusStop1" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop1Stats')">
+      <div class="goldBus1Stats" id="GoldStop1Stats" style="visibility:hidden" onclick="toggleData('GoldStop1Stats');"><b>Wallis East/Light Rail East:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus2" id="GoldBusStop2" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop2Stats')">
+      <div class="goldBus2Stats" id="GoldStop2Stats" style="visibility:hidden" onclick="toggleData('GoldStop2Stats');"><b>Police/Facilities Management East:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus3" id="GoldBusStop3" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop3Stats')">
+      <div class="goldBus3Stats" id="GoldStop3Stats" style="visibility:hidden" onclick="toggleData('GoldStop3Stats');"><b>Fretwell South:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus4" id="GoldBusStop4" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop4Stats')">
+      <div class="goldBus4Stats" id="GoldStop4Stats" style="visibility:hidden" onclick="toggleData('GoldStop4Stats');"><b>Cato South:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus5" id="GoldBusStop5" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop5Stats')">
+      <div class="goldBus5Stats" id="GoldStop5Stats" style="visibility:hidden" onclick="toggleData('GoldStop5Stats');"><b>Robinson South:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus6" id="GoldBusStop6" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop6Stats')">
+      <div class="goldBus6Stats" id="GoldStop6Stats" style="visibility:hidden" onclick="toggleData('GoldStop6Stats');"><b>Levine West:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus7" id="GoldBusStop7" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop7Stats')">
+      <div class="goldBus7Stats" id="GoldStop7Stats" style="visibility:hidden" onclick="toggleData('GoldStop7Stats');"><b>Hunt Hall:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus8" id="GoldBusStop8" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop8Stats')">
+      <div class="goldBus8Stats" id="GoldStop8Stats" style="visibility:hidden" onclick="toggleData('GoldStop8Stats');"><b>Alumni Way West:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus9" id="GoldBusStop9" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop9Stats')">
+      <div class="goldBus9Stats" id="GoldStop9Stats" style="visibility:hidden" onclick="toggleData('GoldStop9Stats');"><b>Reese East:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus10" id="GoldBusStop10" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop10Stats')">
+      <div class="goldBus10Stats" id="GoldStop10Stats" style="visibility:hidden" onclick="toggleData('GoldStop10Stats');"><b>Robinson North:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus11" id="GoldBusStop11" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop11Stats')">
+      <div class="goldBus11Stats" id="GoldStop11Stats" style="visibility:hidden" onclick="toggleData('GoldStop11Stats');"><b>Cato North:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus12" id="GoldBusStop12" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop12Stats')">
+      <div class="goldBus12Stats" id="GoldStop12Stats" style="visibility:hidden" onclick="toggleData('GoldStop12Stats');"><b>Fretwell North:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus13" id="GoldBusStop13" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop13Stats')">
+      <div class="goldBus13Stats" id="GoldStop13Stats" style="visibility:hidden" onclick="toggleData('GoldStop13Stats');"><b>Student Union-West:</b><br> Enter Excel File for Stats</div>
+      <img class="goldBus14" id="GoldBusStop14" src="BusPoint.png" style="visibility:hidden" onclick="toggleData('GoldStop14Stats')">
+      <div class="goldBus14Stats" id="GoldStop14Stats" style="visibility:hidden" onclick="toggleData('GoldStop14Stats');"><b>Union Deck/Belk North:</b><br> Enter Excel File for Stats</div>
+      
     </div>
-  </main>
+  </div>
+
+
+<!--Excel File Input-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
-  <footer>
-    <p class="font-sm center-text">&copy;2022 PATs Services. All rights reserved.</p>
-  </footer> 
-</body>
-</html>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <div class="goDown">
+      <div class="container">
+        <div class="card">
+          <div class="card-header"><b>Select Excel File</b></div>
+          <div class="card-body">
+            
+                  <input type="file" id="excel_file" />
+  
+          </div>
+        </div>
+        <div id="excel_data" class="mt-5"></div>
+      </div>
+    </div>
+
+<!--Script for creating Statistics from Excel File-->
+<script>
+  const excel_file = document.getElementById('excel_file');
+  excel_file.addEventListener('change', (event) => {
+    if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type)){
+        document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+        excel_file.value = '';
+        return false;
+    }
+    var reader = new FileReader();
+    reader.readAsArrayBuffer(event.target.files[0]);
+    reader.onload = function(event){
+        var data = new Uint8Array(reader.result);
+        var work_book = XLSX.read(data, {type:'array'});
+        var sheet_name = work_book.SheetNames;
+        var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
+        //Silver Counts
+        var CRIon = 0, CRIoncount = 0, CRIoff = 0, CRIoffcount = 0;
+        var DCon = 0, DConcount = 0, DCoff = 0, DCoffcount = 0;
+        var ESon = 0, ESoncount = 0, ESoff = 0, ESoffcount = 0;
+        var AEon = 0, AEoncount = 0, AEoff = 0, AEoffcount = 0;
+        var UEon = 0, UEoncount = 0, UEoff = 0, UEoffcount = 0;
+        var ASEon = 0, ASEoncount = 0, ASEoff = 0, ASEoffcount = 0;
+        var HNon = 0, HNoncount = 0, HNoff = 0, HNoffcount = 0;
+        var MHon = 0, MHoncount = 0, MHoff = 0, MHoffcount = 0;
+        var L6on = 0, L6oncount = 0, L6off = 0, L6offcount = 0;
+        var L5on = 0, L5oncount = 0, L5off = 0, L5offcount = 0;
+        var EDon = 0, EDoncount = 0, EDoff = 0, EDoffcount = 0;
+        var FNon = 0, FNoncount = 0, FNoff = 0, FNoffcount = 0;
+        var ASWon = 0, ASWoncount = 0, ASWoff = 0, ASWoffcount = 0;
+        var UWon = 0, UWoncount = 0, UWoff = 0, UWoffcount = 0;
+        var AWon = 0, AWoncount = 0, AWoff = 0, AWoffcount = 0;
+        var ENon = 0, ENoncount = 0, ENoff = 0, ENoffcount = 0;
+        var GHon = 0, GHoncount = 0, GHoff = 0, GHoffcount = 0;
+        var MSon = 0, MSoncount = 0, MSoff = 0, MSoffcount = 0;
+        var Pon = 0, Poncount = 0, Poff = 0, Poffcount = 0;
+
+        //Green Counts
+        var NDon = 0, NDoncount = 0, NDoff = 0, NDoffcount = 0;
+        var WWon = 0, WWoncount = 0, WWoff = 0, WWoffcount = 0;
+        var BSon = 0, BSoncount = 0, BSoff = 0, BSoffcount = 0;
+        var UE2on = 0, UE2oncount = 0, UE2off = 0, UE2offcount = 0;
+        var ASE2on = 0, ASE2oncount = 0, ASE2off = 0, ASE2offcount = 0;
+        var FSon = 0, FSoncount = 0, FSoff = 0, FSoffcount = 0;
+        var CSon = 0, CSoncount = 0, CSoff = 0, CSoffcount = 0;
+        var RSon = 0, RSoncount = 0, RSoff = 0, RSoffcount = 0;
+        var RWon = 0, RWoncount = 0, RWoff = 0, RWoffcount = 0;
+        var CDon = 0, CDoncount = 0, CDoff = 0, CDoffcount = 0;
+        var AWEon = 0, AWEoncount = 0, AWEoff = 0, AWEoffcount = 0;
+        var SDon = 0, SDoncount = 0, SDoff = 0, SDoffcount = 0;
+        var GCon = 0, GConcount = 0, GCoff = 0, GCoffcount = 0;
+        var RNon = 0, RNoncount = 0, RNoff = 0, RNoffcount = 0;
+        var CNon = 0, CNoncount = 0, CNoff = 0, CNoffcount = 0;
+        var FN2on = 0, FN2oncount = 0, FN2off = 0, FN2offcount = 0;
+        var HN2on = 0, HN2oncount = 0, HN2off = 0, HN2offcount = 0;
+        var PWon = 0, PWoncount = 0, PWoff = 0, PWoffcount = 0;
+        var HHon = 0, HHoncount = 0, HHoff = 0, HHoffcount = 0;
+
+        //Gold Counts
+        var WEon = 0, WEoncount = 0, WEoff = 0, WEoffcount = 0;
+        var PEon = 0, PEoncount = 0, PEoff = 0, PEoffcount = 0;
+        var FS2on = 0, FS2oncount = 0, FS2off = 0, FS2offcount = 0;
+        var CS2on = 0, CS2oncount = 0, CS2off = 0, CS2offcount = 0;
+        var RS2on = 0, RS2oncount = 0, RS2off = 0, RS2offcount = 0;
+        var LWon = 0, LWoncount = 0, LWoff = 0, LWoffcount = 0;
+        var HHon = 0, HHoncount = 0, HHoff = 0, HHoffcount = 0;
+        var AWWon = 0, AWWoncount = 0, AWWoff = 0, AWWoffcount = 0;
+        var REon = 0, REoncount = 0, REoff = 0, REoffcount = 0;
+        var RN2on = 0, RN2oncount = 0, RN2off = 0, RN2offcount = 0;
+        var CN2on = 0, CN2oncount = 0, CN2off = 0, CN2offcount = 0;
+        var FN3on = 0, FN3oncount = 0, FN3off = 0, FN3offcount = 0;
+        var UW2on = 0, UW2oncount = 0, UW2off = 0, UW2offcount = 0;
+        var BNon = 0, BNoncount = 0, BNoff = 0, BNoffcount = 0;
+
+        if(sheet_data.length > 0)
+        {
+            for(var row = 0; row < sheet_data.length; row++)
+            {
+              //Silver Data Creation
+              if(sheet_data[row][7]=='Silver'){
+                if(sheet_data[row][8]=='CRI Deck'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CRIon+=sheet_data[row][3];
+                      CRIoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CRIoff+=sheet_data[row][3];
+                      CRIoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    CRIoff+=(sheet_data[row][3]*(-1));
+                    CRIoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Duke Centennial Hall East'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      DCon+=sheet_data[row][3];
+                      DConcount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      DCoff+=sheet_data[row][3];
+                      DCoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    DCoff+=(sheet_data[row][3]*(-1));
+                    DCoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='EPIC S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      ESon+=sheet_data[row][3];
+                      ESoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      ESoff+=sheet_data[row][3];
+                      ESoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    ESoff+=(sheet_data[row][3]*(-1));
+                    ESoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Athletics Complex E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      AEon+=sheet_data[row][3];
+                      AEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      AEoff+=sheet_data[row][3];
+                      AEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    AEoff+=(sheet_data[row][3]*(-1));
+                    AEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Union E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      UEon+=sheet_data[row][3];
+                      UEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      UEoff+=sheet_data[row][3];
+                      UEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    UEoff+=(sheet_data[row][3]*(-1));
+                    UEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Aux Services East'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      ASEon+=sheet_data[row][3];
+                      ASEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      ASEoff+=sheet_data[row][3];
+                      ASEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    ASEoff+=(sheet_data[row][3]*(-1));
+                    ASEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Health N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      HNon+=sheet_data[row][3];
+                      HNoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      HNoff+=sheet_data[row][3];
+                      HNoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    HNoff+=(sheet_data[row][3]*(-1));
+                    HNoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Martin Hall'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      MHon+=sheet_data[row][3];
+                      MHoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      MHoff+=sheet_data[row][3];
+                      MHoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    MHoff+=(sheet_data[row][3]*(-1));
+                    MHoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Lot 6'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      L6on+=sheet_data[row][3];
+                      L6oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      L6off+=sheet_data[row][3];
+                      L6offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    L6off+=(sheet_data[row][3]*(-1));
+                    L6offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Lot 5A'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      L5on+=sheet_data[row][3];
+                      L5oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      L5off+=sheet_data[row][3];
+                      L5offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    L5off+=(sheet_data[row][3]*(-1));
+                    L5offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='East Deck 2'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      EDon+=sheet_data[row][3];
+                      EDoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      EDoff+=sheet_data[row][3];
+                      EDoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    EDoff+=(sheet_data[row][3]*(-1));
+                    EDoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Fretwell N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      FNon+=sheet_data[row][3];
+                      FNoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      FNoff+=sheet_data[row][3];
+                      FNoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    FNoff+=(sheet_data[row][3]*(-1));
+                    FNoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Aux Services West'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      ASWon+=sheet_data[row][3];
+                      ASWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      ASWoff+=sheet_data[row][3];
+                      ASWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    ASWoff+=(sheet_data[row][3]*(-1));
+                    ASWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Union W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      UWon+=sheet_data[row][3];
+                      UWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      UWoff+=sheet_data[row][3];
+                      UWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    UWoff+=(sheet_data[row][3]*(-1));
+                    UWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Athletics Complex W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      AWon+=sheet_data[row][3];
+                      AWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      AWoff+=sheet_data[row][3];
+                      AWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    AWoff+=(sheet_data[row][3]*(-1));
+                    AWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='EPIC N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      ENon+=sheet_data[row][3];
+                      ENoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      ENoff+=sheet_data[row][3];
+                      ENoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    ENoff+=(sheet_data[row][3]*(-1));
+                    ENoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Grigg Hall E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      GHon+=sheet_data[row][3];
+                      GHoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      GHoff+=sheet_data[row][3];
+                      GHoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    GHoff+=(sheet_data[row][3]*(-1));
+                    GHoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Motor Sports'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      MSon+=sheet_data[row][3];
+                      MSoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      MSoff+=sheet_data[row][3];
+                      MSoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    MSoff+=(sheet_data[row][3]*(-1));
+                    MSoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='PORTAL East'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      Pon+=sheet_data[row][3];
+                      Poncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      Poff+=sheet_data[row][3];
+                      Poffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    Poff+=(sheet_data[row][3]*(-1));
+                    Poffcount++;
+                  }
+                }
+
+              }
+              //Green Data Creation
+              if(sheet_data[row][7]=='Green'){
+                if(sheet_data[row][8]=='North Deck'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      NDon+=sheet_data[row][3];
+                      NDoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      NDoff+=sheet_data[row][3];
+                      NDoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    NDoff+=(sheet_data[row][3]*(-1));
+                    NDoffcount++;
+                  }
+                  }
+                if(sheet_data[row][8]=='Wallis Hall W/Light Rail'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      WWon+=sheet_data[row][3];
+                      WWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      WWoff+=sheet_data[row][3];
+                      WWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    WWoff+=(sheet_data[row][3]*(-1));
+                    WWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Belk Hall S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      BSon+=sheet_data[row][3];
+                      BSoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      BSoff+=sheet_data[row][3];
+                      BSoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    BSoff+=(sheet_data[row][3]*(-1));
+                    BSoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Union E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      UE2on+=sheet_data[row][3];
+                      UE2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      UE2off+=sheet_data[row][3];
+                      UE2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    UE2off+=(sheet_data[row][3]*(-1));
+                    UE2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Aux Services East'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      ASE2on+=sheet_data[row][3];
+                      ASE2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      ASE2off+=sheet_data[row][3];
+                      ASE2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    ASE2off+=(sheet_data[row][3]*(-1));
+                    ASE2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Fretwell S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      FSon+=sheet_data[row][3];
+                      FSoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      FSoff+=sheet_data[row][3];
+                      FSoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    FSoff+=(sheet_data[row][3]*(-1));
+                    FSoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Cato Hall S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CSon+=sheet_data[row][3];
+                      CSoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CSoff+=sheet_data[row][3];
+                      CSoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    CSoff+=(sheet_data[row][3]*(-1));
+                    CSoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Robinson Hall S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      RSon+=sheet_data[row][3];
+                      RSoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      RSoff+=sheet_data[row][3];
+                      RSoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    RSoff+=(sheet_data[row][3]*(-1));
+                    RSoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Reese West'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      RWon+=sheet_data[row][3];
+                      RWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      RWoff+=sheet_data[row][3];
+                      RWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    RWoff+=(sheet_data[row][3]*(-1));
+                    RWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Cone Deck W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CDon+=sheet_data[row][3];
+                      CDoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CDoff+=sheet_data[row][3];
+                      CDoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    CDoff+=(sheet_data[row][3]*(-1));
+                    CDoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Alumni Way E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      AWEon+=sheet_data[row][3];
+                      AWEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      AWEoff+=sheet_data[row][3];
+                      AWEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    AWEoff+=(sheet_data[row][3]*(-1));
+                    AWEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='South Village Deck'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      SDon+=sheet_data[row][3];
+                      SDoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      SDoff+=sheet_data[row][3];
+                      SDoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    SDoff+=(sheet_data[row][3]*(-1));
+                    SDoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Levine Hall E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      GCon+=sheet_data[row][3];
+                      GConcount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      GCoff+=sheet_data[row][3];
+                      GCoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    GCoff+=(sheet_data[row][3]*(-1));
+                    GCoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Robinson Hall N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      RNon+=sheet_data[row][3];
+                      RNoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      RNoff+=sheet_data[row][3];
+                      RNoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    RNoff+=(sheet_data[row][3]*(-1));
+                    RNoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Cato Hall N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CNon+=sheet_data[row][3];
+                      CNoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CNoff+=sheet_data[row][3];
+                      CNoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    CNoff+=(sheet_data[row][3]*(-1));
+                    CNoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Fretwell N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      FN2on+=sheet_data[row][3];
+                      FN2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      FN2off+=sheet_data[row][3];
+                      FN2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    FN2off+=(sheet_data[row][3]*(-1));
+                    FN2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Health N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      HN2on+=sheet_data[row][3];
+                      HN2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      HN2off+=sheet_data[row][3];
+                      HN2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    HN2off+=(sheet_data[row][3]*(-1));
+                    HN2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='FM/Police Building'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      PWon+=sheet_data[row][3];
+                      PWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      PWoff+=sheet_data[row][3];
+                      PWoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    PWoff+=(sheet_data[row][3]*(-1));
+                    PWoffcount++;
+                  }
+                }
+              }
+
+              //Gold Data Creation
+              if(sheet_data[row][7]=='Gold'){
+                if(sheet_data[row][8]=='Wallis Hall E/Light Rail'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      WEon+=sheet_data[row][3];
+                      WEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      WEoff+=sheet_data[row][3];
+                      WEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    WEoff+=(sheet_data[row][3]*(-1));
+                    WEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Health E'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      PEon+=sheet_data[row][3];
+                      PEoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      PEoff+=sheet_data[row][3];
+                      PEoffcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    PEoff+=(sheet_data[row][3]*(-1));
+                    PEoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Fretwell S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      FS2on+=sheet_data[row][3];
+                      FS2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      FS2off+=sheet_data[row][3];
+                      FS2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    FS2off+=(sheet_data[row][3]*(-1));
+                    FS2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Cato Hall S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CS2on+=sheet_data[row][3];
+                      CS2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CS2off+=sheet_data[row][3];
+                      CS2offcount++;
+                    }
+                    if(sheet_data[row][3]<0){
+                    CS2off+=(sheet_data[row][3]*(-1));
+                    CS2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Robinson Hall S'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      RS2on+=sheet_data[row][3];
+                      RS2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      RS2off+=sheet_data[row][3];
+                      RS2offcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    RS2off+=(sheet_data[row][3]*(-1));
+                    RS2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Levine Hall W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      LWon+=sheet_data[row][3];
+                      LWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      LWoff+=sheet_data[row][3];
+                      LWoffcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    LWoff+=(sheet_data[row][3]*(-1));
+                    LWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Hunt Hall'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      HHon+=sheet_data[row][3];
+                      HHoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      HHoff+=sheet_data[row][3];
+                      HHoffcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    HHoff+=(sheet_data[row][3]*(-1));
+                    HHoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Alumni Way W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      AWWon+=sheet_data[row][3];
+                      AWWoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      AWWoff+=sheet_data[row][3];
+                      AWWoffcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    AWWoff+=(sheet_data[row][3]*(-1));
+                    AWWoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Reese East'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      REon+=sheet_data[row][3];
+                      REoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      REoff+=sheet_data[row][3];
+                      REoffcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    REoff+=(sheet_data[row][3]*(-1));
+                    REoffcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Robinson Hall N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      RN2on+=sheet_data[row][3];
+                      RN2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      RN2off+=sheet_data[row][3];
+                      RN2offcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    RN2off+=(sheet_data[row][3]*(-1));
+                    RN2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Cato Hall N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      CN2on+=sheet_data[row][3];
+                      CN2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      CN2off+=sheet_data[row][3];
+                      CN2offcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    CN2off+=(sheet_data[row][3]*(-1));
+                    CN2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Fretwell N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      FN3on+=sheet_data[row][3];
+                      FN3oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      FN3off+=sheet_data[row][3];
+                      FN3offcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                  FN3off+=(sheet_data[row][3]*(-1));
+                  FN3offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Student Union W'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      UW2on+=sheet_data[row][3];
+                      UW2oncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      UW2off+=sheet_data[row][3];
+                      UW2offcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                  UW2off+=(sheet_data[row][3]*(-1));
+                  UW2offcount++;
+                  }
+                }
+                if(sheet_data[row][8]=='Union Deck/Belk N'){
+                  if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                      BNon+=sheet_data[row][3];
+                      BNoncount++;
+                    }
+                  if(sheet_data[row][4]=="off"){
+                      BNoff+=sheet_data[row][3];
+                      BNoffcount++;
+                    }
+                  if(sheet_data[row][3]<0){
+                    BNoff+=(sheet_data[row][3]*(-1));
+                    BNoffcount++;
+                  }
+                }
+              }
+          }
+
+        //Update Silver Stats
+        document.getElementById('SilverStop1Stats').innerHTML = "<b>CRI Deck:</b>" + "<br>Average on: " + (CRIon/CRIoncount).toFixed(2) + "<br>Average off: " + (CRIoff/CRIoffcount).toFixed(2);
+        document.getElementById('SilverStop2Stats').innerHTML = "<b>Duke Centennial Hall:</b>" + "<br>Average on: " + (DCon/DConcount).toFixed(2) + "<br>Average off: " + (DCoff/DCoffcount).toFixed(2);
+        if(!(ESon == 0 && ESoff == 0)){
+          document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Average on: " + (ESon/ESoncount).toFixed(2) + "<br>Average off: " + (ESoff/ESoffcount).toFixed(2);
+        }else{
+          document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Excel File does not contain this stop."
+        }
+        document.getElementById('SilverStop4Stats').innerHTML = "<b>Athletics Complex East:</b>" + "<br>Average on: " + (AEon/AEoncount).toFixed(2) + "<br>Average off: " + (AEoff/AEoffcount).toFixed(2);
+        document.getElementById('SilverStop5Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average on: " + (UEon/UEoncount).toFixed(2) + "<br>Average off: " + (UEoff/UEoffcount).toFixed(2);
+        document.getElementById('SilverStop6Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average on: " + (ASEon/ASEoncount).toFixed(2) + "<br>Average off: " + (ASEoff/ASEoffcount).toFixed(2);
+        document.getElementById('SilverStop7Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average on: " + (HNon/HNoncount).toFixed(2) + "<br>Average off: " + (HNoff/HNoffcount).toFixed(2);
+        document.getElementById('SilverStop8Stats').innerHTML = "<b>Martin Hall:</b>" + "<br>Average on: " + (MHon/MHoncount).toFixed(2) + "<br>Average off: " + (MHoff/MHoffcount).toFixed(2);
+        document.getElementById('SilverStop9Stats').innerHTML = "<b>Lot 6:</b>" + "<br>Average on: " + (L6on/L6oncount).toFixed(2) + "<br>Average off: " + (L6off/L6offcount).toFixed(2);
+        document.getElementById('SilverStop10Stats').innerHTML = "<b>Lot 5A:</b>" + "<br>Average on: " + (L5on/L5oncount).toFixed(2) + "<br>Average off: " + (L5off/L5offcount).toFixed(2);
+        document.getElementById('SilverStop11Stats').innerHTML = "<b>East Deck 2:</b>" + "<br>Average on: " + (EDon/EDoncount).toFixed(2) + "<br>Average off: " + (EDoff/EDoffcount).toFixed(2);
+        document.getElementById('SilverStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FNon/FNoncount).toFixed(2) + "<br>Average off: " + (FNoff/FNoffcount).toFixed(2);
+        document.getElementById('SilverStop13Stats').innerHTML = "<b>Science Building:</b>" + "<br>Average on: " + (ASWon/ASWoncount).toFixed(2) + "<br>Average off: " + (ASWoff/ASWoffcount).toFixed(2);
+        document.getElementById('SilverStop14Stats').innerHTML = "<b>Student Union West:</b>" + "<br>Average on: " + (UWon/UWoncount).toFixed(2) + "<br>Average off: " + (UWoff/UWoffcount).toFixed(2);
+        document.getElementById('SilverStop15Stats').innerHTML = "<b>Athletics Complex West:</b>" + "<br>Average on: " + (AWon/AWoncount).toFixed(2) + "<br>Average off: " + (AWoff/AWoffcount).toFixed(2);
+        document.getElementById('SilverStop16Stats').innerHTML = "<b>Epic North:</b>" + "<br>Average on: " + (ENon/ENoncount).toFixed(2) + "<br>Average off: " + (ENoff/ENoffcount).toFixed(2);
+        document.getElementById('SilverStop17Stats').innerHTML = "<b>Grigg Hall:</b>" + "<br>Average on: " + (GHon/GHoncount).toFixed(2) + "<br>Average off: " + (GHoff/GHoffcount).toFixed(2);
+        document.getElementById('SilverStop18Stats').innerHTML = "<b>Motor Sports:</b>" + "<br>Average on: " + (MSon/MSoncount).toFixed(2) + "<br>Average off: " + (MSoff/MSoffcount).toFixed(2);
+        document.getElementById('SilverStop19Stats').innerHTML = "<b>Portal:</b>" + "<br>Average on: " + (Pon/Poncount).toFixed(2) + "<br>Average off: " + (Poff/Poffcount).toFixed(2);
+        
+        //Update Green Stats
+        document.getElementById('GreenStop1Stats').innerHTML = "<b>North Deck:</b>" + "<br>Average on: " + (NDon/NDoncount).toFixed(2) + "<br>Average off: " + (NDoff/NDoffcount).toFixed(2);
+        document.getElementById('GreenStop2Stats').innerHTML = "<b>Wallis West/Light Rail West:</b>" + "<br>Average on: " + (WWon/WWoncount).toFixed(2) + "<br>Average off: " + (WWoff/WWoffcount).toFixed(2);
+        document.getElementById('GreenStop3Stats').innerHTML = "<b>Belk South:</b>" + "<br>Average on: " + (BSon/BSoncount).toFixed(2) + "<br>Average off: " + (BSoff/BSoffcount).toFixed(2);
+        document.getElementById('GreenStop4Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average on: " + (UE2on/UE2oncount).toFixed(2) + "<br>Average off: " + (UE2off/UE2offcount).toFixed(2);
+        document.getElementById('GreenStop5Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average on: " + (ASE2on/ASE2oncount).toFixed(2) + "<br>Average off: " + (ASE2off/ASE2offcount).toFixed(2);
+        document.getElementById('GreenStop6Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average on: " + (FSon/FSoncount).toFixed(2) + "<br>Average off: " + (FSoff/FSoffcount).toFixed(2);
+        document.getElementById('GreenStop7Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average on: " + (CSon/CSoncount).toFixed(2) + "<br>Average off: " + (CSoff/CSoffcount).toFixed(2);
+        document.getElementById('GreenStop8Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average on: " + (RSon/RSoncount).toFixed(2) + "<br>Average off: " + (RSoff/RSoffcount).toFixed(2);
+        if(!(RWon == 0 && RWoff == 0)){
+          document.getElementById('GreenStop9Stats').innerHTML = "<b>Reese West:</b>" + "<br>Average on: " + (RWon/RWoncount).toFixed(2) + "<br>Average off: " + (RWoff/RWoffcount).toFixed(2);
+        }else{
+          document.getElementById('GreenStop9Stats').innerHTML = "<b>Reese West:</b>" + "<br>Excel File does not contain this stop.";
+        }
+        document.getElementById('GreenStop10Stats').innerHTML = "<b>Cone Deck:</b>" + "<br>Average on: " + (CDon/CDoncount).toFixed(2) + "<br>Average off: " + (CDoff/CDoffcount).toFixed(2);
+        document.getElementById('GreenStop11Stats').innerHTML = "<b>Alumni Way East:</b>" + "<br>Average on: " + (AWEon/AWEoncount).toFixed(2) + "<br>Average off: " + (AWEoff/AWEoffcount).toFixed(2);
+        document.getElementById('GreenStop12Stats').innerHTML = "<b>South Village Deck:</b>" + "<br>Average on: " + (SDon/SDoncount).toFixed(2) + "<br>Average off: " + (SDoff/SDoffcount).toFixed(2);
+        document.getElementById('GreenStop13Stats').innerHTML = "<b>Gage Center:</b>" + "<br>Average on: " + (GCon/GConcount).toFixed(2) + "<br>Average off: " + (GCoff/GCoffcount).toFixed(2);
+        document.getElementById('GreenStop14Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average on: " + (RNon/RNoncount).toFixed(2) + "<br>Average off: " + (RNoff/RNoffcount).toFixed(2);
+        document.getElementById('GreenStop15Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average on: " + (CNon/CNoncount).toFixed(2) + "<br>Average off: " + (CNoff/CNoffcount).toFixed(2);
+        document.getElementById('GreenStop16Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
+        document.getElementById('GreenStop17Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average on: " + (HN2on/HN2oncount).toFixed(2) + "<br>Average off: " + (HN2off/HN2offcount).toFixed(2);
+        if(!(PWon == 0 && PWoff == 0)){
+          document.getElementById('GreenStop18Stats').innerHTML = "<b>Police/Facilities Management West:</b>" + "<br>Average on: " + (PWon/PWoncount).toFixed(2) + "<br>Average off: " + (PWoff/PWoffcount).toFixed(2);
+        }else{
+          document.getElementById('GreenStop18Stats').innerHTML = "<b>Police/Facilities Management West:</b>" + "<br>Excel File does not contian this stop.";
+        }
+        //Update Gold Stats
+        document.getElementById('GoldStop1Stats').innerHTML = "<b>Wallis East/Light Rail East:</b>" + "<br>Average on: " + (WEon/WEoncount).toFixed(2) + "<br>Average off: " + (WEoff/WEoffcount).toFixed(2);
+        document.getElementById('GoldStop2Stats').innerHTML = "<b>Police/Facilities Management East:</b>" + "<br>Average on: " + (PEon/PEoncount).toFixed(2) + "<br>Average off: " + (PEoff/PEoffcount).toFixed(2);
+        document.getElementById('GoldStop3Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average on: " + (FS2on/FS2oncount).toFixed(2) + "<br>Average off: " + (FS2off/FS2offcount).toFixed(2);
+        document.getElementById('GoldStop4Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average on: " + (CS2on/CS2oncount).toFixed(2) + "<br>Average off: " + (CS2off/CS2offcount).toFixed(2);
+        document.getElementById('GoldStop5Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average on: " + (RS2on/RS2oncount).toFixed(2) + "<br>Average off: " + (RS2off/RS2offcount).toFixed(2);
+        document.getElementById('GoldStop6Stats').innerHTML = "<b>Levine West:</b>" + "<br>Average on: " + (LWon/LWoncount).toFixed(2) + "<br>Average off: " + (LWoff/LWoffcount).toFixed(2);
+        document.getElementById('GoldStop7Stats').innerHTML = "<b>Hunt Hall:</b>" + "<br>Average on: " + (HHon/HHoncount).toFixed(2) + "<br>Average off: " + (HHoff/HHoffcount).toFixed(2);
+        if(!(AWWon == 0 && AWWoff == 0)){
+        document.getElementById('GoldStop8Stats').innerHTML = "<b>Alumni Way West:</b>" + "<br>Average on: " + (AWWon/AWWoncount).toFixed(2) + "<br>Average off: " + (AWWoff/AWWoffcount).toFixed(2);
+        }
+        else{document.getElementById('GoldStop8Stats').innerHTML = "<b>Alumni Way West:</b>" + "<br>Excel File does not contain this stop.";
+
+        }
+        document.getElementById('GoldStop9Stats').innerHTML = "<b>Reese East:</b>" + "<br>Average on: " + (REon/REoncount).toFixed(2) + "<br>Average off: " + (REoff/REoffcount).toFixed(2);
+        document.getElementById('GoldStop10Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average on: " + (RN2on/RN2oncount).toFixed(2) + "<br>Average off: " + (RN2off/RN2offcount).toFixed(2);
+        document.getElementById('GoldStop11Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average on: " + (CN2on/CN2oncount).toFixed(2) + "<br>Average off: " + (CN2off/CN2offcount).toFixed(2);
+        document.getElementById('GoldStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
+        document.getElementById('GoldStop13Stats').innerHTML = "<b>Student Union-West:</b>" + "<br>Average on: " + (UW2on/UW2oncount).toFixed(2) + "<br>Average off: " + (UW2off/UW2offcount).toFixed(2);
+        document.getElementById('GoldStop14Stats').innerHTML = "<b>Union Deck/Belk North:</b>" + "<br>Average on: " + (BNon/BNoncount).toFixed(2) + "<br>Average off: " + (BNoff/BNoffcount).toFixed(2);
+        
+      }
+    excel_file.value = '';
+  }
+});
+
+</script>
