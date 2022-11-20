@@ -1,10 +1,18 @@
-
+* {
+    margin: 0;
+    padding: 0;
+}
 .imgbox {
     display: grid;
     height: 100%;
 }
-.text{
-    z-index:4;
+.nav{
+    position: absolute;
+    left:1000;
+}
+.check{
+    position:relative;
+    left: 100;
 }
 .center-fit1 {
     width: 1500px;
@@ -28,15 +36,16 @@
     left:335px;
     z-index: 3;
 }
-.silverBus2{
-    width:20px;
-    height:20px;
+.silverBus1Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
     position:absolute;
-    top:185px;
-    left:410px;
-    z-index: 3;
+    top:250px;
+    left:335px;
 }
-.silverBus3{
+.silverBus2{
     width:20px;
     height:20px;
     position:absolute;
@@ -44,15 +53,33 @@
     left:445px;
     z-index: 3;
 }
-.silverBus4{
+.silverBus2Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:160px;
+    left:445px;
+}
+.silverBus3{
     width:20px;
     height:20px;
     position:absolute;
-    top:280px;
-    left:450px;
+    top:260px;
+    left:432px;
     z-index: 3;
 }
-.silverBus5{
+.silverBus3Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:260px;
+    left:432px;
+}
+.silverBus4{
     width:20px;
     height:20px;
     position:absolute;
@@ -60,7 +87,16 @@
     left:505px;
     z-index: 3;
 }
-.silverBus6{
+.silverBus4Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:350px;
+    left:505px;
+}
+.silverBus5{
     width:20px;
     height:20px;
     position:absolute;
@@ -68,11 +104,799 @@
     left:830px;
     z-index: 3;
 }
-.silverBusUnion2{
+.silverBus5Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:330px;
+    left:830px;
+}
+.silverBus6{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:330px;
+    left:910px;
+    z-index: 3;
+}
+.silverBus6Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:330px;
+    left:910px;
+}
+.silverBus7{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:240px;
+    left:970px;
+    z-index: 3;
+}
+.silverBus7Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:240px;
+    left:970px;
+}
+.silverBus8{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:238px;
+    left:1050px;
+    z-index: 3;
+}
+.silverBus8Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:238px;
+    left:1050px;
+}
+.silverBus9{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:285px;
+    left:1140px;
+    z-index: 3;
+}
+.silverBus9Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:285px;
+    left:1140px;
+}
+.silverBus10{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:365px;
+    left:1130px;
+    z-index: 3;
+}
+.silverBus10Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:365px;
+    left:1130px;
+}
+.silverBus11{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:400px;
+    left:1065px;
+    z-index: 3;
+}
+.silverBus11Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:400px;
+    left:1065px;
+}
+.silverBus12{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:360px;
+    left:965px;
+    z-index: 3;
+}
+.silverBus12Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:360px;
+    left:965px;
+}
+.silverBus13{
     width:20px;
     height:20px;
     position:absolute;
     top:325px;
-    left:825px;
+    left:930px;
     z-index: 3;
+}
+.silverBus13Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:325px;
+    left:930px;
+}
+.silverBus14{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:325px;
+    left:820px;
+    z-index: 3;
+}
+.silverBus14Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:325px;
+    left:820px;
+}
+.silverBus15{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:340px;
+    left:510px;
+    z-index: 3;
+}
+.silverBus15Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:340px;
+    left:510px;
+}
+.silverBus16{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:270px;
+    left:455px;
+    z-index: 3;
+}
+.silverBus16Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:270px;
+    left:455px;
+}
+.silverBus17{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:210px;
+    left:455px;
+    z-index: 3;
+}
+.silverBus17Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:210px;
+    left:455px;
+}
+.silverBus18{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:135px;
+    left:472px;
+    z-index: 3;
+}
+.silverBus18Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:135px;
+    left:472px;
+}
+.silverBus19{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:200px;
+    left:380px;
+    z-index: 3;
+}
+.silverBus19Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:200px;
+    left:380px;
+}
+.greenBus1{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:115px;
+    left:858px;
+    z-index: 3;
+}
+.greenBus1Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:115px;
+    left:858px;
+}
+.greenBus2{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:180px;
+    left:790px;
+    z-index: 3;
+}
+.greenBus2Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:180px;
+    left:790px;
+}
+.greenBus3{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:240px;
+    left:675px;
+    z-index: 3;
+}
+.greenBus3Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:240px;
+    left:675px;
+}
+.greenBus4{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:330px;
+    left:830px;
+    z-index: 3;
+}
+.greenBus4Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:330px;
+    left:830px;
+}
+.greenBus5{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:330px;
+    left:910px;
+    z-index: 3;
+}
+.greenBus5Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:330px;
+    left:910px;
+}
+.greenBus6{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:375px;
+    left:958px;
+    z-index: 3;
+}
+.greenBus6Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:375px;
+    left:958px;
+}
+.greenBus7{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:450px;
+    left:1005px;
+    z-index: 3;
+}
+.greenBus7Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:450px;
+    left:1005px;
+}
+.greenBus8{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:505px;
+    left:952px;
+    z-index: 3;
+}
+.greenBus8Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:505px;
+    left:952px;
+}
+.greenBus9{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:470px;
+    left:820px;
+    z-index: 3;
+}
+.greenBus9Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:470px;
+    left:820px;
+}
+.greenBus10{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:473px;
+    left:740px;
+    z-index: 3;
+}
+.greenBus10Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:473px;
+    left:740px;
+}
+.greenBus11{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:545px;
+    left:610px;
+    z-index: 3;
+}
+.greenBus11Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:545px;
+    left:610px;
+}
+.greenBus12{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:600px;
+    left:670px;
+    z-index: 3;
+}
+.greenBus12Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:600px;
+    left:670px;
+}
+.greenBus13{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:560px;
+    left:815px;
+    z-index: 3;
+}
+.greenBus13Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:560px;
+    left:815px;
+}
+.greenBus14{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:520px;
+    left:960px;
+    z-index: 3;
+}
+.greenBus14Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:520px;
+    left:960px;
+}
+.greenBus15{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:450px;
+    left:1015px;
+    z-index: 3;
+}
+.greenBus15Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:450px;
+    left:1015px;
+}
+.greenBus16{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:360px;
+    left:965px;
+    z-index: 3;
+}
+.greenBus16Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:360px;
+    left:965px;
+}
+.greenBus17{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:235px;
+    left:970px;
+    z-index: 3;
+}
+.greenBus17Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:235px;
+    left:970px;
+}
+.greenBus18{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:190px;
+    left:925px;
+    z-index: 3;
+}
+.greenBus18Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:190px;
+    left:925px;
+}
+.goldBus1{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:190px;
+    left:790px;
+    z-index: 3;
+}
+.goldBus1Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:180px;
+    left:790px;
+}
+.goldBus2{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:202px;
+    left:930px;
+    z-index: 3;
+}
+.goldBus2Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:190px;
+    left:925px;
+}
+.goldBus3{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:375px;
+    left:958px;
+    z-index: 3;
+}
+.goldBus3Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:375px;
+    left:958px;
+}
+.goldBus4{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:450px;
+    left:1005px;
+    z-index: 3;
+}
+.goldBus4Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:450px;
+    left:1005px;
+}
+.goldBus5{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:505px;
+    left:952px;
+    z-index: 3;
+}
+.goldBus5Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:505px;
+    left:952px;
+}
+.goldBus6{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:555px;
+    left:810px;
+    z-index: 3;
+}
+.goldBus6Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:555px;
+    left:810px;
+}
+.goldBus7{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:590px;
+    left:700px;
+    z-index: 3;
+}
+.goldBus7Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:590px;
+    left:700px;
+}
+.goldBus8{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:530px;
+    left:610px;
+    z-index: 3;
+}
+.goldBus8Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:545px;
+    left:610px;
+}
+.goldBus9{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:480px;
+    left:820px;
+    z-index: 3;
+}
+.goldBus9Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:470px;
+    left:820px;
+}
+.goldBus10{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:520px;
+    left:960px;
+    z-index: 3;
+}
+.goldBus10Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:520px;
+    left:960px;
+}
+.goldBus11{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:450px;
+    left:1015px;
+    z-index: 3;
+}
+.goldBus11Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:450px;
+    left:1015px;
+}
+.goldBus12{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:360px;
+    left:965px;
+    z-index: 3;
+}
+.goldBus12Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:360px;
+    left:965px;
+}
+.goldBus13{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:325px;
+    left:820px;
+    z-index: 3;
+}
+.goldBus13Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:325px;
+    left:820px;
+}
+.goldBus14{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:240px;
+    left:685px;
+    z-index: 3;
+}
+.goldBus14Stats{
+    z-index:4;
+    background-color: rgb(214, 209, 209);
+    width:fit-content;
+    height: fit-content;
+    position:absolute;
+    top:240px;
+    left:675px;
+}
+.goDown{
+    position:relative;
+    top:20px;
+    z-index: 5;
 }
