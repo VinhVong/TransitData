@@ -253,7 +253,7 @@
   </div>
 
 
-<!--Excel File Input-->
+<!--Excel File Input   Code Citation: <Weblesson><07/26/2021><How to Display Excel Data in HTML Table using JavaScript><https://www.webslesson.info/2021/07/how-to-display-excel-data-in-html-table.html>-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -263,22 +263,20 @@
         <div class="card">
           <div class="card-header"><b>Select an Excel File</b></div>
           <div class="card-body">
-            
-                  <input type="file" id="excelFile" />
-  
+            <input type="file" id="excel_file" />
           </div>
         </div>
-        <div id="excelData" class="mt-5"></div>
+        <div id="excel_data" class="mt-5"></div>
       </div>
     </div>
 
 <!--Script for getting statistics from an inputted Excel File-->
 <script>
-  const excelFile = document.getElementById('excelFile');
-  excelFile.addEventListener('change', (event) => {
+  const excel_file = document.getElementById('excel_file');
+  excel_file.addEventListener('change', (event) => {
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type)){
-        document.getElementById('excelData').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
-        excelFile.value = '';
+        document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+        excel_file.value = '';
         return false;
     }
     var reader = new FileReader();
@@ -1151,7 +1149,7 @@
         document.getElementById('GoldStop14Stats').innerHTML = "<b>Union Deck/Belk North:</b>" + "<br>Average on: " + (BNon/BNoncount).toFixed(2) + "<br>Average off: " + (BNoff/BNoffcount).toFixed(2);
         
       }
-    excelFile.value = '';
+    excel_file.value = '';
   }
 });
 
