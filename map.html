@@ -257,29 +257,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <div class="goDown">
       <div class="container">
         <div class="card">
-          <div class="card-header"><b>Select Excel File</b></div>
+          <div class="card-header"><b>Select an Excel File</b></div>
           <div class="card-body">
             
-                  <input type="file" id="excel_file" />
+                  <input type="file" id="excelFile" />
   
           </div>
         </div>
-        <div id="excel_data" class="mt-5"></div>
+        <div id="excelData" class="mt-5"></div>
       </div>
     </div>
 
-<!--Script for creating Statistics from Excel File-->
+<!--Script for getting statistics from an inputted Excel File-->
 <script>
-  const excel_file = document.getElementById('excel_file');
-  excel_file.addEventListener('change', (event) => {
+  const excelFile = document.getElementById('excelFile');
+  excelFile.addEventListener('change', (event) => {
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type)){
-        document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
-        excel_file.value = '';
+        document.getElementById('excelData').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+        excelFile.value = '';
         return false;
     }
     var reader = new FileReader();
@@ -1152,7 +1151,7 @@
         document.getElementById('GoldStop14Stats').innerHTML = "<b>Union Deck/Belk North:</b>" + "<br>Average on: " + (BNon/BNoncount).toFixed(2) + "<br>Average off: " + (BNoff/BNoffcount).toFixed(2);
         
       }
-    excel_file.value = '';
+    excelFile.value = '';
   }
 });
 
