@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Donjrey Cuthbertson">
+    <title>Transportation Data</title>
+    <link rel="stylesheet" href="css/reviews.css">
+    
+</head>
+<body>
+  <script>
+    function submission() {
+      alert("Your feedback has been recieved and is currently being verified!");
+      return true;
+}
+  </script>
+
+    <header>
+        <h1>PATs Services</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="charts.html">Chart</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="upload.html">Upload</a></li>
+            </ul>
+        </nav>
+    </header>
+            
+    <form class="review-form">
+        <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+
+          
+
+            <div>
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" placeholder="JohnDoe@uncc.edu" required >
+            </div>
+
+          
+
+            <div>
+              <label for="Phone">Phone number:</label>
+              <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength=10 maxlength=12 placeholder="123-456-7890" required>
+            </div>
+
+            
+
+            <div>
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="date" >
+            </div>
+
+            <div>
+              <label for="route">Route:</label>
+              <select id="route" name="route">
+                <option value="Green">Green</option>
+                <option value="Gold">Gold</option>
+                <option value="Silver">Silver</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="feedback">Feedback</label>
+              <textarea id="feedback" name="feedback" required></textarea>
+            </div>
+
+            
+            <div>
+              <input type="submit" value="Send" onclick="submission();" id="sendBtn"/>
+            </div>
+     </form>
+            
+            
+            
+</body>
