@@ -12,8 +12,31 @@
 <body>
   <script>
     function submission() {
-      alert("Your feedback has been recieved and is currently being verified!");
-      return true;
+      var name = document.getElementById("name").value;
+      var route = document.getElementById("route").value;
+      var review = document.getElementById("feedback").value;
+      var date = document.getElementById("date").value;
+
+var result = document.createElement("div");
+var content = "<h3 style='color:green; margin-bottom: 20px'>Review</h3>";
+content += `<table style='width: 500px;border:1px'>
+  <tr>
+        <th>User Name:</th>
+        <td>`+name+`</td>
+    </tr>
+    <tr>
+        <th>User Route:</th>
+        <td>`+route+`</td>
+    </tr>
+    <tr>
+      <th>User Feedback:</th>
+        <td>`+review+`</td>
+    </tr>
+  
+    </table>`;
+    result.innerHTML = content;
+    document.getElementsByClassName('container')[0].appendChild(result);
+
 }
   </script>
 
@@ -32,39 +55,40 @@
 
     <h1 id="formTitle"> Submit Your feedback</h1>
     
+    <div class="container">
     <form class="review-form">
         <div>
               <label for="name">Name:</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required>
+              <input type="text" id="name" name="name" placeholder="John Doe" Required>
             </div>
 
           
 
             <div>
               <label for="email">Email:</label>
-              <input type="text" id="email" name="email" placeholder="JohnDoe@uncc.edu" required >
+              <input type="text" id="email" name="email" placeholder="JohnDoe@uncc.edu" >
             </div>
 
           
 
             <div>
               <label for="Phone">Phone number:</label>
-              <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength=10 maxlength=12 placeholder="123-456-7890" required>
+              <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength=10 maxlength=12 placeholder="123-456-7890" >
             </div>
 
             
 
             <div>
               <label for="date">Date:</label>
-              <input type="date" id="date" name="date" >
+              <input type="date" id="date" name="date" required>
             </div>
 
             <div>
               <label for="route">Route:</label>
-              <select id="route" name="route">
-                <option value="Green">Green</option>
-                <option value="Gold">Gold</option>
-                <option value="Silver">Silver</option>
+                <select id="route" name="route">
+                  <option value="Green">Green</option>
+                  <option value="Gold">Gold</option>
+                  <option value="Silver">Silver</option>
               </select>
             </div>
 
@@ -75,10 +99,11 @@
 
             
             <div>
-              <input type="submit" value="Send" onclick="submission();" id="sendBtn"/>
+              <button type="button" value="Send" id="sendBtn" onclick="submission();">Submit</button>
             </div>
      </form>
-            
-            
+    </div>
+         
             
 </body>
+</html>

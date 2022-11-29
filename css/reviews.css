@@ -115,6 +115,11 @@ footer{
     height: 100%;
     width: 100%;
 }
+.container{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /*Form*/
 .review-form{
     box-sizing: border-box;
