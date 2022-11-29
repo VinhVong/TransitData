@@ -7,7 +7,6 @@
           <a href="charts.html">Chart</a>&nbsp &nbsp
           <a href="login.html">Login</a>&nbsp &nbsp
           <a href="upload.html">Upload</a></h3>&nbsp &nbsp
-          <a href="reviews.html">Login</a>&nbsp &nbsp
       </ul>
   </nav>
 </header>
@@ -288,62 +287,63 @@
         var sheet_name = work_book.SheetNames;
         var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
         //Silver Counts
-        var CRIon = 0, CRIoncount = 0, CRIoff = 0, CRIoffcount = 0;
-        var DCon = 0, DConcount = 0, DCoff = 0, DCoffcount = 0;
-        var ESon = 0, ESoncount = 0, ESoff = 0, ESoffcount = 0;
-        var AEon = 0, AEoncount = 0, AEoff = 0, AEoffcount = 0;
-        var UEon = 0, UEoncount = 0, UEoff = 0, UEoffcount = 0;
-        var ASEon = 0, ASEoncount = 0, ASEoff = 0, ASEoffcount = 0;
-        var HNon = 0, HNoncount = 0, HNoff = 0, HNoffcount = 0;
-        var MHon = 0, MHoncount = 0, MHoff = 0, MHoffcount = 0;
-        var L6on = 0, L6oncount = 0, L6off = 0, L6offcount = 0;
-        var L5on = 0, L5oncount = 0, L5off = 0, L5offcount = 0;
-        var EDon = 0, EDoncount = 0, EDoff = 0, EDoffcount = 0;
-        var FNon = 0, FNoncount = 0, FNoff = 0, FNoffcount = 0;
-        var ASWon = 0, ASWoncount = 0, ASWoff = 0, ASWoffcount = 0;
-        var UWon = 0, UWoncount = 0, UWoff = 0, UWoffcount = 0;
-        var AWon = 0, AWoncount = 0, AWoff = 0, AWoffcount = 0;
-        var ENon = 0, ENoncount = 0, ENoff = 0, ENoffcount = 0;
-        var GHon = 0, GHoncount = 0, GHoff = 0, GHoffcount = 0;
-        var MSon = 0, MSoncount = 0, MSoff = 0, MSoffcount = 0;
-        var Pon = 0, Poncount = 0, Poff = 0, Poffcount = 0;
+        var CRIon = 0, CRIoncount = 0, CRIoff = 0, CRIoffcount = 0, CRItime = 0, CRItimecount = 0, CRItimes = [];
+        var DCon = 0, DConcount = 0, DCoff = 0, DCoffcount = 0, DCtimecount = 0, DCtimes = [];
+        var ESon = 0, ESoncount = 0, ESoff = 0, ESoffcount = 0, EStimecount = 0, EStimes = [];
+        var AEon = 0, AEoncount = 0, AEoff = 0, AEoffcount = 0, AEtimecount = 0, AEtimes = [];
+        var UEon = 0, UEoncount = 0, UEoff = 0, UEoffcount = 0, UEtimecount = 0, UEtimes = [];
+        var ASEon = 0, ASEoncount = 0, ASEoff = 0, ASEoffcount = 0, ASEtimecount = 0, ASEtimes = [];
+        var HNon = 0, HNoncount = 0, HNoff = 0, HNoffcount = 0, HNtimecount = 0, HNtimes = [];
+        var MHon = 0, MHoncount = 0, MHoff = 0, MHoffcount = 0, MHtimecount = 0, MHtimes = [];
+        var L6on = 0, L6oncount = 0, L6off = 0, L6offcount = 0, L6timecount = 0, L6times = [];
+        var L5on = 0, L5oncount = 0, L5off = 0, L5offcount = 0, L5timecount = 0, L5times = [];
+        var EDon = 0, EDoncount = 0, EDoff = 0, EDoffcount = 0, EDtimecount = 0, EDtimes = [];
+        var FNon = 0, FNoncount = 0, FNoff = 0, FNoffcount = 0, FNtimecount = 0, FNtimes = [];
+        var ASWon = 0, ASWoncount = 0, ASWoff = 0, ASWoffcount = 0, ASWtimecount = 0, ASWtimes = [];
+        var UWon = 0, UWoncount = 0, UWoff = 0, UWoffcount = 0, UWtimecount = 0, UWtimes = [];
+        var AWon = 0, AWoncount = 0, AWoff = 0, AWoffcount = 0, AWtimecount = 0, AWtimes = [];
+        var ENon = 0, ENoncount = 0, ENoff = 0, ENoffcount = 0, ENtimecount = 0, ENtimes = [];
+        var GHon = 0, GHoncount = 0, GHoff = 0, GHoffcount = 0, GHtimecount = 0, GHtimes = [];
+        var MSon = 0, MSoncount = 0, MSoff = 0, MSoffcount = 0, MStimecount = 0, MStimes = [];
+        var Pon = 0, Poncount = 0, Poff = 0, Poffcount = 0, Ptimecount = 0, Ptimes = [];
 
         //Green Counts
-        var NDon = 0, NDoncount = 0, NDoff = 0, NDoffcount = 0;
-        var WWon = 0, WWoncount = 0, WWoff = 0, WWoffcount = 0;
-        var BSon = 0, BSoncount = 0, BSoff = 0, BSoffcount = 0;
-        var UE2on = 0, UE2oncount = 0, UE2off = 0, UE2offcount = 0;
-        var ASE2on = 0, ASE2oncount = 0, ASE2off = 0, ASE2offcount = 0;
-        var FSon = 0, FSoncount = 0, FSoff = 0, FSoffcount = 0;
-        var CSon = 0, CSoncount = 0, CSoff = 0, CSoffcount = 0;
-        var RSon = 0, RSoncount = 0, RSoff = 0, RSoffcount = 0;
-        var RWon = 0, RWoncount = 0, RWoff = 0, RWoffcount = 0;
-        var CDon = 0, CDoncount = 0, CDoff = 0, CDoffcount = 0;
-        var AWEon = 0, AWEoncount = 0, AWEoff = 0, AWEoffcount = 0;
-        var SDon = 0, SDoncount = 0, SDoff = 0, SDoffcount = 0;
-        var GCon = 0, GConcount = 0, GCoff = 0, GCoffcount = 0;
-        var RNon = 0, RNoncount = 0, RNoff = 0, RNoffcount = 0;
-        var CNon = 0, CNoncount = 0, CNoff = 0, CNoffcount = 0;
-        var FN2on = 0, FN2oncount = 0, FN2off = 0, FN2offcount = 0;
-        var HN2on = 0, HN2oncount = 0, HN2off = 0, HN2offcount = 0;
-        var PWon = 0, PWoncount = 0, PWoff = 0, PWoffcount = 0;
-        var HHon = 0, HHoncount = 0, HHoff = 0, HHoffcount = 0;
+        var NDon = 0, NDoncount = 0, NDoff = 0, NDoffcount = 0, NDtimecount = 0, NDtimes = [];
+        var WWon = 0, WWoncount = 0, WWoff = 0, WWoffcount = 0, WWtimecount = 0, WWtimes = [];
+        var BSon = 0, BSoncount = 0, BSoff = 0, BSoffcount = 0, BStimecount = 0, BStimes = [];
+        var UE2on = 0, UE2oncount = 0, UE2off = 0, UE2offcount = 0, UE2timecount = 0, UE2times = [];
+        var ASE2on = 0, ASE2oncount = 0, ASE2off = 0, ASE2offcount = 0, ASE2timecount = 0, ASE2times = [];
+        var FSon = 0, FSoncount = 0, FSoff = 0, FSoffcount = 0, FStimecount = 0, FStimes = [];
+        var CSon = 0, CSoncount = 0, CSoff = 0, CSoffcount = 0, CStimecount = 0, CStimes = [];
+        var RSon = 0, RSoncount = 0, RSoff = 0, RSoffcount = 0, RStimecount = 0, RStimes = [];
+        var RWon = 0, RWoncount = 0, RWoff = 0, RWoffcount = 0, RWtimecount = 0, RWtimes = [];
+        var CDon = 0, CDoncount = 0, CDoff = 0, CDoffcount = 0, CDtimecount = 0, CDtimes = [];
+        var AWEon = 0, AWEoncount = 0, AWEoff = 0, AWEoffcount = 0, AWEtimecount = 0, AWEtimes = [];
+        var SDon = 0, SDoncount = 0, SDoff = 0, SDoffcount = 0, SDtimecount = 0, SDtimes = [];
+        var GCon = 0, GConcount = 0, GCoff = 0, GCoffcount = 0, GCtimecount = 0, GCtimes = [];
+        var RNon = 0, RNoncount = 0, RNoff = 0, RNoffcount = 0, RNtimecount = 0, RNtimes = [];
+        var CNon = 0, CNoncount = 0, CNoff = 0, CNoffcount = 0, CNtimecount = 0, CNtimes = [];
+        var FN2on = 0, FN2oncount = 0, FN2off = 0, FN2offcount = 0, FN2timecount = 0, FN2times = [];
+        var HN2on = 0, HN2oncount = 0, HN2off = 0, HN2offcount = 0, HN2timecount = 0, HN2times = [];
+        var PWon = 0, PWoncount = 0, PWoff = 0, PWoffcount = 0, PWtimecount = 0, PWtimes = [];
 
         //Gold Counts
-        var WEon = 0, WEoncount = 0, WEoff = 0, WEoffcount = 0;
-        var PEon = 0, PEoncount = 0, PEoff = 0, PEoffcount = 0;
-        var FS2on = 0, FS2oncount = 0, FS2off = 0, FS2offcount = 0;
-        var CS2on = 0, CS2oncount = 0, CS2off = 0, CS2offcount = 0;
-        var RS2on = 0, RS2oncount = 0, RS2off = 0, RS2offcount = 0;
-        var LWon = 0, LWoncount = 0, LWoff = 0, LWoffcount = 0;
-        var HHon = 0, HHoncount = 0, HHoff = 0, HHoffcount = 0;
-        var AWWon = 0, AWWoncount = 0, AWWoff = 0, AWWoffcount = 0;
-        var REon = 0, REoncount = 0, REoff = 0, REoffcount = 0;
-        var RN2on = 0, RN2oncount = 0, RN2off = 0, RN2offcount = 0;
-        var CN2on = 0, CN2oncount = 0, CN2off = 0, CN2offcount = 0;
-        var FN3on = 0, FN3oncount = 0, FN3off = 0, FN3offcount = 0;
-        var UW2on = 0, UW2oncount = 0, UW2off = 0, UW2offcount = 0;
-        var BNon = 0, BNoncount = 0, BNoff = 0, BNoffcount = 0;
+        var WEon = 0, WEoncount = 0, WEoff = 0, WEoffcount = 0, WEtimecount = 0, WEtimes = [];
+        var PEon = 0, PEoncount = 0, PEoff = 0, PEoffcount = 0, PEtimecount = 0, PEtimes = [];
+        var FS2on = 0, FS2oncount = 0, FS2off = 0, FS2offcount = 0, FS2timecount = 0, FS2times = [];
+        var CS2on = 0, CS2oncount = 0, CS2off = 0, CS2offcount = 0, CS2timecount = 0, CS2times = [];
+        var RS2on = 0, RS2oncount = 0, RS2off = 0, RS2offcount = 0, RS2timecount = 0, RS2times = [];
+        var LWon = 0, LWoncount = 0, LWoff = 0, LWoffcount = 0, LWtimecount = 0, LWtimes = [];
+        var HHon = 0, HHoncount = 0, HHoff = 0, HHoffcount = 0, HHtimecount = 0, HHtimes = [];
+        var AWWon = 0, AWWoncount = 0, AWWoff = 0, AWWoffcount = 0, AWWtimecount = 0, AWWtimes = [];
+        var REon = 0, REoncount = 0, REoff = 0, REoffcount = 0, REtimecount = 0, REtimes = [];
+        var RN2on = 0, RN2oncount = 0, RN2off = 0, RN2offcount = 0, RN2timecount = 0, RN2times = [];
+        var CN2on = 0, CN2oncount = 0, CN2off = 0, CN2offcount = 0, CN2timecount = 0, CN2times = [];
+        var FN3on = 0, FN3oncount = 0, FN3off = 0, FN3offcount = 0, FN3timecount = 0, FN3times = [];
+        var UW2on = 0, UW2oncount = 0, UW2off = 0, UW2offcount = 0, UW2timecount = 0, UW2times = [];
+        var BNon = 0, BNoncount = 0, BNoff = 0, BNoffcount = 0, BNtimecount = 0, BNtimes = [];
+
+
 
         if(sheet_data.length > 0)
         {
@@ -364,6 +364,10 @@
                     CRIoff+=(sheet_data[row][3]*(-1));
                     CRIoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CRItimes.push(sheet_data[row][1]);
+                    CRItimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Duke Centennial Hall East'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -378,6 +382,10 @@
                     DCoff+=(sheet_data[row][3]*(-1));
                     DCoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    DCtimes.push(sheet_data[row][1]);
+                    DCtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='EPIC S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -392,6 +400,10 @@
                     ESoff+=(sheet_data[row][3]*(-1));
                     ESoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    EStimes.push(sheet_data[row][1]);
+                    EStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Athletics Complex E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -406,6 +418,10 @@
                     AEoff+=(sheet_data[row][3]*(-1));
                     AEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    AEtimes.push(sheet_data[row][1]);
+                    AEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Union E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -420,6 +436,10 @@
                     UEoff+=(sheet_data[row][3]*(-1));
                     UEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    UEtimes.push(sheet_data[row][1]);
+                    UEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Aux Services East'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -434,6 +454,10 @@
                     ASEoff+=(sheet_data[row][3]*(-1));
                     ASEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    ASEtimes.push(sheet_data[row][1]);
+                    ASEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Health N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -448,6 +472,10 @@
                     HNoff+=(sheet_data[row][3]*(-1));
                     HNoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    HNtimes.push(sheet_data[row][1]);
+                    HNtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Martin Hall'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -462,6 +490,10 @@
                     MHoff+=(sheet_data[row][3]*(-1));
                     MHoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    MHtimes.push(sheet_data[row][1]);
+                    MHtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Lot 6'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -476,6 +508,10 @@
                     L6off+=(sheet_data[row][3]*(-1));
                     L6offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    L6times.push(sheet_data[row][1]);
+                    L6timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Lot 5A'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -490,6 +526,10 @@
                     L5off+=(sheet_data[row][3]*(-1));
                     L5offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    L5times.push(sheet_data[row][1]);
+                    L5timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='East Deck 2'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -504,6 +544,10 @@
                     EDoff+=(sheet_data[row][3]*(-1));
                     EDoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    EDtimes.push(sheet_data[row][1]);
+                    EDtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Fretwell N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -518,6 +562,10 @@
                     FNoff+=(sheet_data[row][3]*(-1));
                     FNoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    FNtimes.push(sheet_data[row][1]);
+                    FNtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Aux Services West'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -532,6 +580,10 @@
                     ASWoff+=(sheet_data[row][3]*(-1));
                     ASWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    ASWtimes.push(sheet_data[row][1]);
+                    ASWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Union W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -546,6 +598,10 @@
                     UWoff+=(sheet_data[row][3]*(-1));
                     UWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    UWtimes.push(sheet_data[row][1]);
+                    UWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Athletics Complex W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -560,6 +616,10 @@
                     AWoff+=(sheet_data[row][3]*(-1));
                     AWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    AWtimes.push(sheet_data[row][1]);
+                    AWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='EPIC N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -574,6 +634,10 @@
                     ENoff+=(sheet_data[row][3]*(-1));
                     ENoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    ENtimes.push(sheet_data[row][1]);
+                    ENtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Grigg Hall E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -588,6 +652,10 @@
                     GHoff+=(sheet_data[row][3]*(-1));
                     GHoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    GHtimes.push(sheet_data[row][1]);
+                    GHtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Motor Sports'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -602,6 +670,10 @@
                     MSoff+=(sheet_data[row][3]*(-1));
                     MSoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    MStimes.push(sheet_data[row][1]);
+                    MStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='PORTAL East'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -616,6 +688,10 @@
                     Poff+=(sheet_data[row][3]*(-1));
                     Poffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    Ptimes.push(sheet_data[row][1]);
+                    Ptimecount++;
+                  } 
                 }
 
               }
@@ -634,6 +710,10 @@
                     NDoff+=(sheet_data[row][3]*(-1));
                     NDoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    NDtimes.push(sheet_data[row][1]);
+                    NDtimecount++;
+                  } 
                   }
                 if(sheet_data[row][8]=='Wallis Hall W/Light Rail'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -648,6 +728,10 @@
                     WWoff+=(sheet_data[row][3]*(-1));
                     WWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    WWtimes.push(sheet_data[row][1]);
+                    WWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Belk Hall S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -662,6 +746,10 @@
                     BSoff+=(sheet_data[row][3]*(-1));
                     BSoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    BStimes.push(sheet_data[row][1]);
+                    BStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Union E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -676,6 +764,10 @@
                     UE2off+=(sheet_data[row][3]*(-1));
                     UE2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    UE2times.push(sheet_data[row][1]);
+                    UE2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Aux Services East'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -690,6 +782,10 @@
                     ASE2off+=(sheet_data[row][3]*(-1));
                     ASE2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    ASE2times.push(sheet_data[row][1]);
+                    ASE2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Fretwell S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -704,6 +800,10 @@
                     FSoff+=(sheet_data[row][3]*(-1));
                     FSoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    FStimes.push(sheet_data[row][1]);
+                    FStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Cato Hall S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -718,6 +818,10 @@
                     CSoff+=(sheet_data[row][3]*(-1));
                     CSoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CStimes.push(sheet_data[row][1]);
+                    CStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Robinson Hall S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -732,6 +836,10 @@
                     RSoff+=(sheet_data[row][3]*(-1));
                     RSoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    RStimes.push(sheet_data[row][1]);
+                    RStimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Reese West'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -746,6 +854,10 @@
                     RWoff+=(sheet_data[row][3]*(-1));
                     RWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    RWtimes.push(sheet_data[row][1]);
+                    RWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Cone Deck W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -760,6 +872,10 @@
                     CDoff+=(sheet_data[row][3]*(-1));
                     CDoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CDtimes.push(sheet_data[row][1]);
+                    CDtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Alumni Way E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -774,6 +890,10 @@
                     AWEoff+=(sheet_data[row][3]*(-1));
                     AWEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    AWEtimes.push(sheet_data[row][1]);
+                    AWEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='South Village Deck'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -788,6 +908,10 @@
                     SDoff+=(sheet_data[row][3]*(-1));
                     SDoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    SDtimes.push(sheet_data[row][1]);
+                    SDtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Levine Hall E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -802,6 +926,10 @@
                     GCoff+=(sheet_data[row][3]*(-1));
                     GCoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    GCtimes.push(sheet_data[row][1]);
+                    GCtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Robinson Hall N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -816,6 +944,10 @@
                     RNoff+=(sheet_data[row][3]*(-1));
                     RNoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    RNtimes.push(sheet_data[row][1]);
+                    RNtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Cato Hall N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -830,6 +962,10 @@
                     CNoff+=(sheet_data[row][3]*(-1));
                     CNoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CNtimes.push(sheet_data[row][1]);
+                    CNtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Fretwell N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -844,6 +980,10 @@
                     FN2off+=(sheet_data[row][3]*(-1));
                     FN2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    FN2times.push(sheet_data[row][1]);
+                    FN2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Health N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -858,6 +998,10 @@
                     HN2off+=(sheet_data[row][3]*(-1));
                     HN2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    HN2times.push(sheet_data[row][1]);
+                    HN2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='FM/Police Building'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -872,6 +1016,10 @@
                     PWoff+=(sheet_data[row][3]*(-1));
                     PWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    PWtimes.push(sheet_data[row][1]);
+                    PWtimecount++;
+                  } 
                 }
               }
 
@@ -890,6 +1038,10 @@
                     WEoff+=(sheet_data[row][3]*(-1));
                     WEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    WEtimes.push(sheet_data[row][1]);
+                    WEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Health E'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -904,6 +1056,10 @@
                     PEoff+=(sheet_data[row][3]*(-1));
                     PEoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    PEtimes.push(sheet_data[row][1]);
+                    PEtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Fretwell S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -918,6 +1074,10 @@
                     FS2off+=(sheet_data[row][3]*(-1));
                     FS2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    FS2times.push(sheet_data[row][1]);
+                    FS2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Cato Hall S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -932,6 +1092,10 @@
                     CS2off+=(sheet_data[row][3]*(-1));
                     CS2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CS2times.push(sheet_data[row][1]);
+                    CS2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Robinson Hall S'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -946,6 +1110,10 @@
                     RS2off+=(sheet_data[row][3]*(-1));
                     RS2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    RS2times.push(sheet_data[row][1]);
+                    RS2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Levine Hall W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -960,6 +1128,10 @@
                     LWoff+=(sheet_data[row][3]*(-1));
                     LWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    LWtimes.push(sheet_data[row][1]);
+                    LWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Hunt Hall'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -974,6 +1146,10 @@
                     HHoff+=(sheet_data[row][3]*(-1));
                     HHoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    HHtimes.push(sheet_data[row][1]);
+                    HHtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Alumni Way W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -988,6 +1164,10 @@
                     AWWoff+=(sheet_data[row][3]*(-1));
                     AWWoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    AWWtimes.push(sheet_data[row][1]);
+                    AWWtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Reese East'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1002,6 +1182,10 @@
                     REoff+=(sheet_data[row][3]*(-1));
                     REoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    REtimes.push(sheet_data[row][1]);
+                    REtimecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Robinson Hall N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1016,6 +1200,10 @@
                     RN2off+=(sheet_data[row][3]*(-1));
                     RN2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    RN2times.push(sheet_data[row][1]);
+                    RN2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Cato Hall N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1030,6 +1218,10 @@
                     CN2off+=(sheet_data[row][3]*(-1));
                     CN2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    CN2times.push(sheet_data[row][1]);
+                    CN2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Fretwell N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1044,6 +1236,10 @@
                   FN3off+=(sheet_data[row][3]*(-1));
                   FN3offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    FN3times.push(sheet_data[row][1]);
+                    FN3timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Student Union W'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1058,6 +1254,10 @@
                   UW2off+=(sheet_data[row][3]*(-1));
                   UW2offcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    UW2times.push(sheet_data[row][1]);
+                    UW2timecount++;
+                  } 
                 }
                 if(sheet_data[row][8]=='Union Deck/Belk N'){
                   if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
@@ -1072,82 +1272,399 @@
                     BNoff+=(sheet_data[row][3]*(-1));
                     BNoffcount++;
                   }
+                  if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
+                    BNtimes.push(sheet_data[row][1]);
+                    BNtimecount++;
+                  } 
                 }
               }
           }
 
+
+        //Silver Time Average
+        var CRIFN2timeTotal = 0;
+        for(var x=0; x<CRItimes.length-1; x++){
+          CRIFN2timeTotal += ((CRItimes[x+1] - CRItimes[x])*24*60);
+        }
+        var CRIaverage = CRIFN2timeTotal/CRItimecount;
+
+        var DCFN2timeTotal = 0;
+        for(var x=0; x<DCtimes.length-1; x++){
+          DCFN2timeTotal += ((DCtimes[x+1] - DCtimes[x])*24*60);
+        }
+        var DCaverage = DCFN2timeTotal/DCtimecount;
+
+        var ESFN2timeTotal = 0;
+        for(var x=0; x<EStimes.length-1; x++){
+          ESFN2timeTotal += ((EStimes[x+1] - EStimes[x])*24*60);
+        }
+        var ESaverage = ESFN2timeTotal/EStimecount;
+
+        var AEFN2timeTotal = 0;
+        for(var x=0; x<AEtimes.length-1; x++){
+          AEFN2timeTotal += ((AEtimes[x+1] - AEtimes[x])*24*60);
+        }
+        var AEaverage = AEFN2timeTotal/AEtimecount;
+
+        var UEFN2timeTotal = 0;
+        for(var x=0; x<UEtimes.length-1; x++){
+          UEFN2timeTotal += ((UEtimes[x+1] - UEtimes[x])*24*60);
+        }
+        var UEaverage = UEFN2timeTotal/UEtimecount;
+        
+        var ASEFN2timeTotal = 0;
+        for(var x=0; x<ASEtimes.length-1; x++){
+          ASEFN2timeTotal += ((ASEtimes[x+1] - ASEtimes[x])*24*60);
+        }
+        var ASEaverage = ASEFN2timeTotal/ASEtimecount;
+
+        var HNFN2timeTotal = 0;
+        for(var x=0; x<HNtimes.length-1; x++){
+          HNFN2timeTotal += ((HNtimes[x+1] - HNtimes[x])*24*60);
+        }
+        var HNaverage = HNFN2timeTotal/HNtimecount;
+
+        var MHFN2timeTotal = 0;
+        for(var x=0; x<MHtimes.length-1; x++){
+          MHFN2timeTotal += ((MHtimes[x+1] - MHtimes[x])*24*60);
+        }
+        var MHaverage = MHFN2timeTotal/MHtimecount;
+
+        var L6FN2timeTotal = 0;
+        for(var x=0; x<L6times.length-1; x++){
+          L6FN2timeTotal += ((L6times[x+1] - L6times[x])*24*60);
+        }
+        var L6average = L6FN2timeTotal/L6timecount;
+
+        var L5FN2timeTotal = 0;
+        for(var x=0; x<L5times.length-1; x++){
+          L5FN2timeTotal += ((L5times[x+1] - L5times[x])*24*60);
+        }
+        var L5average = L5FN2timeTotal/L5timecount;
+
+        var EDFN2timeTotal = 0;
+        for(var x=0; x<EDtimes.length-1; x++){
+          EDFN2timeTotal += ((EDtimes[x+1] - EDtimes[x])*24*60);
+        }
+        var EDaverage = EDFN2timeTotal/EDtimecount;
+
+        var FNFN2timeTotal = 0;
+        for(var x=0; x<FNtimes.length-1; x++){
+          FNFN2timeTotal += ((FNtimes[x+1] - FNtimes[x])*24*60);
+        }
+        var FNaverage = FNFN2timeTotal/FNtimecount;
+
+        var ASWFN2timeTotal = 0;
+        for(var x=0; x<ASWtimes.length-1; x++){
+          ASWFN2timeTotal += ((ASWtimes[x+1] - ASWtimes[x])*24*60);
+        }
+        var ASWaverage = ASWFN2timeTotal/ASWtimecount;
+
+        var UWFN2timeTotal = 0;
+        for(var x=0; x<UWtimes.length-1; x++){
+          UWFN2timeTotal += ((UWtimes[x+1] - UWtimes[x])*24*60);
+        }
+        var UWaverage = UWFN2timeTotal/UWtimecount;
+
+        var AWFN2timeTotal = 0;
+        for(var x=0; x<AWtimes.length-1; x++){
+          AWFN2timeTotal += ((AWtimes[x+1] - AWtimes[x])*24*60);
+        }
+        var AWaverage = AWFN2timeTotal/AWtimecount;
+
+        var ENFN2timeTotal = 0;
+        for(var x=0; x<ENtimes.length-1; x++){
+          ENFN2timeTotal += ((ENtimes[x+1] - ENtimes[x])*24*60);
+        }
+        var ENaverage = ENFN2timeTotal/ENtimecount;
+
+        var GHFN2timeTotal = 0;
+        for(var x=0; x<GHtimes.length-1; x++){
+          GHFN2timeTotal += ((GHtimes[x+1] - GHtimes[x])*24*60);
+        }
+        var GHaverage = GHFN2timeTotal/GHtimecount;
+
+        var MSFN2timeTotal = 0;
+        for(var x=0; x<MStimes.length-1; x++){
+          MSFN2timeTotal += ((MStimes[x+1] - MStimes[x])*24*60);
+        }
+        var MSaverage = MSFN2timeTotal/MStimecount;
+
+        var PFN2timeTotal = 0;
+        for(var x=0; x<Ptimes.length-1; x++){
+          PFN2timeTotal += ((Ptimes[x+1] - Ptimes[x])*24*60);
+        }
+        var Paverage = PFN2timeTotal/Ptimecount;
+
+
+        //Green Time Average
+        var NDFN2timeTotal = 0;
+        for(var x=0; x<NDtimes.length-1; x++){
+          NDFN2timeTotal += ((NDtimes[x+1] - NDtimes[x])*24*60);
+        }
+        var NDaverage = NDFN2timeTotal/NDtimecount;
+
+        var WWFN2timeTotal = 0;
+        for(var x=0; x<WWtimes.length-1; x++){
+          WWFN2timeTotal += ((WWtimes[x+1] - WWtimes[x])*24*60);
+        }
+        var WWaverage = WWFN2timeTotal/WWtimecount;
+
+        var BSFN2timeTotal = 0;
+        for(var x=0; x<BStimes.length-1; x++){
+          BSFN2timeTotal += ((BStimes[x+1] - BStimes[x])*24*60);
+        }
+        var BSaverage = BSFN2timeTotal/BStimecount;
+
+        var UE2FN2timeTotal = 0;
+        for(var x=0; x<UE2times.length-1; x++){
+          UE2FN2timeTotal += ((UE2times[x+1] - UE2times[x])*24*60);
+        }
+        var UE2average = UE2FN2timeTotal/UE2timecount;
+
+        var ASE2FN2timeTotal = 0;
+        for(var x=0; x<ASE2times.length-1; x++){
+          ASE2FN2timeTotal += ((ASE2times[x+1] - ASE2times[x])*24*60);
+        }
+        var ASE2average = ASE2FN2timeTotal/ASE2timecount;
+
+        var FSFN2timeTotal = 0;
+        for(var x=0; x<FStimes.length-1; x++){
+          FSFN2timeTotal += ((FStimes[x+1] - FStimes[x])*24*60);
+        }
+        var FSaverage = FSFN2timeTotal/FStimecount;
+
+        var CSFN2timeTotal = 0;
+        for(var x=0; x<CStimes.length-1; x++){
+          CSFN2timeTotal += ((CStimes[x+1] - CStimes[x])*24*60);
+        }
+        var CSaverage = CSFN2timeTotal/CStimecount;
+
+        var RSFN2timeTotal = 0;
+        for(var x=0; x<RStimes.length-1; x++){
+          RSFN2timeTotal += ((RStimes[x+1] - RStimes[x])*24*60);
+        }
+        var RSaverage = RSFN2timeTotal/RStimecount;
+
+        var RWFN2timeTotal = 0;
+        for(var x=0; x<RWtimes.length-1; x++){
+          RWFN2timeTotal += ((RWtimes[x+1] - RWtimes[x])*24*60);
+        }
+        var RWaverage = RWFN2timeTotal/RWtimecount;
+
+        var CDFN2timeTotal = 0;
+        for(var x=0; x<CDtimes.length-1; x++){
+          CDFN2timeTotal += ((CDtimes[x+1] - CDtimes[x])*24*60);
+        }
+        var CDaverage = CDFN2timeTotal/CDtimecount;
+
+        var AWEFN2timeTotal = 0;
+        for(var x=0; x<AWEtimes.length-1; x++){
+          AWEFN2timeTotal += ((AWEtimes[x+1] - AWEtimes[x])*24*60);
+        }
+        var AWEaverage = AWEFN2timeTotal/AWEtimecount;
+
+        var SDFN2timeTotal = 0;
+        for(var x=0; x<SDtimes.length-1; x++){
+          SDFN2timeTotal += ((SDtimes[x+1] - SDtimes[x])*24*60);
+        }
+        var SDaverage = SDFN2timeTotal/SDtimecount;
+
+        var GCFN2timeTotal = 0;
+        for(var x=0; x<GCtimes.length-1; x++){
+          GCFN2timeTotal += ((GCtimes[x+1] - GCtimes[x])*24*60);
+        }
+        var GCaverage = GCFN2timeTotal/GCtimecount;
+
+        var RNFN2timeTotal = 0;
+        for(var x=0; x<RNtimes.length-1; x++){
+          RNFN2timeTotal += ((RNtimes[x+1] - RNtimes[x])*24*60);
+        }
+        var RNaverage = RNFN2timeTotal/RNtimecount;
+
+        var CNFN2timeTotal = 0;
+        for(var x=0; x<CNtimes.length-1; x++){
+          CNFN2timeTotal += ((CNtimes[x+1] - CNtimes[x])*24*60);
+        }
+        var CNaverage = CNFN2timeTotal/CNtimecount;
+
+        var FN2timeTotal = 0;
+        for(var x=0; x<FN2times.length-1; x++){
+          FN2timeTotal += ((FN2times[x+1] - FN2times[x])*24*60);
+        }
+        var FN2average = FN2timeTotal/FN2timecount;
+
+        var HN2timeTotal = 0;
+        for(var x=0; x<HN2times.length-1; x++){
+          HN2timeTotal += ((HN2times[x+1] - HN2times[x])*24*60);
+        }
+        var HN2average = HN2timeTotal/HN2timecount;
+
+        var PWtimeTotal = 0;
+        for(var x=0; x<PWtimes.length-1; x++){
+          PWtimeTotal += ((PWtimes[x+1] - PWtimes[x])*24*60);
+        }
+        var PWaverage = PWtimeTotal/PWtimecount;
+
+
+        //Gold Time Average
+        var WEtimeTotal = 0;
+        for(var x=0; x<WEtimes.length-1; x++){
+          WEtimeTotal += ((WEtimes[x+1] - WEtimes[x])*24*60);
+        }
+        var WEaverage = WEtimeTotal/WEtimecount;
+
+        var PEtimeTotal = 0;
+        for(var x=0; x<PEtimes.length-1; x++){
+          PEtimeTotal += ((PEtimes[x+1] - PEtimes[x])*24*60);
+        }
+        var PEaverage = PEtimeTotal/PEtimecount;
+
+        var FS2timeTotal = 0;
+        for(var x=0; x<FS2times.length-1; x++){
+          FS2timeTotal += ((FS2times[x+1] - FS2times[x])*24*60);
+        }
+        var FS2average = FS2timeTotal/FS2timecount;
+
+        var CS2timeTotal = 0;
+        for(var x=0; x<CS2times.length-1; x++){
+          CS2timeTotal += ((CS2times[x+1] - CS2times[x])*24*60);
+        }
+        var CS2average = CS2timeTotal/CS2timecount;
+
+        var RS2timeTotal = 0;
+        for(var x=0; x<RS2times.length-1; x++){
+          RS2timeTotal += ((RS2times[x+1] - RS2times[x])*24*60);
+        }
+        var RS2average = RS2timeTotal/RS2timecount;
+
+        var LWtimeTotal = 0;
+        for(var x=0; x<LWtimes.length-1; x++){
+          LWtimeTotal += ((LWtimes[x+1] - LWtimes[x])*24*60);
+        }
+        var LWaverage = LWtimeTotal/LWtimecount;
+
+        var HHtimeTotal = 0;
+        for(var x=0; x<HHtimes.length-1; x++){
+          HHtimeTotal += ((HHtimes[x+1] - HHtimes[x])*24*60);
+        }
+        var HHaverage = HHtimeTotal/HHtimecount;
+
+        var AWWtimeTotal = 0;
+        for(var x=0; x<AWWtimes.length-1; x++){
+          AWWtimeTotal += ((AWWtimes[x+1] - AWWtimes[x])*24*60);
+        }
+        var AWWaverage = AWWtimeTotal/AWWtimecount;
+
+        var REtimeTotal = 0;
+        for(var x=0; x<REtimes.length-1; x++){
+          REtimeTotal += ((REtimes[x+1] - REtimes[x])*24*60);
+        }
+        var REaverage = REtimeTotal/REtimecount;
+
+        var RN2timeTotal = 0;
+        for(var x=0; x<RN2times.length-1; x++){
+          RN2timeTotal += ((RN2times[x+1] - RN2times[x])*24*60);
+        }
+        var RN2average = RN2timeTotal/RN2timecount;
+
+        var CN2timeTotal = 0;
+        for(var x=0; x<CN2times.length-1; x++){
+          CN2timeTotal += ((CN2times[x+1] - CN2times[x])*24*60);
+        }
+        var CN2average = CN2timeTotal/CN2timecount;
+
+        var FN2timeTotal = 0;
+        for(var x=0; x<FN2times.length-1; x++){
+          FN2timeTotal += ((FN2times[x+1] - FN2times[x])*24*60);
+        }
+        var FN2average = FN2timeTotal/FN2timecount;
+
+        var UW2timeTotal = 0;
+        for(var x=0; x<UW2times.length-1; x++){
+          UW2timeTotal += ((UW2times[x+1] - UW2times[x])*24*60);
+        }
+        var UW2average = UW2timeTotal/UW2timecount;
+
+        var BNtimeTotal = 0;
+        for(var x=0; x<BNtimes.length-1; x++){
+          BNtimeTotal += ((BNtimes[x+1] - BNtimes[x])*24*60);
+        }
+        var BNaverage = BNtimeTotal/BNtimecount;
+
+
         //Update Silver Stats
-        document.getElementById('SilverStop1Stats').innerHTML = "<b>CRI Deck:</b>" + "<br>Average on: " + (CRIon/CRIoncount).toFixed(2) + "<br>Average off: " + (CRIoff/CRIoffcount).toFixed(2);
-        document.getElementById('SilverStop2Stats').innerHTML = "<b>Duke Centennial Hall:</b>" + "<br>Average on: " + (DCon/DConcount).toFixed(2) + "<br>Average off: " + (DCoff/DCoffcount).toFixed(2);
+        document.getElementById('SilverStop1Stats').innerHTML = "<b>CRI Deck:</b>" + "<br>Average wait: " + (CRIaverage).toFixed(2) + "min" + "<br>Average on: " + (CRIon/CRIoncount).toFixed(2) + "<br>Average off: " + (CRIoff/CRIoffcount).toFixed(2);
+        document.getElementById('SilverStop2Stats').innerHTML = "<b>Duke Centennial Hall:</b>" + "<br>Average wait: " + (DCaverage).toFixed(2) + "min" + "<br>Average on: " + (DCon/DConcount).toFixed(2) + "<br>Average off: " + (DCoff/DCoffcount).toFixed(2);
         if(!(ESon == 0 && ESoff == 0)){
-          document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Average on: " + (ESon/ESoncount).toFixed(2) + "<br>Average off: " + (ESoff/ESoffcount).toFixed(2);
+          document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Average wait: " + (ESaverage).toFixed(2) + "min" + "<br>Average on: " + (ESon/ESoncount).toFixed(2) + "<br>Average off: " + (ESoff/ESoffcount).toFixed(2);
         }else{
           document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Excel File does not contain this stop."
         }
-        document.getElementById('SilverStop4Stats').innerHTML = "<b>Athletics Complex East:</b>" + "<br>Average on: " + (AEon/AEoncount).toFixed(2) + "<br>Average off: " + (AEoff/AEoffcount).toFixed(2);
-        document.getElementById('SilverStop5Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average on: " + (UEon/UEoncount).toFixed(2) + "<br>Average off: " + (UEoff/UEoffcount).toFixed(2);
-        document.getElementById('SilverStop6Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average on: " + (ASEon/ASEoncount).toFixed(2) + "<br>Average off: " + (ASEoff/ASEoffcount).toFixed(2);
-        document.getElementById('SilverStop7Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average on: " + (HNon/HNoncount).toFixed(2) + "<br>Average off: " + (HNoff/HNoffcount).toFixed(2);
-        document.getElementById('SilverStop8Stats').innerHTML = "<b>Martin Hall:</b>" + "<br>Average on: " + (MHon/MHoncount).toFixed(2) + "<br>Average off: " + (MHoff/MHoffcount).toFixed(2);
-        document.getElementById('SilverStop9Stats').innerHTML = "<b>Lot 6:</b>" + "<br>Average on: " + (L6on/L6oncount).toFixed(2) + "<br>Average off: " + (L6off/L6offcount).toFixed(2);
-        document.getElementById('SilverStop10Stats').innerHTML = "<b>Lot 5A:</b>" + "<br>Average on: " + (L5on/L5oncount).toFixed(2) + "<br>Average off: " + (L5off/L5offcount).toFixed(2);
-        document.getElementById('SilverStop11Stats').innerHTML = "<b>East Deck 2:</b>" + "<br>Average on: " + (EDon/EDoncount).toFixed(2) + "<br>Average off: " + (EDoff/EDoffcount).toFixed(2);
-        document.getElementById('SilverStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FNon/FNoncount).toFixed(2) + "<br>Average off: " + (FNoff/FNoffcount).toFixed(2);
-        document.getElementById('SilverStop13Stats').innerHTML = "<b>Science Building:</b>" + "<br>Average on: " + (ASWon/ASWoncount).toFixed(2) + "<br>Average off: " + (ASWoff/ASWoffcount).toFixed(2);
-        document.getElementById('SilverStop14Stats').innerHTML = "<b>Student Union West:</b>" + "<br>Average on: " + (UWon/UWoncount).toFixed(2) + "<br>Average off: " + (UWoff/UWoffcount).toFixed(2);
-        document.getElementById('SilverStop15Stats').innerHTML = "<b>Athletics Complex West:</b>" + "<br>Average on: " + (AWon/AWoncount).toFixed(2) + "<br>Average off: " + (AWoff/AWoffcount).toFixed(2);
-        document.getElementById('SilverStop16Stats').innerHTML = "<b>Epic North:</b>" + "<br>Average on: " + (ENon/ENoncount).toFixed(2) + "<br>Average off: " + (ENoff/ENoffcount).toFixed(2);
-        document.getElementById('SilverStop17Stats').innerHTML = "<b>Grigg Hall:</b>" + "<br>Average on: " + (GHon/GHoncount).toFixed(2) + "<br>Average off: " + (GHoff/GHoffcount).toFixed(2);
-        document.getElementById('SilverStop18Stats').innerHTML = "<b>Motor Sports:</b>" + "<br>Average on: " + (MSon/MSoncount).toFixed(2) + "<br>Average off: " + (MSoff/MSoffcount).toFixed(2);
-        document.getElementById('SilverStop19Stats').innerHTML = "<b>Portal:</b>" + "<br>Average on: " + (Pon/Poncount).toFixed(2) + "<br>Average off: " + (Poff/Poffcount).toFixed(2);
+        document.getElementById('SilverStop4Stats').innerHTML = "<b>Athletics Complex East:</b>" + "<br>Average wait: " + (AEaverage).toFixed(2) + "min" + "<br>Average on: " + (AEon/AEoncount).toFixed(2) + "<br>Average off: " + (AEoff/AEoffcount).toFixed(2);
+        document.getElementById('SilverStop5Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average wait: " + (UEaverage).toFixed(2) + "min" + "<br>Average on: " + (UEon/UEoncount).toFixed(2) + "<br>Average off: " + (UEoff/UEoffcount).toFixed(2);
+        document.getElementById('SilverStop6Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average wait: " + (ASEaverage).toFixed(2) + "min" + "<br>Average on: " + (ASEon/ASEoncount).toFixed(2) + "<br>Average off: " + (ASEoff/ASEoffcount).toFixed(2);
+        document.getElementById('SilverStop7Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average wait: " + (HNaverage).toFixed(2) + "min" + "<br>Average on: " + (HNon/HNoncount).toFixed(2) + "<br>Average off: " + (HNoff/HNoffcount).toFixed(2);
+        document.getElementById('SilverStop8Stats').innerHTML = "<b>Martin Hall:</b>" + "<br>Average wait: " + (MHaverage).toFixed(2) + "min" + "<br>Average on: " + (MHon/MHoncount).toFixed(2) + "<br>Average off: " + (MHoff/MHoffcount).toFixed(2);
+        document.getElementById('SilverStop9Stats').innerHTML = "<b>Lot 6:</b>" + "<br>Average wait: " + (L6average).toFixed(2) + "min" + "<br>Average on: " + (L6on/L6oncount).toFixed(2) + "<br>Average off: " + (L6off/L6offcount).toFixed(2);
+        document.getElementById('SilverStop10Stats').innerHTML = "<b>Lot 5A:</b>" + "<br>Average wait: " + (L5average).toFixed(2) + "min" + "<br>Average on: " + (L5on/L5oncount).toFixed(2) + "<br>Average off: " + (L5off/L5offcount).toFixed(2);
+        document.getElementById('SilverStop11Stats').innerHTML = "<b>East Deck 2:</b>" + "<br>Average wait: " + (EDaverage).toFixed(2) + "min" + "<br>Average on: " + (EDon/EDoncount).toFixed(2) + "<br>Average off: " + (EDoff/EDoffcount).toFixed(2);
+        document.getElementById('SilverStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average wait: " + (FNaverage).toFixed(2) + "min" + "<br>Average on: " + (FNon/FNoncount).toFixed(2) + "<br>Average off: " + (FNoff/FNoffcount).toFixed(2);
+        document.getElementById('SilverStop13Stats').innerHTML = "<b>Science Building:</b>" + "<br>Average wait: " + (ASWaverage).toFixed(2) + "min" + "<br>Average on: " + (ASWon/ASWoncount).toFixed(2) + "<br>Average off: " + (ASWoff/ASWoffcount).toFixed(2);
+        document.getElementById('SilverStop14Stats').innerHTML = "<b>Student Union West:</b>" + "<br>Average wait: " + (UWaverage).toFixed(2) + "min" + "<br>Average on: " + (UWon/UWoncount).toFixed(2) + "<br>Average off: " + (UWoff/UWoffcount).toFixed(2);
+        document.getElementById('SilverStop15Stats').innerHTML = "<b>Athletics Complex West:</b>" + "<br>Average wait: " + (AWaverage).toFixed(2) + "min" + "<br>Average on: " + (AWon/AWoncount).toFixed(2) + "<br>Average off: " + (AWoff/AWoffcount).toFixed(2);
+        document.getElementById('SilverStop16Stats').innerHTML = "<b>Epic North:</b>" + "<br>Average wait: " + (ENaverage).toFixed(2) + "min" + "<br>Average on: " + (ENon/ENoncount).toFixed(2) + "<br>Average off: " + (ENoff/ENoffcount).toFixed(2);
+        document.getElementById('SilverStop17Stats').innerHTML = "<b>Grigg Hall:</b>" + "<br>Average wait: " + (GHaverage).toFixed(2) + "min" + "<br>Average on: " + (GHon/GHoncount).toFixed(2) + "<br>Average off: " + (GHoff/GHoffcount).toFixed(2);
+        document.getElementById('SilverStop18Stats').innerHTML = "<b>Motor Sports:</b>" + "<br>Average wait: " + (MSaverage).toFixed(2) + "min" + "<br>Average on: " + (MSon/MSoncount).toFixed(2) + "<br>Average off: " + (MSoff/MSoffcount).toFixed(2);
+        document.getElementById('SilverStop19Stats').innerHTML = "<b>Portal:</b>" + "<br>Average wait: " + (Paverage).toFixed(2) + "min" + "<br>Average on: " + (Pon/Poncount).toFixed(2) + "<br>Average off: " + (Poff/Poffcount).toFixed(2);
         
         //Update Green Stats
-        document.getElementById('GreenStop1Stats').innerHTML = "<b>North Deck:</b>" + "<br>Average on: " + (NDon/NDoncount).toFixed(2) + "<br>Average off: " + (NDoff/NDoffcount).toFixed(2);
-        document.getElementById('GreenStop2Stats').innerHTML = "<b>Wallis West/Light Rail West:</b>" + "<br>Average on: " + (WWon/WWoncount).toFixed(2) + "<br>Average off: " + (WWoff/WWoffcount).toFixed(2);
-        document.getElementById('GreenStop3Stats').innerHTML = "<b>Belk South:</b>" + "<br>Average on: " + (BSon/BSoncount).toFixed(2) + "<br>Average off: " + (BSoff/BSoffcount).toFixed(2);
-        document.getElementById('GreenStop4Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average on: " + (UE2on/UE2oncount).toFixed(2) + "<br>Average off: " + (UE2off/UE2offcount).toFixed(2);
-        document.getElementById('GreenStop5Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average on: " + (ASE2on/ASE2oncount).toFixed(2) + "<br>Average off: " + (ASE2off/ASE2offcount).toFixed(2);
-        document.getElementById('GreenStop6Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average on: " + (FSon/FSoncount).toFixed(2) + "<br>Average off: " + (FSoff/FSoffcount).toFixed(2);
-        document.getElementById('GreenStop7Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average on: " + (CSon/CSoncount).toFixed(2) + "<br>Average off: " + (CSoff/CSoffcount).toFixed(2);
-        document.getElementById('GreenStop8Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average on: " + (RSon/RSoncount).toFixed(2) + "<br>Average off: " + (RSoff/RSoffcount).toFixed(2);
+        document.getElementById('GreenStop1Stats').innerHTML = "<b>North Deck:</b>" + "<br>Average wait: " + (NDaverage).toFixed(2) + "min" + "<br>Average on: " + (NDon/NDoncount).toFixed(2) + "<br>Average off: " + (NDoff/NDoffcount).toFixed(2);
+        document.getElementById('GreenStop2Stats').innerHTML = "<b>Wallis West/Light Rail West:</b>" + "<br>Average wait: " + (WWaverage).toFixed(2) + "min" + "<br>Average on: " + (WWon/WWoncount).toFixed(2) + "<br>Average off: " + (WWoff/WWoffcount).toFixed(2);
+        document.getElementById('GreenStop3Stats').innerHTML = "<b>Belk South:</b>" + "<br>Average wait: " + (BSaverage).toFixed(2) + "min" + "<br>Average on: " + (BSon/BSoncount).toFixed(2) + "<br>Average off: " + (BSoff/BSoffcount).toFixed(2);
+        document.getElementById('GreenStop4Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average wait: " + (UE2average).toFixed(2) + "min" + "<br>Average on: " + (UE2on/UE2oncount).toFixed(2) + "<br>Average off: " + (UE2off/UE2offcount).toFixed(2);
+        document.getElementById('GreenStop5Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average wait: " + (ASE2average).toFixed(2) + "min" + "<br>Average on: " + (ASE2on/ASE2oncount).toFixed(2) + "<br>Average off: " + (ASE2off/ASE2offcount).toFixed(2);
+        document.getElementById('GreenStop6Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average wait: " + (FSaverage).toFixed(2) + "min" + "<br>Average on: " + (FSon/FSoncount).toFixed(2) + "<br>Average off: " + (FSoff/FSoffcount).toFixed(2);
+        document.getElementById('GreenStop7Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average wait: " + (CSaverage).toFixed(2) + "min" + "<br>Average on: " + (CSon/CSoncount).toFixed(2) + "<br>Average off: " + (CSoff/CSoffcount).toFixed(2);
+        document.getElementById('GreenStop8Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average wait: " + (RSaverage).toFixed(2) + "min" + "<br>Average on: " + (RSon/RSoncount).toFixed(2) + "<br>Average off: " + (RSoff/RSoffcount).toFixed(2);
         if(!(RWon == 0 && RWoff == 0)){
-          document.getElementById('GreenStop9Stats').innerHTML = "<b>Reese West:</b>" + "<br>Average on: " + (RWon/RWoncount).toFixed(2) + "<br>Average off: " + (RWoff/RWoffcount).toFixed(2);
+          document.getElementById('GreenStop9Stats').innerHTML = "<b>Reese West:</b>" + "<br>Average wait: " + (RWaverage).toFixed(2) + "min" + "<br>Average on: " + (RWon/RWoncount).toFixed(2) + "<br>Average off: " + (RWoff/RWoffcount).toFixed(2);
         }else{
           document.getElementById('GreenStop9Stats').innerHTML = "<b>Reese West:</b>" + "<br>Excel File does not contain this stop.";
         }
-        document.getElementById('GreenStop10Stats').innerHTML = "<b>Cone Deck:</b>" + "<br>Average on: " + (CDon/CDoncount).toFixed(2) + "<br>Average off: " + (CDoff/CDoffcount).toFixed(2);
-        document.getElementById('GreenStop11Stats').innerHTML = "<b>Alumni Way East:</b>" + "<br>Average on: " + (AWEon/AWEoncount).toFixed(2) + "<br>Average off: " + (AWEoff/AWEoffcount).toFixed(2);
-        document.getElementById('GreenStop12Stats').innerHTML = "<b>South Village Deck:</b>" + "<br>Average on: " + (SDon/SDoncount).toFixed(2) + "<br>Average off: " + (SDoff/SDoffcount).toFixed(2);
-        document.getElementById('GreenStop13Stats').innerHTML = "<b>Gage Center:</b>" + "<br>Average on: " + (GCon/GConcount).toFixed(2) + "<br>Average off: " + (GCoff/GCoffcount).toFixed(2);
-        document.getElementById('GreenStop14Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average on: " + (RNon/RNoncount).toFixed(2) + "<br>Average off: " + (RNoff/RNoffcount).toFixed(2);
-        document.getElementById('GreenStop15Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average on: " + (CNon/CNoncount).toFixed(2) + "<br>Average off: " + (CNoff/CNoffcount).toFixed(2);
-        document.getElementById('GreenStop16Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
-        document.getElementById('GreenStop17Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average on: " + (HN2on/HN2oncount).toFixed(2) + "<br>Average off: " + (HN2off/HN2offcount).toFixed(2);
+        document.getElementById('GreenStop10Stats').innerHTML = "<b>Cone Deck:</b>" + "<br>Average wait: " + (CDaverage).toFixed(2) + "min" + "<br>Average on: " + (CDon/CDoncount).toFixed(2) + "<br>Average off: " + (CDoff/CDoffcount).toFixed(2);
+        document.getElementById('GreenStop11Stats').innerHTML = "<b>Alumni Way East:</b>" + "<br>Average wait: " + (AWEaverage).toFixed(2) + "min" + "<br>Average on: " + (AWEon/AWEoncount).toFixed(2) + "<br>Average off: " + (AWEoff/AWEoffcount).toFixed(2);
+        document.getElementById('GreenStop12Stats').innerHTML = "<b>South Village Deck:</b>" + "<br>Average wait: " + (SDaverage).toFixed(2) + "min" + "<br>Average on: " + (SDon/SDoncount).toFixed(2) + "<br>Average off: " + (SDoff/SDoffcount).toFixed(2);
+        document.getElementById('GreenStop13Stats').innerHTML = "<b>Gage Center:</b>" + "<br>Average wait: " + (GCaverage).toFixed(2) + "min" + "<br>Average on: " + (GCon/GConcount).toFixed(2) + "<br>Average off: " + (GCoff/GCoffcount).toFixed(2);
+        document.getElementById('GreenStop14Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average wait: " + (RNaverage).toFixed(2) + "min" + "<br>Average on: " + (RNon/RNoncount).toFixed(2) + "<br>Average off: " + (RNoff/RNoffcount).toFixed(2);
+        document.getElementById('GreenStop15Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average wait: " + (CNaverage).toFixed(2) + "min" + "<br>Average on: " + (CNon/CNoncount).toFixed(2) + "<br>Average off: " + (CNoff/CNoffcount).toFixed(2);
+        document.getElementById('GreenStop16Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average wait: " + (FN2average).toFixed(2) + "min" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
+        document.getElementById('GreenStop17Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average wait: " + (HN2average).toFixed(2) + "min" + "<br>Average on: " + (HN2on/HN2oncount).toFixed(2) + "<br>Average off: " + (HN2off/HN2offcount).toFixed(2);
         if(!(PWon == 0 && PWoff == 0)){
-          document.getElementById('GreenStop18Stats').innerHTML = "<b>Police/Facilities Management West:</b>" + "<br>Average on: " + (PWon/PWoncount).toFixed(2) + "<br>Average off: " + (PWoff/PWoffcount).toFixed(2);
+          document.getElementById('GreenStop18Stats').innerHTML = "<b>Police/Facilities Management West:</b>" + "<br>Average wait: " + (PWaverage).toFixed(2) + "min" + "<br>Average on: " + (PWon/PWoncount).toFixed(2) + "<br>Average off: " + (PWoff/PWoffcount).toFixed(2);
         }else{
           document.getElementById('GreenStop18Stats').innerHTML = "<b>Police/Facilities Management West:</b>" + "<br>Excel File does not contian this stop.";
         }
         //Update Gold Stats
-        document.getElementById('GoldStop1Stats').innerHTML = "<b>Wallis East/Light Rail East:</b>" + "<br>Average on: " + (WEon/WEoncount).toFixed(2) + "<br>Average off: " + (WEoff/WEoffcount).toFixed(2);
-        document.getElementById('GoldStop2Stats').innerHTML = "<b>Police/Facilities Management East:</b>" + "<br>Average on: " + (PEon/PEoncount).toFixed(2) + "<br>Average off: " + (PEoff/PEoffcount).toFixed(2);
-        document.getElementById('GoldStop3Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average on: " + (FS2on/FS2oncount).toFixed(2) + "<br>Average off: " + (FS2off/FS2offcount).toFixed(2);
-        document.getElementById('GoldStop4Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average on: " + (CS2on/CS2oncount).toFixed(2) + "<br>Average off: " + (CS2off/CS2offcount).toFixed(2);
-        document.getElementById('GoldStop5Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average on: " + (RS2on/RS2oncount).toFixed(2) + "<br>Average off: " + (RS2off/RS2offcount).toFixed(2);
-        document.getElementById('GoldStop6Stats').innerHTML = "<b>Levine West:</b>" + "<br>Average on: " + (LWon/LWoncount).toFixed(2) + "<br>Average off: " + (LWoff/LWoffcount).toFixed(2);
-        document.getElementById('GoldStop7Stats').innerHTML = "<b>Hunt Hall:</b>" + "<br>Average on: " + (HHon/HHoncount).toFixed(2) + "<br>Average off: " + (HHoff/HHoffcount).toFixed(2);
+        document.getElementById('GoldStop1Stats').innerHTML = "<b>Wallis East/Light Rail East:</b>" + "<br>Average wait: " + (WEaverage).toFixed(2) + "min" + "<br>Average on: " + (WEon/WEoncount).toFixed(2) + "<br>Average off: " + (WEoff/WEoffcount).toFixed(2);
+        document.getElementById('GoldStop2Stats').innerHTML = "<b>Police/Facilities Management East:</b>" + "<br>Average wait: " + (PEaverage).toFixed(2) + "min" + "<br>Average on: " + (PEon/PEoncount).toFixed(2) + "<br>Average off: " + (PEoff/PEoffcount).toFixed(2);
+        document.getElementById('GoldStop3Stats').innerHTML = "<b>Fretwell South:</b>" + "<br>Average wait: " + (FS2average).toFixed(2) + "min" + "<br>Average on: " + (FS2on/FS2oncount).toFixed(2) + "<br>Average off: " + (FS2off/FS2offcount).toFixed(2);
+        document.getElementById('GoldStop4Stats').innerHTML = "<b>Cato South:</b>" + "<br>Average wait: " + (CS2average).toFixed(2) + "min" + "<br>Average on: " + (CS2on/CS2oncount).toFixed(2) + "<br>Average off: " + (CS2off/CS2offcount).toFixed(2);
+        document.getElementById('GoldStop5Stats').innerHTML = "<b>Robinson South:</b>" + "<br>Average wait: " + (RS2average).toFixed(2) + "min" + "<br>Average on: " + (RS2on/RS2oncount).toFixed(2) + "<br>Average off: " + (RS2off/RS2offcount).toFixed(2);
+        document.getElementById('GoldStop6Stats').innerHTML = "<b>Levine West:</b>" + "<br>Average wait: " + (LWaverage).toFixed(2) + "min" + "<br>Average on: " + (LWon/LWoncount).toFixed(2) + "<br>Average off: " + (LWoff/LWoffcount).toFixed(2);
+        document.getElementById('GoldStop7Stats').innerHTML = "<b>Hunt Hall:</b>" + "<br>Average wait: " + (HHaverage).toFixed(2) + "min" + "<br>Average on: " + (HHon/HHoncount).toFixed(2) + "<br>Average off: " + (HHoff/HHoffcount).toFixed(2);
         if(!(AWWon == 0 && AWWoff == 0)){
-        document.getElementById('GoldStop8Stats').innerHTML = "<b>Alumni Way West:</b>" + "<br>Average on: " + (AWWon/AWWoncount).toFixed(2) + "<br>Average off: " + (AWWoff/AWWoffcount).toFixed(2);
+        document.getElementById('GoldStop8Stats').innerHTML = "<b>Alumni Way West:</b>" + "<br>Average wait: " + (AWWaverage).toFixed(2) + "min" + "<br>Average on: " + (AWWon/AWWoncount).toFixed(2) + "<br>Average off: " + (AWWoff/AWWoffcount).toFixed(2);
         }
         else{document.getElementById('GoldStop8Stats').innerHTML = "<b>Alumni Way West:</b>" + "<br>Excel File does not contain this stop.";
 
         }
-        document.getElementById('GoldStop9Stats').innerHTML = "<b>Reese East:</b>" + "<br>Average on: " + (REon/REoncount).toFixed(2) + "<br>Average off: " + (REoff/REoffcount).toFixed(2);
-        document.getElementById('GoldStop10Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average on: " + (RN2on/RN2oncount).toFixed(2) + "<br>Average off: " + (RN2off/RN2offcount).toFixed(2);
-        document.getElementById('GoldStop11Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average on: " + (CN2on/CN2oncount).toFixed(2) + "<br>Average off: " + (CN2off/CN2offcount).toFixed(2);
-        document.getElementById('GoldStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
-        document.getElementById('GoldStop13Stats').innerHTML = "<b>Student Union-West:</b>" + "<br>Average on: " + (UW2on/UW2oncount).toFixed(2) + "<br>Average off: " + (UW2off/UW2offcount).toFixed(2);
-        document.getElementById('GoldStop14Stats').innerHTML = "<b>Union Deck/Belk North:</b>" + "<br>Average on: " + (BNon/BNoncount).toFixed(2) + "<br>Average off: " + (BNoff/BNoffcount).toFixed(2);
+        document.getElementById('GoldStop9Stats').innerHTML = "<b>Reese East:</b>" + "<br>Average wait: " + (REaverage).toFixed(2) + "min" + "<br>Average on: " + (REon/REoncount).toFixed(2) + "<br>Average off: " + (REoff/REoffcount).toFixed(2);
+        document.getElementById('GoldStop10Stats').innerHTML = "<b>Robinson North:</b>" + "<br>Average wait: " + (RN2average).toFixed(2) + "min" + "<br>Average on: " + (RN2on/RN2oncount).toFixed(2) + "<br>Average off: " + (RN2off/RN2offcount).toFixed(2);
+        document.getElementById('GoldStop11Stats').innerHTML = "<b>Cato North:</b>" + "<br>Average wait: " + (CN2average).toFixed(2) + "min" + "<br>Average on: " + (CN2on/CN2oncount).toFixed(2) + "<br>Average off: " + (CN2off/CN2offcount).toFixed(2);
+        document.getElementById('GoldStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average wait: " + (FN2average).toFixed(2) + "min" + "<br>Average on: " + (FN2on/FN2oncount).toFixed(2) + "<br>Average off: " + (FN2off/FN2offcount).toFixed(2);
+        document.getElementById('GoldStop13Stats').innerHTML = "<b>Student Union-West:</b>" + "<br>Average wait: " + (UW2average).toFixed(2) + "min" + "<br>Average on: " + (UW2on/UW2oncount).toFixed(2) + "<br>Average off: " + (UW2off/UW2offcount).toFixed(2);
+        document.getElementById('GoldStop14Stats').innerHTML = "<b>Union Deck/Belk North:</b>" + "<br>Average wait: " + (BNaverage).toFixed(2) + "min" + "<br>Average on: " + (BNon/BNoncount).toFixed(2) + "<br>Average off: " + (BNoff/BNoffcount).toFixed(2);
         
       }
     excel_file.value = '';
