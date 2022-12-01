@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 @st.cache(allow_output_mutation=True)
 def load_data():
-    df = pd.read_excel('2018-2019 Stop Data PART 1.xlsx')
+    df = pd.read_excel('TransportData/niner-transit-data/2018-2019 Stop Data PART 1.xlsx')
     return df
 
 st.set_page_config(page_title="Transit Data",layout='wide')
