@@ -13,6 +13,14 @@
   <script>
     //script to display reviews
     function submission() {
+      let x = document.getElementById("name").value;
+      let y = document.getElementById("feedback").value;
+      if (x == ""||y==""){
+        alert("Form must be filled");
+        return false
+      }else {
+
+      
       var name = document.getElementById("name").value;
       var route = document.getElementById("route").value;
       var review = document.getElementById("feedback").value;
@@ -49,7 +57,7 @@ content += `<table style='background-color: hsl(0, 0%, 100%);margin:2rem auto;bo
     </table>`;
     result.innerHTML = content;
     document.getElementsByClassName('container')[0].appendChild(result);
-
+  }
 }
 //clears form after submission
 function reset() {
@@ -73,7 +81,7 @@ function reset() {
     <h1 id="formTitle"> Submit Your feedback</h1>
     
     <div class="container">
-    <form class="review-form">
+    <form class="review-form" >
         <div>
               <label for="name">Name:</label>
               <input type="text" id="name" name="name" placeholder="John Doe" Required>
@@ -116,7 +124,7 @@ function reset() {
 
             
             <div>
-              <button type="button" value="Send" id="sendBtn" onclick="submission();reset();">Submit</button>
+              <button type="buton" value="Send" id="sendBtn" onclick="submission();reset();">Submit</button>
             </div>
      </form>
      <div class="review-display">
