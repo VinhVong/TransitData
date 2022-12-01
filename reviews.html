@@ -28,7 +28,7 @@ dateSel.value = d.getFullYear() + "-" + m + "-" + day;
 //creates review section
 var result = document.createElement("div");
 var content = "<h3 style='color:green; margin-bottom: 20px'></h3>";
-content += `<table style='width: 500px;border:1px'>
+content += `<table style='background-color: hsl(0, 0%, 100%);margin:2rem auto;box-sizing: border-box;width: 700px;border: 4px solid hsl(108, 82%, 17%)'>
   <tr>
         <th>Name:</th>
         <td>`+name+`</td>
@@ -119,7 +119,7 @@ function reset() {
               <button type="button" value="Send" id="sendBtn" onclick="submission();reset();">Submit</button>
             </div>
      </form>
-     <div>
+     <div class="review-display">
        <h2>Reviews</h2>
      </div>
     </div>

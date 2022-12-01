@@ -142,10 +142,14 @@ footer{
     box-sizing: border-box;
     border: 4px solid hsl(108, 82%, 17%);
     border-radius: 4px;
-    width: 60%;
+    width: 700px;
     background-color: #f8f8f8;
     
     
+}
+.review-display{
+    margin: auto;
+    text-align: center;
 }
 label{
     display:block;
