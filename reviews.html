@@ -11,25 +11,38 @@
 </head>
 <body>
   <script>
+    //script to display reviews
     function submission() {
       var name = document.getElementById("name").value;
       var route = document.getElementById("route").value;
       var review = document.getElementById("feedback").value;
-      var date = document.getElementById("date").value;
 
+      //show date 
+     let dateSel = document.getElementById('date'),
+    d = new Date(),
+  m = d.getMonth() < 10 ? `0${d.getMonth()}` : `${d.getMonth()}`,
+  day = d.getDay() < 10 ? `0${d.getDay()}` : `${d.getDay()}`;
+
+dateSel.value = d.getFullYear() + "-" + m + "-" + day;
+
+//creates review section
 var result = document.createElement("div");
-var content = "<h3 style='color:green; margin-bottom: 20px'>Review</h3>";
+var content = "<h3 style='color:green; margin-bottom: 20px'></h3>";
 content += `<table style='width: 500px;border:1px'>
   <tr>
-        <th>User Name:</th>
+        <th>Name:</th>
         <td>`+name+`</td>
     </tr>
     <tr>
-        <th>User Route:</th>
+        <th>Route:</th>
         <td>`+route+`</td>
     </tr>
     <tr>
-      <th>User Feedback:</th>
+        <th>Date:</th>
+        <td>`+dateSel.value+`</td>
+    </tr>
+    <tr>
+      <th>Feedback:</th>
         <td>`+review+`</td>
     </tr>
   
@@ -37,6 +50,10 @@ content += `<table style='width: 500px;border:1px'>
     result.innerHTML = content;
     document.getElementsByClassName('container')[0].appendChild(result);
 
+}
+//clears form after submission
+function reset() {
+  document.getElementById("review-form").reset()
 }
   </script>
 
@@ -99,10 +116,14 @@ content += `<table style='width: 500px;border:1px'>
 
             
             <div>
-              <button type="button" value="Send" id="sendBtn" onclick="submission();">Submit</button>
+              <button type="button" value="Send" id="sendBtn" onclick="submission();reset();">Submit</button>
             </div>
      </form>
+     <div>
+       <h2>Reviews</h2>
+     </div>
     </div>
+   
          
             
 </body>
