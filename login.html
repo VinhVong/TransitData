@@ -29,20 +29,20 @@
 
             <h3>Login Here</h3>
 
-            <form method="GET">
+            <form method="GET" onsubmit="return false">
 
 
                 <table>
                     <tr>
                         <td>Username:</td>
                         <td>
-                            <input type="text" id="user" required minlength="5">
+                            <input type="text" id="user" required minlength="4">
                         </td>
 
                     <tr>
                         <td>Password:</td>
                         <td>
-                            <input type="text" id="pass" required minlength="5">
+                            <input type="password" id="pass" required minlength="5">
                         </td>
                     </tr>
 
@@ -52,21 +52,23 @@
 
                             function Login(){
 
-                                var username = document.getElementById('user');
-                                var password = document.getElementById('pass');
+                                var username = document.getElementById('user').value;
+                                var password = document.getElementById('pass').value;
                                 
                                 //if statemetn username.value , username.textContent, username.type, etc not working. Having trouble actually validating but button is working
-                                window.location = "/C:/Users/supra/Documents/TransitData/TransitData/charts.html?"
+                                
+                                
+                                if(username.includes("uncc") === true){
 
+                                    window.location = "upload.html"
 
+                                }else{
 
+                                    alert("Wrong Username or Password");
+                                }
+                                
+                                
                             }
-
-
-
-
-
-
                         </script>
 
                     </td>

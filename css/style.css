@@ -116,3 +116,9 @@ footer{
     width: 100%;
 }
 
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    gap: 2rem;
+}
