@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Vinh Vong">
     <title>Transportation Data</title>
+    <script defer src="login.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>PATs Services</h1>
@@ -21,39 +24,63 @@
         </nav>
     </header>
     <main>
-        
+
         <center>
 
             <h3>Login Here</h3>
 
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td>
-                        <input type="text" name="user">
-                    </td>
+            <form method="GET">
+
+
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td>
+                            <input type="text" id="user" required minlength="5">
+                        </td>
 
                     <tr>
-                    <td>Password:</td>
+                        <td>Password:</td>
+                        <td>
+                            <input type="text" id="pass" required minlength="5">
+                        </td>
+                    </tr>
+
                     <td>
-                        <input type="text" name="pass">
+                        <button onclick="Login();" type ="submit">Login</button>
+                        <script>
+
+                            function Login(){
+
+                                var username = document.getElementById('user');
+                                var password = document.getElementById('pass');
+                                
+                                //if statemetn username.value , username.textContent, username.type, etc not working. Having trouble actually validating but button is working
+                                window.location = "/C:/Users/supra/Documents/TransitData/TransitData/charts.html?"
+
+
+
+                            }
+
+
+
+
+
+
+                        </script>
+
                     </td>
-                </tr>
-
-                <td>
-                    <input type="submit" name = "submit" value="Login">
-                </td>
+                    </tr>
 
 
 
-                
-                </tr>
+                </table>
+
+
+            </form>
 
 
 
-            </table>
-
-            
 
         </center>
 
@@ -63,8 +90,9 @@
     </main>
 
     <footer>
-       <p class="font-sm center-text">&copy;2022 PATs Services. All rights reserved.</p>
+        <p class="font-sm center-text">&copy;2022 PATs Services. All rights reserved.</p>
     </footer>
-    
+
 </body>
+
 </html>
