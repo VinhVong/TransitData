@@ -19,8 +19,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="map.html">Map</a></li>
                 <li><a href="charts.html">Chart</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="upload.html">Upload</a></li>
             </ul>
         </nav>
     </header>
@@ -30,14 +29,14 @@
 
             <h3>Login Here</h3>
 
-            <form method="GET" onsubmit="return false;">
+            <form method="GET" onsubmit="return false">
 
 
                 <table>
                     <tr>
                         <td>Username:</td>
                         <td>
-                            <input type="text" id="user" required minlength="5">
+                            <input type="text" id="user" required minlength="4">
                         </td>
 
                     <tr>
@@ -53,11 +52,22 @@
 
                             function Login(){
 
-                                var username = document.getElementById('user');
-                                var password = document.getElementById('pass');
+                                var username = document.getElementById('user').value;
+                                var password = document.getElementById('pass').value;
                                 
                                 //if statemetn username.value , username.textContent, username.type, etc not working. Having trouble actually validating but button is working
-                                window.location = "upload.html"
+                                
+                                
+                                if(username.includes("uncc") === true){
+
+                                    window.location = "upload.html"
+
+                                }else{
+
+                                    alert("Wrong Username or Password");
+                                }
+                                
+                                
                             }
                         </script>
 
