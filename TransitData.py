@@ -15,6 +15,7 @@ st.set_page_config(page_title="Transit Data",layout='wide')
 df = load_data()
 
 df['month'] = pd.DatetimeIndex(df['Date']).month
+df['hours'] = df['Time'].astype(str).str[:2]
 df_on = df[df['On off'].str.contains('on')]
 df_off = df[df['On off'].str.contains('off')]
 
@@ -26,16 +27,22 @@ option = st.sidebar.selectbox('Choose a Route', routes)
 
 if option == 'All Routes':
     st.title('Transportation Data')
-    df_group1 = df_on.groupby(['Route','month'])['Count'].sum().reset_index()
-    df_bar = df_on[['Route','Date','Count','month']]
-    df_mean1 = df_on.groupby(['Route','month'])['Count'].mean().reset_index()
+
+    df1 = df_on.groupby(['month','hours','Route','Stop'])['Count'].sum().reset_index()
+    option_month = st.multiselect('Choose month',df1['month'].unique(), default=None)
+    option_route = st.multiselect('Choose Route',df1['Route'].unique(), default=None)
+    source_month = df1[df1['month'].isin(option_month)]
+    source1 = source_month[source_month['Route'].isin(option_route)]
+
+    df_group1 = source1.groupby(['Route','month'])['Count'].sum().reset_index()
+    df_mean1 = source1.groupby(['Route','month'])['Count'].mean().reset_index()
     
     if st.sidebar.checkbox('Total Passageners'):
-        total_chart = alt.Chart(df_bar).mark_bar().encode(
-            x=alt.X('month', title = 'Month'),
+        total_chart = alt.Chart(df_group1).mark_bar().encode(
+            x=alt.X('Route', sort = '-y', title = 'Route'),
             y=alt.Y('Count', title = '# of passageners'),
             color='Route:N',
-            column='Route'
+            column='month'
         ).properties(
             title = 'Total Passengers per Month',
             height = 300,
@@ -55,23 +62,43 @@ if option == 'All Routes':
         
         st.write(total_chart)
         st.write(bar_chart_mean)
+
+    hour_sum = source1.groupby(['Route','hours','month'])['Count'].sum().reset_index()
+    hour_mean = source1.groupby(['Route','hours','month'])['Count'].mean().reset_index()
+
+    if st.sidebar.checkbox('Hours'):
+        hour_chart = alt.Chart(hour_sum).mark_bar().encode(
+            x=alt.X('hours', title = 'Hours'),
+            y=alt.Y('Count', title = '# of passageners'),
+            color='Route:N',
+            column='month',
+            tooltip = ['Route','Count']
+        ).properties(
+            title = 'Total Passengers per Month',
+            height = 300,
+            width = 200
+        )
+        
+        st.write(hour_chart)
+
+
     
-    df_stop1 = df_on.groupby(['Stop'])['Count'].sum().reset_index()
-    df_mean_stop1 = df_on.groupby(['Stop'])['Count'].mean().reset_index()
+    df_stop1 = source1.groupby(['Route','Stop'])['Count'].sum().reset_index()
+    df_mean_stop1 = source1.groupby(['Route','Stop'])['Count'].mean().reset_index()
 
     clickon=alt.selection(type='single', empty='all', fields=['Stop'])
     
     if st.sidebar.checkbox('Stops Passengers Getting On'):
-        chart_stops_on1 = alt.Chart(df_mean_stop1).mark_arc().encode(
-            theta=alt.Theta(field='Count', type="quantitative"),
+        chart_stops_on1 = alt.Chart(df_mean_stop1).mark_bar().encode(
+            x=alt.X('Stop',sort='-y', title='Transit Stops'),
+            y=alt.Y('Count', title='Total # of Passengers at Stop'),
             color=alt.condition(clickon, 'Stop:N', alt.value('lightgray'), legend=None),
-            text='Stop:N'
         ).add_selection(
             clickon
         ).properties(
             title = 'Average Passengers for Each Stop',
             height = 300,
-            width = 600
+            width = 550
         ).interactive()
         
         chart_stop_on2 =alt.Chart(df_stop1).mark_bar().encode(
@@ -81,23 +108,27 @@ if option == 'All Routes':
         ).add_selection(
             clickon
         ).properties(
-            title = 'total Passengers Getting On at Each Stop',
+            title = 'Total Passengers Getting On at Each Stop',
             height = 300,
-            width = 600
+            width = 550
         ).interactive()
         
         st.altair_chart((chart_stop_on2 | chart_stops_on1), use_container_width = True)
+
+    df2 = df_off.groupby(['month','hours','Route','Stop'])['Count'].sum().reset_index()
+    source_month1 = df2[df2['month'].isin(option_month)]
+    source2 = source_month1[source_month1['Route'].isin(option_route)]
     
-    df_stop2 = df_off.groupby(['Stop'])['Count'].sum().reset_index()
-    df_mean_stop2 = df_off.groupby(['Stop'])['Count'].mean().reset_index()
+    df_stop2 = source2.groupby(['Route','Stop'])['Count'].sum().reset_index()
+    df_mean_stop2 = source2.groupby(['Route','Stop'])['Count'].mean().reset_index()
 
     clickon1=alt.selection(type='single', empty='all', fields=['Stop'])
     
     if st.sidebar.checkbox('Stops on Passengers Getting Off'):
-        chart_stops_off1 = alt.Chart(df_mean_stop2).mark_arc().encode(
-            theta=alt.Theta(field='Count', type="quantitative"),
+        chart_stops_off1 = alt.Chart(df_mean_stop2).mark_bar().encode(
+            x=alt.X('Stop',sort='-y', title='Transit Stops'),
+            y=alt.Y('Count', title='Total # at Stop'),
             color=alt.condition(clickon1, 'Stop:N', alt.value('lightgray'), legend=None),
-            text='Stop:N'
         ).add_selection(
             clickon1
         ).properties(
@@ -118,7 +149,7 @@ if option == 'All Routes':
             width = 550
         ).interactive()
         
-        st.write(chart_stops_off1 | chart_stop_off2)
+        st.write(chart_stop_off2 | chart_stops_off1)
 
 else:
     st.title(option + ' Route Data')
@@ -136,37 +167,47 @@ else:
 
     st.write(chart1, use_container_width=True)
 
-    df_sum = df_route.groupby(['month'])['Count'].sum().reset_index()
-    df_mean = df_route.groupby(['month'])['Count'].mean().reset_index()
+    df3 = df_route.groupby(['month','hours','Route','Stop'])['Count'].sum().reset_index()
+    option_month = st.multiselect('Choose month',df3['month'].unique(), default=df3['month'].unique())
+    source_month = df3[df3['month'].isin(option_month)]
+
+    df_sum = source_month.groupby(['month','hours'])['Count'].sum().reset_index()
+    df_mean = source_month.groupby(['month','hours'])['Count'].mean().reset_index()
     
     if st.sidebar.checkbox('Total/Average'):
         chart_sum = alt.Chart(df_sum).mark_bar().encode(
-            x=alt.X('month', title='Months'),
-            y=alt.Y('Count', title='# of Passageners')
+            x=alt.X('hours', title='Hours'),
+            y=alt.Y('Count', title='# of Passageners'),
+            column = 'month',
+            tooltip = ['Count']
         ).properties(
             title=option + ' Route Total Passengers On',
             height = 300,
-            width = 250
+            width = 200
         )
 
         chart_mean = alt.Chart(df_mean).mark_bar().encode(
-            x=alt.X('month', title='Months'),
-            y=alt.Y('Count', title='# of Passageners')
+            x=alt.X('hours', title='Hours'),
+            y=alt.Y('Count', title='# of Passageners'),
+            column = 'month',
+            tooltip = ['Count']
         ).properties(
             title=option + ' Route Average Passengers On',
             height = 300,
-            width = 250
+            width = 200
         )
 
-        st.write(chart_sum | chart_mean)
+        st.write(chart_sum)
+        st.write(chart_mean)
 
-    df_stop_sum = df_route.groupby(['Stop'])['Count'].sum().reset_index()
-    df_stop_mean = df_route.groupby(['Stop'])['Count'].mean().reset_index()
+    df_stop_sum = source_month.groupby(['Stop'])['Count'].sum().reset_index()
+    df_stop_mean = source_month.groupby(['Stop'])['Count'].mean().reset_index()
 
     if st.sidebar.checkbox('Totat/Average Passengers getting On at Stop'):
         chart_stop = alt.Chart(df_stop_sum).mark_bar().encode(
             x=alt.X('Stop',sort=alt.EncodingSortField('Count', op='min', order='descending'), title = 'Transit Stops'),
-            y=alt.Y('Count', title = 'Total # at Stop')
+            y=alt.Y('Count', title = 'Total # at Stop'),
+            tooltip = ['Count']
         ).properties(
             title = option +' Route Total Passengers Getting On',
             height = 300,
@@ -175,7 +216,8 @@ else:
 
         chart_stop_mean = alt.Chart(df_stop_mean).mark_bar().encode(
             x=alt.X('Stop',sort='-y', title = 'Transit Stops'),
-            y=alt.Y('Count', title = 'Average # of passageners at Stop')
+            y=alt.Y('Count', title = 'Average # of passageners at Stop'),
+            tooltip=['Count']
         ).properties(
             title = option +' Route Average getting On',
             height = 300,
@@ -184,13 +226,17 @@ else:
 
         st.write(chart_stop | chart_stop_mean)
 
-    df_stop_sum1 = df_route_off.groupby(['Stop'])['Count'].sum().reset_index()
-    df_stop_mean1 = df_route_off.groupby(['Stop'])['Count'].mean().reset_index()    
+    df4 = df_route_off.groupby(['month','hours','Route','Stop'])['Count'].sum().reset_index()
+    source_month1 = df4[df4['month'].isin(option_month)]
+
+    df_stop_sum1 = source_month1.groupby(['Stop'])['Count'].sum().reset_index()
+    df_stop_mean1 = source_month1.groupby(['Stop'])['Count'].mean().reset_index()    
     
     if st.sidebar.checkbox('Totat/Average Passengers getting Off at Stop'):
         chart_stop1 = alt.Chart(df_stop_sum1).mark_bar().encode(
             x=alt.X('Stop',sort=alt.EncodingSortField('Count', op='min', order='descending'), title = 'Transit Stops'),
-            y=alt.Y('Count', title = 'Total # at Stop')
+            y=alt.Y('Count', title = 'Total # at Stop'),
+            tooltip = ['Count']
         ).properties(
             title = option +' Route Total Passengers Getting Off',
             height = 300,
@@ -199,7 +245,8 @@ else:
 
         chart_stop_mean1 = alt.Chart(df_stop_mean1).mark_bar().encode(
             x=alt.X('Stop',sort='-y', title = 'Transit Stops'),
-            y=alt.Y('Count', title = 'Average # of passageners at Stop')
+            y=alt.Y('Count', title = 'Average # of passageners at Stop'),
+            tooltip = ['Count']
         ).properties(
             title = option +' Route Average getting Off',
             height = 300,
