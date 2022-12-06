@@ -352,351 +352,805 @@
                 for(var row = 0; row < sheet_data.length; row++)
                 {
                   //Silver Data Creation
-                  if(sheet_data[row][7]=='Silver'){
-                    if(sheet_data[row][8]=='CRI Deck'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          CRIon+=sheet_data[row][3];
-                          CRIoncount++;
+                      if(sheet_data[row][7]=='Silver'){
+                        if(sheet_data[row][8]=='CRI Deck'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              CRIon+=sheet_data[row][3];
+                              CRIoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              CRIoff+=sheet_data[row][3];
+                              CRIoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            CRIoff+=(sheet_data[row][3]*(-1));
+                            CRIoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            CRItimesM.push(sheet_data[row][1]);
+                            CRItimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            CRItimesTU.push(sheet_data[row][1]);
+                            CRItimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            CRItimesW.push(sheet_data[row][1]);
+                            CRItimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            CRItimesTH.push(sheet_data[row][1]);
+                            CRItimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            CRItimesF.push(sheet_data[row][1]);
+                            CRItimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            CRItimesSAT.push(sheet_data[row][1]);
+                            CRItimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            CRItimesSUN.push(sheet_data[row][1]);
+                            CRItimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          CRIoff+=sheet_data[row][3];
-                          CRIoffcount++;
+                        if(sheet_data[row][8]=='Duke Centennial Hall East'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              DCon+=sheet_data[row][3];
+                              DConcount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              DCoff+=sheet_data[row][3];
+                              DCoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            DCoff+=(sheet_data[row][3]*(-1));
+                            DCoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            DCtimesM.push(sheet_data[row][1]);
+                            DCtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            DCtimesTU.push(sheet_data[row][1]);
+                            DCtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            DCtimesW.push(sheet_data[row][1]);
+                            DCtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            DCtimesTH.push(sheet_data[row][1]);
+                            DCtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            DCtimesF.push(sheet_data[row][1]);
+                            DCtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            DCtimesSAT.push(sheet_data[row][1]);
+                            DCtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            DCtimesSUN.push(sheet_data[row][1]);
+                            DCtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        CRIoff+=(sheet_data[row][3]*(-1));
-                        CRIoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        CRItimes.push(sheet_data[row][1]);
-                        CRItimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Duke Centennial Hall East'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          DCon+=sheet_data[row][3];
-                          DConcount++;
+                        if(sheet_data[row][8]=='EPIC S'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              ESon+=sheet_data[row][3];
+                              ESoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              ESoff+=sheet_data[row][3];
+                              ESoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            ESoff+=(sheet_data[row][3]*(-1));
+                            ESoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            EStimesM.push(sheet_data[row][1]);
+                            EStimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            EStimesTU.push(sheet_data[row][1]);
+                            EStimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            EStimesW.push(sheet_data[row][1]);
+                            EStimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            EStimesTH.push(sheet_data[row][1]);
+                            EStimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            EStimesF.push(sheet_data[row][1]);
+                            EStimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            EStimesSAT.push(sheet_data[row][1]);
+                            EStimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            EStimesSUN.push(sheet_data[row][1]);
+                            EStimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          DCoff+=sheet_data[row][3];
-                          DCoffcount++;
+                        if(sheet_data[row][8]=='Athletics Complex E'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              AEon+=sheet_data[row][3];
+                              AEoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              AEoff+=sheet_data[row][3];
+                              AEoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            AEoff+=(sheet_data[row][3]*(-1));
+                            AEoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            AEtimesM.push(sheet_data[row][1]);
+                            AEtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            AEtimesTU.push(sheet_data[row][1]);
+                            AEtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            AEtimesW.push(sheet_data[row][1]);
+                            AEtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            AEtimesTH.push(sheet_data[row][1]);
+                            AEtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            AEtimesF.push(sheet_data[row][1]);
+                            AEtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            AEtimesSAT.push(sheet_data[row][1]);
+                            AEtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            AEtimesSUN.push(sheet_data[row][1]);
+                            AEtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        DCoff+=(sheet_data[row][3]*(-1));
-                        DCoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        DCtimes.push(sheet_data[row][1]);
-                        DCtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='EPIC S'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          ESon+=sheet_data[row][3];
-                          ESoncount++;
+                        if(sheet_data[row][8]=='Student Union E'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              UEon+=sheet_data[row][3];
+                              UEoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              UEoff+=sheet_data[row][3];
+                              UEoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            UEoff+=(sheet_data[row][3]*(-1));
+                            UEoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            UEtimesM.push(sheet_data[row][1]);
+                            UEtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            UEtimesTU.push(sheet_data[row][1]);
+                            UEtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            UEtimesW.push(sheet_data[row][1]);
+                            UEtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            UEtimesTH.push(sheet_data[row][1]);
+                            UEtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            UEtimesF.push(sheet_data[row][1]);
+                            UEtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            UEtimesSAT.push(sheet_data[row][1]);
+                            UEtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            UEtimesSUN.push(sheet_data[row][1]);
+                            UEtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          ESoff+=sheet_data[row][3];
-                          ESoffcount++;
+                        if(sheet_data[row][8]=='Aux Services East'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              ASEon+=sheet_data[row][3];
+                              ASEoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              ASEoff+=sheet_data[row][3];
+                              ASEoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            ASEoff+=(sheet_data[row][3]*(-1));
+                            ASEoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            ASEtimesM.push(sheet_data[row][1]);
+                            ASEtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            ASEtimesTU.push(sheet_data[row][1]);
+                            ASEtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            ASEtimesW.push(sheet_data[row][1]);
+                            ASEtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            ASEtimesTH.push(sheet_data[row][1]);
+                            ASEtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            ASEtimesF.push(sheet_data[row][1]);
+                            ASEtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            ASEtimesSAT.push(sheet_data[row][1]);
+                            ASEtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            ASEtimesSUN.push(sheet_data[row][1]);
+                            ASEtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        ESoff+=(sheet_data[row][3]*(-1));
-                        ESoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        EStimes.push(sheet_data[row][1]);
-                        EStimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Athletics Complex E'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          AEon+=sheet_data[row][3];
-                          AEoncount++;
+                        if(sheet_data[row][8]=='Student Health N'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              HNon+=sheet_data[row][3];
+                              HNoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              HNoff+=sheet_data[row][3];
+                              HNoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            HNoff+=(sheet_data[row][3]*(-1));
+                            HNoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            HNtimesM.push(sheet_data[row][1]);
+                            HNtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            HNtimesTU.push(sheet_data[row][1]);
+                            HNtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            HNtimesW.push(sheet_data[row][1]);
+                            HNtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            HNtimesTH.push(sheet_data[row][1]);
+                            HNtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            HNtimesF.push(sheet_data[row][1]);
+                            HNtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            HNtimesSAT.push(sheet_data[row][1]);
+                            HNtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            HNtimesSUN.push(sheet_data[row][1]);
+                            HNtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          AEoff+=sheet_data[row][3];
-                          AEoffcount++;
+                        if(sheet_data[row][8]=='Martin Hall'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              MHon+=sheet_data[row][3];
+                              MHoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              MHoff+=sheet_data[row][3];
+                              MHoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            MHoff+=(sheet_data[row][3]*(-1));
+                            MHoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            MHtimesM.push(sheet_data[row][1]);
+                            MHtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            MHtimesTU.push(sheet_data[row][1]);
+                            MHtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            MHtimesW.push(sheet_data[row][1]);
+                            MHtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            MHtimesTH.push(sheet_data[row][1]);
+                            MHtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            MHtimesF.push(sheet_data[row][1]);
+                            MHtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            MHtimesSAT.push(sheet_data[row][1]);
+                            MHtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            MHtimesSUN.push(sheet_data[row][1]);
+                            MHtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        AEoff+=(sheet_data[row][3]*(-1));
-                        AEoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        AEtimes.push(sheet_data[row][1]);
-                        AEtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Student Union E'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          UEon+=sheet_data[row][3];
-                          UEoncount++;
+                        if(sheet_data[row][8]=='Lot 6'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              L6on+=sheet_data[row][3];
+                              L6oncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              L6off+=sheet_data[row][3];
+                              L6offcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            L6off+=(sheet_data[row][3]*(-1));
+                            L6offcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            L6timesM.push(sheet_data[row][1]);
+                            L6timecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            L6timesTU.push(sheet_data[row][1]);
+                            L6timecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            L6timesW.push(sheet_data[row][1]);
+                            L6timecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            L6timesTH.push(sheet_data[row][1]);
+                            L6timecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            L6timesF.push(sheet_data[row][1]);
+                            L6timecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            L6timesSAT.push(sheet_data[row][1]);
+                            L6timecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            L6timesSUN.push(sheet_data[row][1]);
+                            L6timecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          UEoff+=sheet_data[row][3];
-                          UEoffcount++;
+                        if(sheet_data[row][8]=='Lot 5A'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              L5on+=sheet_data[row][3];
+                              L5oncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              L5off+=sheet_data[row][3];
+                              L5offcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            L5off+=(sheet_data[row][3]*(-1));
+                            L5offcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            L5timesM.push(sheet_data[row][1]);
+                            L5timecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            L5timesTU.push(sheet_data[row][1]);
+                            L5timecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            L5timesW.push(sheet_data[row][1]);
+                            L5timecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            L5timesTH.push(sheet_data[row][1]);
+                            L5timecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            L5timesF.push(sheet_data[row][1]);
+                            L5timecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            L5timesSAT.push(sheet_data[row][1]);
+                            L5timecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            L5timesSUN.push(sheet_data[row][1]);
+                            L5timecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        UEoff+=(sheet_data[row][3]*(-1));
-                        UEoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        UEtimes.push(sheet_data[row][1]);
-                        UEtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Aux Services East'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          ASEon+=sheet_data[row][3];
-                          ASEoncount++;
+                        if(sheet_data[row][8]=='East Deck 2'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              EDon+=sheet_data[row][3];
+                              EDoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              EDoff+=sheet_data[row][3];
+                              EDoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            EDoff+=(sheet_data[row][3]*(-1));
+                            EDoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            EDtimesM.push(sheet_data[row][1]);
+                            EDtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            EDtimesTU.push(sheet_data[row][1]);
+                            EDtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            EDtimesW.push(sheet_data[row][1]);
+                            EDtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            EDtimesTH.push(sheet_data[row][1]);
+                            EDtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            EDtimesF.push(sheet_data[row][1]);
+                            EDtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            EDtimesSAT.push(sheet_data[row][1]);
+                            EDtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            EDtimesSUN.push(sheet_data[row][1]);
+                            EDtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          ASEoff+=sheet_data[row][3];
-                          ASEoffcount++;
+                        if(sheet_data[row][8]=='Fretwell N'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              FNon+=sheet_data[row][3];
+                              FNoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              FNoff+=sheet_data[row][3];
+                              FNoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            FNoff+=(sheet_data[row][3]*(-1));
+                            FNoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            FNtimesM.push(sheet_data[row][1]);
+                            FNtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            FNtimesTU.push(sheet_data[row][1]);
+                            FNtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            FNtimesW.push(sheet_data[row][1]);
+                            FNtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            FNtimesTH.push(sheet_data[row][1]);
+                            FNtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            FNtimesF.push(sheet_data[row][1]);
+                            FNtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            FNtimesSAT.push(sheet_data[row][1]);
+                            FNtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            FNtimesSUN.push(sheet_data[row][1]);
+                            FNtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        ASEoff+=(sheet_data[row][3]*(-1));
-                        ASEoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        ASEtimes.push(sheet_data[row][1]);
-                        ASEtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Student Health N'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          HNon+=sheet_data[row][3];
-                          HNoncount++;
+                        if(sheet_data[row][8]=='Aux Services West'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              ASWon+=sheet_data[row][3];
+                              ASWoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              ASWoff+=sheet_data[row][3];
+                              ASWoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            ASWoff+=(sheet_data[row][3]*(-1));
+                            ASWoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            ASWtimesM.push(sheet_data[row][1]);
+                            ASWtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            ASWtimesTU.push(sheet_data[row][1]);
+                            ASWtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            ASWtimesW.push(sheet_data[row][1]);
+                            ASWtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            ASWtimesTH.push(sheet_data[row][1]);
+                            ASWtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            ASWtimesF.push(sheet_data[row][1]);
+                            ASWtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            ASWtimesSAT.push(sheet_data[row][1]);
+                            ASWtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            ASWtimesSUN.push(sheet_data[row][1]);
+                            ASWtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          HNoff+=sheet_data[row][3];
-                          HNoffcount++;
+                        if(sheet_data[row][8]=='Student Union W'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              UWon+=sheet_data[row][3];
+                              UWoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              UWoff+=sheet_data[row][3];
+                              UWoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            UWoff+=(sheet_data[row][3]*(-1));
+                            UWoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            UWtimesM.push(sheet_data[row][1]);
+                            UWtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            UWtimesTU.push(sheet_data[row][1]);
+                            UWtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            UWtimesW.push(sheet_data[row][1]);
+                            UWtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            UWtimesTH.push(sheet_data[row][1]);
+                            UWtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            UWtimesF.push(sheet_data[row][1]);
+                            UWtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            UWtimesSAT.push(sheet_data[row][1]);
+                            UWtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            UWtimesSUN.push(sheet_data[row][1]);
+                            UWtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        HNoff+=(sheet_data[row][3]*(-1));
-                        HNoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        HNtimes.push(sheet_data[row][1]);
-                        HNtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Martin Hall'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          MHon+=sheet_data[row][3];
-                          MHoncount++;
+                        if(sheet_data[row][8]=='Athletics Complex W'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              AWon+=sheet_data[row][3];
+                              AWoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              AWoff+=sheet_data[row][3];
+                              AWoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            AWoff+=(sheet_data[row][3]*(-1));
+                            AWoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            AWtimesM.push(sheet_data[row][1]);
+                            AWtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            AWtimesTU.push(sheet_data[row][1]);
+                            AWtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            AWtimesW.push(sheet_data[row][1]);
+                            AWtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            AWtimesTH.push(sheet_data[row][1]);
+                            AWtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            AWtimesF.push(sheet_data[row][1]);
+                            AWtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            AWtimesSAT.push(sheet_data[row][1]);
+                            AWtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            AWtimesSUN.push(sheet_data[row][1]);
+                            AWtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          MHoff+=sheet_data[row][3];
-                          MHoffcount++;
+                        if(sheet_data[row][8]=='EPIC N'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              ENon+=sheet_data[row][3];
+                              ENoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              ENoff+=sheet_data[row][3];
+                              ENoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            ENoff+=(sheet_data[row][3]*(-1));
+                            ENoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            ENtimesM.push(sheet_data[row][1]);
+                            ENtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            ENtimesTU.push(sheet_data[row][1]);
+                            ENtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            ENtimesW.push(sheet_data[row][1]);
+                            ENtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            ENtimesTH.push(sheet_data[row][1]);
+                            ENtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            ENtimesF.push(sheet_data[row][1]);
+                            ENtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            ENtimesSAT.push(sheet_data[row][1]);
+                            ENtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            ENtimesSUN.push(sheet_data[row][1]);
+                            ENtimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        MHoff+=(sheet_data[row][3]*(-1));
-                        MHoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        MHtimes.push(sheet_data[row][1]);
-                        MHtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Lot 6'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          L6on+=sheet_data[row][3];
-                          L6oncount++;
+                        if(sheet_data[row][8]=='Grigg Hall E'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              GHon+=sheet_data[row][3];
+                              GHoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              GHoff+=sheet_data[row][3];
+                              GHoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            GHoff+=(sheet_data[row][3]*(-1));
+                            GHoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            GHtimesM.push(sheet_data[row][1]);
+                            GHtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            GHtimesTU.push(sheet_data[row][1]);
+                            GHtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            GHtimesW.push(sheet_data[row][1]);
+                            GHtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            GHtimesTH.push(sheet_data[row][1]);
+                            GHtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            GHtimesF.push(sheet_data[row][1]);
+                            GHtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            GHtimesSAT.push(sheet_data[row][1]);
+                            GHtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            GHtimesSUN.push(sheet_data[row][1]);
+                            GHtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          L6off+=sheet_data[row][3];
-                          L6offcount++;
+                        if(sheet_data[row][8]=='Motor Sports'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              MSon+=sheet_data[row][3];
+                              MSoncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              MSoff+=sheet_data[row][3];
+                              MSoffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            MSoff+=(sheet_data[row][3]*(-1));
+                            MSoffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            MStimesM.push(sheet_data[row][1]);
+                            MStimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            MStimesTU.push(sheet_data[row][1]);
+                            MStimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            MStimesW.push(sheet_data[row][1]);
+                            MStimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            MStimesTH.push(sheet_data[row][1]);
+                            MStimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            MStimesF.push(sheet_data[row][1]);
+                            MStimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            MStimesSAT.push(sheet_data[row][1]);
+                            MStimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            MStimesSUN.push(sheet_data[row][1]);
+                            MStimecountSUN++;
+                          }
                         }
-                        if(sheet_data[row][3]<0){
-                        L6off+=(sheet_data[row][3]*(-1));
-                        L6offcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        L6times.push(sheet_data[row][1]);
-                        L6timecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Lot 5A'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          L5on+=sheet_data[row][3];
-                          L5oncount++;
+                        if(sheet_data[row][8]=='PORTAL East'){
+                          if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
+                              Pon+=sheet_data[row][3];
+                              Poncount++;
+                            }
+                          if(sheet_data[row][4]=="off"){
+                              Poff+=sheet_data[row][3];
+                              Poffcount++;
+                            }
+                            if(sheet_data[row][3]<0){
+                            Poff+=(sheet_data[row][3]*(-1));
+                            Poffcount++;
+                          }
+                          if(sheet_data[row][0] == 43339||sheet_data[row][0] == 43339+7||sheet_data[row][0] == 43339+364||sheet_data[row][0] == 43339+364+7||sheet_data[row][0] == 43339+364+364||sheet_data[row][0] == 43339+364+364+7){
+                            PtimesM.push(sheet_data[row][1]);
+                            PtimecountM++;
+                          }
+                          if(sheet_data[row][0] == 43339+1||sheet_data[row][0] == 43339+8||sheet_data[row][0] == 43339+364+1||sheet_data[row][0] == 43339+364+8||sheet_data[row][0] == 43339+364+364+1||sheet_data[row][0] == 43339+364+364+8){
+                            PtimesTU.push(sheet_data[row][1]);
+                            PtimecountTU++;
+                          }
+                          if(sheet_data[row][0] == 43339+2||sheet_data[row][0] == 43339+9||sheet_data[row][0] == 43339+364+2||sheet_data[row][0] == 43339+364+9||sheet_data[row][0] == 43339+364+364+2||sheet_data[row][0] == 43339+364+364+9){
+                            PtimesW.push(sheet_data[row][1]);
+                            PtimecountW++;
+                          }
+                          if(sheet_data[row][0] == 43339+3||sheet_data[row][0] == 43339+10||sheet_data[row][0] == 43339+364+3||sheet_data[row][0] == 43339+364+10||sheet_data[row][0] == 43339+364+364+3||sheet_data[row][0] == 43339+364+364+10){
+                            PtimesTH.push(sheet_data[row][1]);
+                            PtimecountTH++;
+                          }
+                          if(sheet_data[row][0] == 43339+4||sheet_data[row][0] == 43339+11||sheet_data[row][0] == 43339+364+4||sheet_data[row][0] == 43339+364+11||sheet_data[row][0] == 43339+364+364+4||sheet_data[row][0] == 43339+364+364+11){
+                            PtimesF.push(sheet_data[row][1]);
+                            PtimecountF++;
+                          }
+                          if(sheet_data[row][0] == 43339+5||sheet_data[row][0] == 43339+12||sheet_data[row][0] == 43339+364+5||sheet_data[row][0] == 43339+364+12||sheet_data[row][0] == 43339+364+364+5||sheet_data[row][0] == 43339+364+364+12){
+                            PtimesSAT.push(sheet_data[row][1]);
+                            PtimecountSAT++;
+                          }
+                          if(sheet_data[row][0] == 43339+6||sheet_data[row][0] == 43339+13||sheet_data[row][0] == 43339+364+6||sheet_data[row][0] == 43339+364+13||sheet_data[row][0] == 43339+364+364+6||sheet_data[row][0] == 43339+364+364+13){
+                            PtimesSUN.push(sheet_data[row][1]);
+                            PtimecountSUN++;
+                          }
                         }
-                      if(sheet_data[row][4]=="off"){
-                          L5off+=sheet_data[row][3];
-                          L5offcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        L5off+=(sheet_data[row][3]*(-1));
-                        L5offcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        L5times.push(sheet_data[row][1]);
-                        L5timecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='East Deck 2'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          EDon+=sheet_data[row][3];
-                          EDoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          EDoff+=sheet_data[row][3];
-                          EDoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        EDoff+=(sheet_data[row][3]*(-1));
-                        EDoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        EDtimes.push(sheet_data[row][1]);
-                        EDtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Fretwell N'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          FNon+=sheet_data[row][3];
-                          FNoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          FNoff+=sheet_data[row][3];
-                          FNoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        FNoff+=(sheet_data[row][3]*(-1));
-                        FNoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        FNtimes.push(sheet_data[row][1]);
-                        FNtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Aux Services West'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          ASWon+=sheet_data[row][3];
-                          ASWoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          ASWoff+=sheet_data[row][3];
-                          ASWoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        ASWoff+=(sheet_data[row][3]*(-1));
-                        ASWoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        ASWtimes.push(sheet_data[row][1]);
-                        ASWtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Student Union W'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          UWon+=sheet_data[row][3];
-                          UWoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          UWoff+=sheet_data[row][3];
-                          UWoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        UWoff+=(sheet_data[row][3]*(-1));
-                        UWoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        UWtimes.push(sheet_data[row][1]);
-                        UWtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Athletics Complex W'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          AWon+=sheet_data[row][3];
-                          AWoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          AWoff+=sheet_data[row][3];
-                          AWoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        AWoff+=(sheet_data[row][3]*(-1));
-                        AWoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        AWtimes.push(sheet_data[row][1]);
-                        AWtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='EPIC N'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          ENon+=sheet_data[row][3];
-                          ENoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          ENoff+=sheet_data[row][3];
-                          ENoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        ENoff+=(sheet_data[row][3]*(-1));
-                        ENoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        ENtimes.push(sheet_data[row][1]);
-                        ENtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Grigg Hall E'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          GHon+=sheet_data[row][3];
-                          GHoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          GHoff+=sheet_data[row][3];
-                          GHoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        GHoff+=(sheet_data[row][3]*(-1));
-                        GHoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        GHtimes.push(sheet_data[row][1]);
-                        GHtimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='Motor Sports'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          MSon+=sheet_data[row][3];
-                          MSoncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          MSoff+=sheet_data[row][3];
-                          MSoffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        MSoff+=(sheet_data[row][3]*(-1));
-                        MSoffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        MStimes.push(sheet_data[row][1]);
-                        MStimecount++;
-                      } 
-                    }
-                    if(sheet_data[row][8]=='PORTAL East'){
-                      if(sheet_data[row][4]=="on" && sheet_data[row][3]>=1){
-                          Pon+=sheet_data[row][3];
-                          Poncount++;
-                        }
-                      if(sheet_data[row][4]=="off"){
-                          Poff+=sheet_data[row][3];
-                          Poffcount++;
-                        }
-                        if(sheet_data[row][3]<0){
-                        Poff+=(sheet_data[row][3]*(-1));
-                        Poffcount++;
-                      }
-                      if(sheet_data[row][0] == 43398 || sheet_data[row][0] == 43398+365 || sheet_data[row][0] == 43398+365+365){
-                        Ptimes.push(sheet_data[row][1]);
-                        Ptimecount++;
-                      } 
-                    }
-
-                  }
                   //Green Data Creation
                   if(sheet_data[row][7]=='Green'){
                     if(sheet_data[row][8]=='North Deck'){
@@ -1283,120 +1737,815 @@
               }
 
 
-            //Silver Time Average
-            var CRIFN2timeTotal = 0;
-            for(var x=0; x<CRItimes.length-1; x++){
-              CRIFN2timeTotal += ((CRItimes[x+1] - CRItimes[x])*24*60);
+            //Silver Time Average Monday
+            var CRIFN2timeTotalM = 0;
+            for(var x=0; x<CRItimesM.length-1; x++){
+              CRIFN2timeTotalM += ((CRItimesM[x+1] - CRItimesM[x])*24*60);
             }
-            var CRIaverage = CRIFN2timeTotal/CRItimecount;
-
-            var DCFN2timeTotal = 0;
-            for(var x=0; x<DCtimes.length-1; x++){
-              DCFN2timeTotal += ((DCtimes[x+1] - DCtimes[x])*24*60);
+            var CRIaverageM = CRIFN2timeTotalM/CRItimecountM;
+    
+            var DCFN2timeTotalM = 0;
+            for(var x=0; x<DCtimesM.length-1; x++){
+              DCFN2timeTotalM += ((DCtimesM[x+1] - DCtimesM[x])*24*60);
             }
-            var DCaverage = DCFN2timeTotal/DCtimecount;
-
-            var ESFN2timeTotal = 0;
-            for(var x=0; x<EStimes.length-1; x++){
-              ESFN2timeTotal += ((EStimes[x+1] - EStimes[x])*24*60);
+            var DCaverageM = DCFN2timeTotalM/DCtimecountM;
+    
+            var ESFN2timeTotalM = 0;
+            for(var x=0; x<EStimesM.length-1; x++){
+              ESFN2timeTotalM += ((EStimesM[x+1] - EStimesM[x])*24*60);
             }
-            var ESaverage = ESFN2timeTotal/EStimecount;
-
-            var AEFN2timeTotal = 0;
-            for(var x=0; x<AEtimes.length-1; x++){
-              AEFN2timeTotal += ((AEtimes[x+1] - AEtimes[x])*24*60);
+            var ESaverageM = ESFN2timeTotalM/EStimecountM;
+    
+            var AEFN2timeTotalM = 0;
+            for(var x=0; x<AEtimesM.length-1; x++){
+              AEFN2timeTotalM += ((AEtimesM[x+1] - AEtimesM[x])*24*60);
             }
-            var AEaverage = AEFN2timeTotal/AEtimecount;
-
-            var UEFN2timeTotal = 0;
-            for(var x=0; x<UEtimes.length-1; x++){
-              UEFN2timeTotal += ((UEtimes[x+1] - UEtimes[x])*24*60);
+            var AEaverageM = AEFN2timeTotalM/AEtimecountM;
+    
+            var UEFN2timeTotalM = 0;
+            for(var x=0; x<UEtimesM.length-1; x++){
+              UEFN2timeTotalM += ((UEtimesM[x+1] - UEtimesM[x])*24*60);
             }
-            var UEaverage = UEFN2timeTotal/UEtimecount;
+            var UEaverageM = UEFN2timeTotalM/UEtimecountM;
             
-            var ASEFN2timeTotal = 0;
-            for(var x=0; x<ASEtimes.length-1; x++){
-              ASEFN2timeTotal += ((ASEtimes[x+1] - ASEtimes[x])*24*60);
+            var ASEFN2timeTotalM = 0;
+            for(var x=0; x<ASEtimesM.length-1; x++){
+              ASEFN2timeTotalM += ((ASEtimesM[x+1] - ASEtimesM[x])*24*60);
             }
-            var ASEaverage = ASEFN2timeTotal/ASEtimecount;
-
-            var HNFN2timeTotal = 0;
-            for(var x=0; x<HNtimes.length-1; x++){
-              HNFN2timeTotal += ((HNtimes[x+1] - HNtimes[x])*24*60);
+            var ASEaverageM = ASEFN2timeTotalM/ASEtimecountM;
+    
+            var HNFN2timeTotalM = 0;
+            for(var x=0; x<HNtimesM.length-1; x++){
+              HNFN2timeTotalM += ((HNtimesM[x+1] - HNtimesM[x])*24*60);
             }
-            var HNaverage = HNFN2timeTotal/HNtimecount;
-
-            var MHFN2timeTotal = 0;
-            for(var x=0; x<MHtimes.length-1; x++){
-              MHFN2timeTotal += ((MHtimes[x+1] - MHtimes[x])*24*60);
+            var HNaverageM = HNFN2timeTotalM/HNtimecountM;
+    
+            var MHFN2timeTotalM = 0;
+            for(var x=0; x<MHtimesM.length-1; x++){
+              MHFN2timeTotalM += ((MHtimesM[x+1] - MHtimesM[x])*24*60);
             }
-            var MHaverage = MHFN2timeTotal/MHtimecount;
-
-            var L6FN2timeTotal = 0;
-            for(var x=0; x<L6times.length-1; x++){
-              L6FN2timeTotal += ((L6times[x+1] - L6times[x])*24*60);
+            var MHaverageM = MHFN2timeTotalM/MHtimecountM;
+    
+            var L6FN2timeTotalM = 0;
+            for(var x=0; x<L6timesM.length-1; x++){
+              L6FN2timeTotalM += ((L6timesM[x+1] - L6timesM[x])*24*60);
             }
-            var L6average = L6FN2timeTotal/L6timecount;
-
-            var L5FN2timeTotal = 0;
-            for(var x=0; x<L5times.length-1; x++){
-              L5FN2timeTotal += ((L5times[x+1] - L5times[x])*24*60);
+            var L6averageM = L6FN2timeTotalM/L6timecountM;
+    
+            var L5FN2timeTotalM = 0;
+            for(var x=0; x<L5timesM.length-1; x++){
+              L5FN2timeTotalM += ((L5timesM[x+1] - L5timesM[x])*24*60);
             }
-            var L5average = L5FN2timeTotal/L5timecount;
-
-            var EDFN2timeTotal = 0;
-            for(var x=0; x<EDtimes.length-1; x++){
-              EDFN2timeTotal += ((EDtimes[x+1] - EDtimes[x])*24*60);
+            var L5averageM = L5FN2timeTotalM/L5timecountM;
+    
+            var EDFN2timeTotalM = 0;
+            for(var x=0; x<EDtimesM.length-1; x++){
+              EDFN2timeTotalM += ((EDtimesM[x+1] - EDtimesM[x])*24*60);
             }
-            var EDaverage = EDFN2timeTotal/EDtimecount;
-
-            var FNFN2timeTotal = 0;
-            for(var x=0; x<FNtimes.length-1; x++){
-              FNFN2timeTotal += ((FNtimes[x+1] - FNtimes[x])*24*60);
+            var EDaverageM = EDFN2timeTotalM/EDtimecountM;
+    
+            var FNFN2timeTotalM = 0;
+            for(var x=0; x<FNtimesM.length-1; x++){
+              FNFN2timeTotalM += ((FNtimesM[x+1] - FNtimesM[x])*24*60);
             }
-            var FNaverage = FNFN2timeTotal/FNtimecount;
-
-            var ASWFN2timeTotal = 0;
-            for(var x=0; x<ASWtimes.length-1; x++){
-              ASWFN2timeTotal += ((ASWtimes[x+1] - ASWtimes[x])*24*60);
+            var FNaverageM = FNFN2timeTotalM/FNtimecountM;
+    
+            var ASWFN2timeTotalM = 0;
+            for(var x=0; x<ASWtimesM.length-1; x++){
+              ASWFN2timeTotalM += ((ASWtimesM[x+1] - ASWtimesM[x])*24*60);
             }
-            var ASWaverage = ASWFN2timeTotal/ASWtimecount;
-
-            var UWFN2timeTotal = 0;
-            for(var x=0; x<UWtimes.length-1; x++){
-              UWFN2timeTotal += ((UWtimes[x+1] - UWtimes[x])*24*60);
+            var ASWaverageM = ASWFN2timeTotalM/ASWtimecountM;
+    
+            var UWFN2timeTotalM = 0;
+            for(var x=0; x<UWtimesM.length-1; x++){
+              UWFN2timeTotalM += ((UWtimesM[x+1] - UWtimesM[x])*24*60);
             }
-            var UWaverage = UWFN2timeTotal/UWtimecount;
-
-            var AWFN2timeTotal = 0;
-            for(var x=0; x<AWtimes.length-1; x++){
-              AWFN2timeTotal += ((AWtimes[x+1] - AWtimes[x])*24*60);
+            var UWaverageM = UWFN2timeTotalM/UWtimecountM;
+    
+            var AWFN2timeTotalM = 0;
+            for(var x=0; x<AWtimesM.length-1; x++){
+              AWFN2timeTotalM += ((AWtimesM[x+1] - AWtimesM[x])*24*60);
             }
-            var AWaverage = AWFN2timeTotal/AWtimecount;
-
-            var ENFN2timeTotal = 0;
-            for(var x=0; x<ENtimes.length-1; x++){
-              ENFN2timeTotal += ((ENtimes[x+1] - ENtimes[x])*24*60);
+            var AWaverageM = AWFN2timeTotalM/AWtimecountM;
+    
+            var ENFN2timeTotalM = 0;
+            for(var x=0; x<ENtimesM.length-1; x++){
+              ENFN2timeTotalM += ((ENtimesM[x+1] - ENtimesM[x])*24*60);
             }
-            var ENaverage = ENFN2timeTotal/ENtimecount;
-
-            var GHFN2timeTotal = 0;
-            for(var x=0; x<GHtimes.length-1; x++){
-              GHFN2timeTotal += ((GHtimes[x+1] - GHtimes[x])*24*60);
+            var ENaverageM = ENFN2timeTotalM/ENtimecountM;
+    
+            var GHFN2timeTotalM = 0;
+            for(var x=0; x<GHtimesM.length-1; x++){
+              GHFN2timeTotalM += ((GHtimesM[x+1] - GHtimesM[x])*24*60);
             }
-            var GHaverage = GHFN2timeTotal/GHtimecount;
-
-            var MSFN2timeTotal = 0;
-            for(var x=0; x<MStimes.length-1; x++){
-              MSFN2timeTotal += ((MStimes[x+1] - MStimes[x])*24*60);
+            var GHaverageM = GHFN2timeTotalM/GHtimecountM;
+    
+            var MSFN2timeTotalM = 0;
+            for(var x=0; x<MStimesM.length-1; x++){
+              MSFN2timeTotalM += ((MStimesM[x+1] - MStimesM[x])*24*60);
             }
-            var MSaverage = MSFN2timeTotal/MStimecount;
-
-            var PFN2timeTotal = 0;
-            for(var x=0; x<Ptimes.length-1; x++){
-              PFN2timeTotal += ((Ptimes[x+1] - Ptimes[x])*24*60);
+            var MSaverageM = MSFN2timeTotalM/MStimecountM;
+    
+            var PFN2timeTotalM = 0;
+            for(var x=0; x<PtimesM.length-1; x++){
+              PFN2timeTotalM += ((PtimesM[x+1] - PtimesM[x])*24*60);
             }
-            var Paverage = PFN2timeTotal/Ptimecount;
+            var PaverageM = PFN2timeTotalM/PtimecountM;
+            
+    
+            //Silver Time Average Tuesday
+            var CRIFN2timeTotalTU = 0;
+            for(var x=0; x<CRItimesTU.length-1; x++){
+              CRIFN2timeTotalTU += ((CRItimesTU[x+1] - CRItimesTU[x])*24*60);
+            }
+            var CRIaverageTU = CRIFN2timeTotalTU/CRItimecountTU;
+    
+            var DCFN2timeTotalTU = 0;
+            for(var x=0; x<DCtimesTU.length-1; x++){
+              DCFN2timeTotalTU += ((DCtimesTU[x+1] - DCtimesTU[x])*24*60);
+            }
+            var DCaverageTU = DCFN2timeTotalTU/DCtimecountTU;
+    
+            var ESFN2timeTotalTU = 0;
+            for(var x=0; x<EStimesTU.length-1; x++){
+              ESFN2timeTotalTU += ((EStimesTU[x+1] - EStimesTU[x])*24*60);
+            }
+            var ESaverageTU = ESFN2timeTotalTU/EStimecountTU;
+    
+            var AEFN2timeTotalTU = 0;
+            for(var x=0; x<AEtimesTU.length-1; x++){
+              AEFN2timeTotalTU += ((AEtimesTU[x+1] - AEtimesTU[x])*24*60);
+            }
+            var AEaverageTU = AEFN2timeTotalTU/AEtimecountTU;
+    
+            var UEFN2timeTotalTU = 0;
+            for(var x=0; x<UEtimesTU.length-1; x++){
+              UEFN2timeTotalTU += ((UEtimesTU[x+1] - UEtimesTU[x])*24*60);
+            }
+            var UEaverageTU = UEFN2timeTotalTU/UEtimecountTU;
+            
+            var ASEFN2timeTotalTU = 0;
+            for(var x=0; x<ASEtimesTU.length-1; x++){
+              ASEFN2timeTotalTU += ((ASEtimesTU[x+1] - ASEtimesTU[x])*24*60);
+            }
+            var ASEaverageTU = ASEFN2timeTotalTU/ASEtimecountTU;
+    
+            var HNFN2timeTotalTU = 0;
+            for(var x=0; x<HNtimesTU.length-1; x++){
+              HNFN2timeTotalTU += ((HNtimesTU[x+1] - HNtimesTU[x])*24*60);
+            }
+            var HNaverageTU = HNFN2timeTotalTU/HNtimecountTU;
+    
+            var MHFN2timeTotalTU = 0;
+            for(var x=0; x<MHtimesTU.length-1; x++){
+              MHFN2timeTotalTU += ((MHtimesTU[x+1] - MHtimesTU[x])*24*60);
+            }
+            var MHaverageTU = MHFN2timeTotalTU/MHtimecountTU;
+    
+            var L6FN2timeTotalTU = 0;
+            for(var x=0; x<L6timesTU.length-1; x++){
+              L6FN2timeTotalTU += ((L6timesTU[x+1] - L6timesTU[x])*24*60);
+            }
+            var L6averageTU = L6FN2timeTotalTU/L6timecountTU;
+    
+            var L5FN2timeTotalTU = 0;
+            for(var x=0; x<L5timesTU.length-1; x++){
+              L5FN2timeTotalTU += ((L5timesTU[x+1] - L5timesTU[x])*24*60);
+            }
+            var L5averageTU = L5FN2timeTotalTU/L5timecountTU;
+    
+            var EDFN2timeTotalTU = 0;
+            for(var x=0; x<EDtimesTU.length-1; x++){
+              EDFN2timeTotalTU += ((EDtimesTU[x+1] - EDtimesTU[x])*24*60);
+            }
+            var EDaverageTU = EDFN2timeTotalTU/EDtimecountTU;
+    
+            var FNFN2timeTotalTU = 0;
+            for(var x=0; x<FNtimesTU.length-1; x++){
+              FNFN2timeTotalTU += ((FNtimesTU[x+1] - FNtimesTU[x])*24*60);
+            }
+            var FNaverageTU = FNFN2timeTotalTU/FNtimecountTU;
+    
+            var ASWFN2timeTotalTU = 0;
+            for(var x=0; x<ASWtimesTU.length-1; x++){
+              ASWFN2timeTotalTU += ((ASWtimesTU[x+1] - ASWtimesTU[x])*24*60);
+            }
+            var ASWaverageTU = ASWFN2timeTotalTU/ASWtimecountTU;
+    
+            var UWFN2timeTotalTU = 0;
+            for(var x=0; x<UWtimesTU.length-1; x++){
+              UWFN2timeTotalTU += ((UWtimesTU[x+1] - UWtimesTU[x])*24*60);
+            }
+            var UWaverageTU = UWFN2timeTotalTU/UWtimecountTU;
+    
+            var AWFN2timeTotalTU = 0;
+            for(var x=0; x<AWtimesTU.length-1; x++){
+              AWFN2timeTotalTU += ((AWtimesTU[x+1] - AWtimesTU[x])*24*60);
+            }
+            var AWaverageTU = AWFN2timeTotalTU/AWtimecountTU;
+    
+            var ENFN2timeTotalTU = 0;
+            for(var x=0; x<ENtimesTU.length-1; x++){
+              ENFN2timeTotalTU += ((ENtimesTU[x+1] - ENtimesTU[x])*24*60);
+            }
+            var ENaverageTU = ENFN2timeTotalTU/ENtimecountTU;
+    
+            var GHFN2timeTotalTU = 0;
+            for(var x=0; x<GHtimesTU.length-1; x++){
+              GHFN2timeTotalTU += ((GHtimesTU[x+1] - GHtimesTU[x])*24*60);
+            }
+            var GHaverageTU = GHFN2timeTotalTU/GHtimecountTU;
+    
+            var MSFN2timeTotalTU = 0;
+            for(var x=0; x<MStimesTU.length-1; x++){
+              MSFN2timeTotalTU += ((MStimesTU[x+1] - MStimesTU[x])*24*60);
+            }
+            var MSaverageTU = MSFN2timeTotalTU/MStimecountTU;
+    
+            var PFN2timeTotalTU = 0;
+            for(var x=0; x<PtimesTU.length-1; x++){
+              PFN2timeTotalTU += ((PtimesTU[x+1] - PtimesTU[x])*24*60);
+            }
+            var PaverageTU = PFN2timeTotalTU/PtimecountTU;
+    
+    
+            //Silver Time Average Wednesday
+            var CRIFN2timeTotalW = 0;
+            for(var x=0; x<CRItimesW.length-1; x++){
+              CRIFN2timeTotalW += ((CRItimesW[x+1] - CRItimesW[x])*24*60);
+            }
+            var CRIaverageW = CRIFN2timeTotalW/CRItimecountW;
+    
+            var DCFN2timeTotalW = 0;
+            for(var x=0; x<DCtimesW.length-1; x++){
+              DCFN2timeTotalW += ((DCtimesW[x+1] - DCtimesW[x])*24*60);
+            }
+            var DCaverageW = DCFN2timeTotalW/DCtimecountW;
+    
+            var ESFN2timeTotalW = 0;
+            for(var x=0; x<EStimesW.length-1; x++){
+              ESFN2timeTotalW += ((EStimesW[x+1] - EStimesW[x])*24*60);
+            }
+            var ESaverageW = ESFN2timeTotalW/EStimecountW;
+    
+            var AEFN2timeTotalW = 0;
+            for(var x=0; x<AEtimesW.length-1; x++){
+              AEFN2timeTotalW += ((AEtimesW[x+1] - AEtimesW[x])*24*60);
+            }
+            var AEaverageW = AEFN2timeTotalW/AEtimecountW;
+    
+            var UEFN2timeTotalW = 0;
+            for(var x=0; x<UEtimesW.length-1; x++){
+              UEFN2timeTotalW += ((UEtimesW[x+1] - UEtimesW[x])*24*60);
+            }
+            var UEaverageW = UEFN2timeTotalW/UEtimecountW;
+            
+            var ASEFN2timeTotalW = 0;
+            for(var x=0; x<ASEtimesW.length-1; x++){
+              ASEFN2timeTotalW += ((ASEtimesW[x+1] - ASEtimesW[x])*24*60);
+            }
+            var ASEaverageW = ASEFN2timeTotalW/ASEtimecountW;
+    
+            var HNFN2timeTotalW = 0;
+            for(var x=0; x<HNtimesW.length-1; x++){
+              HNFN2timeTotalW += ((HNtimesW[x+1] - HNtimesW[x])*24*60);
+            }
+            var HNaverageW = HNFN2timeTotalW/HNtimecountW;
+    
+            var MHFN2timeTotalW = 0;
+            for(var x=0; x<MHtimesW.length-1; x++){
+              MHFN2timeTotalW += ((MHtimesW[x+1] - MHtimesW[x])*24*60);
+            }
+            var MHaverageW = MHFN2timeTotalW/MHtimecountW;
+    
+            var L6FN2timeTotalW = 0;
+            for(var x=0; x<L6timesW.length-1; x++){
+              L6FN2timeTotalW += ((L6timesW[x+1] - L6timesW[x])*24*60);
+            }
+            var L6averageW = L6FN2timeTotalW/L6timecountW;
+    
+            var L5FN2timeTotalW = 0;
+            for(var x=0; x<L5timesW.length-1; x++){
+              L5FN2timeTotalW += ((L5timesW[x+1] - L5timesW[x])*24*60);
+            }
+            var L5averageW = L5FN2timeTotalW/L5timecountW;
+    
+            var EDFN2timeTotalW = 0;
+            for(var x=0; x<EDtimesW.length-1; x++){
+              EDFN2timeTotalW += ((EDtimesW[x+1] - EDtimesW[x])*24*60);
+            }
+            var EDaverageW = EDFN2timeTotalW/EDtimecountW;
+    
+            var FNFN2timeTotalW = 0;
+            for(var x=0; x<FNtimesW.length-1; x++){
+              FNFN2timeTotalW += ((FNtimesW[x+1] - FNtimesW[x])*24*60);
+            }
+            var FNaverageW = FNFN2timeTotalW/FNtimecountW;
+    
+            var ASWFN2timeTotalW = 0;
+            for(var x=0; x<ASWtimesW.length-1; x++){
+              ASWFN2timeTotalW += ((ASWtimesW[x+1] - ASWtimesW[x])*24*60);
+            }
+            var ASWaverageW = ASWFN2timeTotalW/ASWtimecountW;
+    
+            var UWFN2timeTotalW = 0;
+            for(var x=0; x<UWtimesW.length-1; x++){
+              UWFN2timeTotalW += ((UWtimesW[x+1] - UWtimesW[x])*24*60);
+            }
+            var UWaverageW = UWFN2timeTotalW/UWtimecountW;
+    
+            var AWFN2timeTotalW = 0;
+            for(var x=0; x<AWtimesW.length-1; x++){
+              AWFN2timeTotalW += ((AWtimesW[x+1] - AWtimesW[x])*24*60);
+            }
+            var AWaverageW = AWFN2timeTotalW/AWtimecountW;
+    
+            var ENFN2timeTotalW = 0;
+            for(var x=0; x<ENtimesW.length-1; x++){
+              ENFN2timeTotalW += ((ENtimesW[x+1] - ENtimesW[x])*24*60);
+            }
+            var ENaverageW = ENFN2timeTotalW/ENtimecountW;
+    
+            var GHFN2timeTotalW = 0;
+            for(var x=0; x<GHtimesW.length-1; x++){
+              GHFN2timeTotalW += ((GHtimesW[x+1] - GHtimesW[x])*24*60);
+            }
+            var GHaverageW = GHFN2timeTotalW/GHtimecountW;
+    
+            var MSFN2timeTotalW = 0;
+            for(var x=0; x<MStimesW.length-1; x++){
+              MSFN2timeTotalW += ((MStimesW[x+1] - MStimesW[x])*24*60);
+            }
+            var MSaverageW = MSFN2timeTotalW/MStimecountW;
+    
+            var PFN2timeTotalW = 0;
+            for(var x=0; x<PtimesW.length-1; x++){
+              PFN2timeTotalW += ((PtimesW[x+1] - PtimesW[x])*24*60);
+            }
+            var PaverageW = PFN2timeTotalW/PtimecountW;
+    
+    
+            //Silver Time Average Thursday
+            var CRIFN2timeTotalTH = 0;
+            for(var x=0; x<CRItimesTH.length-1; x++){
+              CRIFN2timeTotalTH += ((CRItimesTH[x+1] - CRItimesTH[x])*24*60);
+            }
+            var CRIaverageTH = CRIFN2timeTotalTH/CRItimecountTH;
+    
+            var DCFN2timeTotalTH = 0;
+            for(var x=0; x<DCtimesTH.length-1; x++){
+              DCFN2timeTotalTH += ((DCtimesTH[x+1] - DCtimesTH[x])*24*60);
+            }
+            var DCaverageTH = DCFN2timeTotalTH/DCtimecountTH;
+    
+            var ESFN2timeTotalTH = 0;
+            for(var x=0; x<EStimesTH.length-1; x++){
+              ESFN2timeTotalTH += ((EStimesTH[x+1] - EStimesTH[x])*24*60);
+            }
+            var ESaverageTH = ESFN2timeTotalTH/EStimecountTH;
+    
+            var AEFN2timeTotalTH = 0;
+            for(var x=0; x<AEtimesTH.length-1; x++){
+              AEFN2timeTotalTH += ((AEtimesTH[x+1] - AEtimesTH[x])*24*60);
+            }
+            var AEaverageTH = AEFN2timeTotalTH/AEtimecountTH;
+    
+            var UEFN2timeTotalTH = 0;
+            for(var x=0; x<UEtimesTH.length-1; x++){
+              UEFN2timeTotalTH += ((UEtimesTH[x+1] - UEtimesTH[x])*24*60);
+            }
+            var UEaverageTH = UEFN2timeTotalTH/UEtimecountTH;
+            
+            var ASEFN2timeTotalTH = 0;
+            for(var x=0; x<ASEtimesTH.length-1; x++){
+              ASEFN2timeTotalTH += ((ASEtimesTH[x+1] - ASEtimesTH[x])*24*60);
+            }
+            var ASEaverageTH = ASEFN2timeTotalTH/ASEtimecountTH;
+    
+            var HNFN2timeTotalTH = 0;
+            for(var x=0; x<HNtimesTH.length-1; x++){
+              HNFN2timeTotalTH += ((HNtimesTH[x+1] - HNtimesTH[x])*24*60);
+            }
+            var HNaverageTH = HNFN2timeTotalTH/HNtimecountTH;
+    
+            var MHFN2timeTotalTH = 0;
+            for(var x=0; x<MHtimesTH.length-1; x++){
+              MHFN2timeTotalTH += ((MHtimesTH[x+1] - MHtimesTH[x])*24*60);
+            }
+            var MHaverageTH = MHFN2timeTotalTH/MHtimecountTH;
+    
+            var L6FN2timeTotalTH = 0;
+            for(var x=0; x<L6timesTH.length-1; x++){
+              L6FN2timeTotalTH += ((L6timesTH[x+1] - L6timesTH[x])*24*60);
+            }
+            var L6averageTH = L6FN2timeTotalTH/L6timecountTH;
+    
+            var L5FN2timeTotalTH = 0;
+            for(var x=0; x<L5timesTH.length-1; x++){
+              L5FN2timeTotalTH += ((L5timesTH[x+1] - L5timesTH[x])*24*60);
+            }
+            var L5averageTH = L5FN2timeTotalTH/L5timecountTH;
+    
+            var EDFN2timeTotalTH = 0;
+            for(var x=0; x<EDtimesTH.length-1; x++){
+              EDFN2timeTotalTH += ((EDtimesTH[x+1] - EDtimesTH[x])*24*60);
+            }
+            var EDaverageTH = EDFN2timeTotalTH/EDtimecountTH;
+    
+            var FNFN2timeTotalTH = 0;
+            for(var x=0; x<FNtimesTH.length-1; x++){
+              FNFN2timeTotalTH += ((FNtimesTH[x+1] - FNtimesTH[x])*24*60);
+            }
+            var FNaverageTH = FNFN2timeTotalTH/FNtimecountTH;
+    
+            var ASWFN2timeTotalTH = 0;
+            for(var x=0; x<ASWtimesTH.length-1; x++){
+              ASWFN2timeTotalTH += ((ASWtimesTH[x+1] - ASWtimesTH[x])*24*60);
+            }
+            var ASWaverageTH = ASWFN2timeTotalTH/ASWtimecountTH;
+    
+            var UWFN2timeTotalTH = 0;
+            for(var x=0; x<UWtimesTH.length-1; x++){
+              UWFN2timeTotalTH += ((UWtimesTH[x+1] - UWtimesTH[x])*24*60);
+            }
+            var UWaverageTH = UWFN2timeTotalTH/UWtimecountTH;
+    
+            var AWFN2timeTotalTH = 0;
+            for(var x=0; x<AWtimesTH.length-1; x++){
+              AWFN2timeTotalTH += ((AWtimesTH[x+1] - AWtimesTH[x])*24*60);
+            }
+            var AWaverageTH = AWFN2timeTotalTH/AWtimecountTH;
+    
+            var ENFN2timeTotalTH = 0;
+            for(var x=0; x<ENtimesTH.length-1; x++){
+              ENFN2timeTotalTH += ((ENtimesTH[x+1] - ENtimesTH[x])*24*60);
+            }
+            var ENaverageTH = ENFN2timeTotalTH/ENtimecountTH;
+    
+            var GHFN2timeTotalTH = 0;
+            for(var x=0; x<GHtimesTH.length-1; x++){
+              GHFN2timeTotalTH += ((GHtimesTH[x+1] - GHtimesTH[x])*24*60);
+            }
+            var GHaverageTH = GHFN2timeTotalTH/GHtimecountTH;
+    
+            var MSFN2timeTotalTH = 0;
+            for(var x=0; x<MStimesTH.length-1; x++){
+              MSFN2timeTotalTH += ((MStimesTH[x+1] - MStimesTH[x])*24*60);
+            }
+            var MSaverageTH = MSFN2timeTotalTH/MStimecountTH;
+    
+            var PFN2timeTotalTH = 0;
+            for(var x=0; x<PtimesTH.length-1; x++){
+              PFN2timeTotalTH += ((PtimesTH[x+1] - PtimesTH[x])*24*60);
+            }
+            var PaverageTH = PFN2timeTotalTH/PtimecountTH;
+    
+    
+            //Silver Time Average Friday
+            var CRIFN2timeTotalF = 0;
+            for(var x=0; x<CRItimesF.length-1; x++){
+              CRIFN2timeTotalF += ((CRItimesF[x+1] - CRItimesF[x])*24*60);
+            }
+            var CRIaverageF = CRIFN2timeTotalF/CRItimecountF;
+    
+            var DCFN2timeTotalF = 0;
+            for(var x=0; x<DCtimesF.length-1; x++){
+              DCFN2timeTotalF += ((DCtimesF[x+1] - DCtimesF[x])*24*60);
+            }
+            var DCaverageF = DCFN2timeTotalF/DCtimecountF;
+    
+            var ESFN2timeTotalF = 0;
+            for(var x=0; x<EStimesF.length-1; x++){
+              ESFN2timeTotalF += ((EStimesF[x+1] - EStimesF[x])*24*60);
+            }
+            var ESaverageF = ESFN2timeTotalF/EStimecountF;
+    
+            var AEFN2timeTotalF = 0;
+            for(var x=0; x<AEtimesF.length-1; x++){
+              AEFN2timeTotalF += ((AEtimesF[x+1] - AEtimesF[x])*24*60);
+            }
+            var AEaverageF = AEFN2timeTotalF/AEtimecountF;
+    
+            var UEFN2timeTotalF = 0;
+            for(var x=0; x<UEtimesF.length-1; x++){
+              UEFN2timeTotalF += ((UEtimesF[x+1] - UEtimesF[x])*24*60);
+            }
+            var UEaverageF = UEFN2timeTotalF/UEtimecountF;
+            
+            var ASEFN2timeTotalF = 0;
+            for(var x=0; x<ASEtimesF.length-1; x++){
+              ASEFN2timeTotalF += ((ASEtimesF[x+1] - ASEtimesF[x])*24*60);
+            }
+            var ASEaverageF = ASEFN2timeTotalF/ASEtimecountF;
+    
+            var HNFN2timeTotalF = 0;
+            for(var x=0; x<HNtimesF.length-1; x++){
+              HNFN2timeTotalF += ((HNtimesF[x+1] - HNtimesF[x])*24*60);
+            }
+            var HNaverageF = HNFN2timeTotalF/HNtimecountF;
+    
+            var MHFN2timeTotalF = 0;
+            for(var x=0; x<MHtimesF.length-1; x++){
+              MHFN2timeTotalF += ((MHtimesF[x+1] - MHtimesF[x])*24*60);
+            }
+            var MHaverageF = MHFN2timeTotalF/MHtimecountF;
+    
+            var L6FN2timeTotalF = 0;
+            for(var x=0; x<L6timesF.length-1; x++){
+              L6FN2timeTotalF += ((L6timesF[x+1] - L6timesF[x])*24*60);
+            }
+            var L6averageF = L6FN2timeTotalF/L6timecountF;
+    
+            var L5FN2timeTotalF = 0;
+            for(var x=0; x<L5timesF.length-1; x++){
+              L5FN2timeTotalF += ((L5timesF[x+1] - L5timesF[x])*24*60);
+            }
+            var L5averageF = L5FN2timeTotalF/L5timecountF;
+    
+            var EDFN2timeTotalF = 0;
+            for(var x=0; x<EDtimesF.length-1; x++){
+              EDFN2timeTotalF += ((EDtimesF[x+1] - EDtimesF[x])*24*60);
+            }
+            var EDaverageF = EDFN2timeTotalF/EDtimecountF;
+    
+            var FNFN2timeTotalF = 0;
+            for(var x=0; x<FNtimesF.length-1; x++){
+              FNFN2timeTotalF += ((FNtimesF[x+1] - FNtimesF[x])*24*60);
+            }
+            var FNaverageF = FNFN2timeTotalF/FNtimecountF;
+    
+            var ASWFN2timeTotalF = 0;
+            for(var x=0; x<ASWtimesF.length-1; x++){
+              ASWFN2timeTotalF += ((ASWtimesF[x+1] - ASWtimesF[x])*24*60);
+            }
+            var ASWaverageF = ASWFN2timeTotalF/ASWtimecountF;
+    
+            var UWFN2timeTotalF = 0;
+            for(var x=0; x<UWtimesF.length-1; x++){
+              UWFN2timeTotalF += ((UWtimesF[x+1] - UWtimesF[x])*24*60);
+            }
+            var UWaverageF = UWFN2timeTotalF/UWtimecountF;
+    
+            var AWFN2timeTotalF = 0;
+            for(var x=0; x<AWtimesF.length-1; x++){
+              AWFN2timeTotalF += ((AWtimesF[x+1] - AWtimesF[x])*24*60);
+            }
+            var AWaverageF = AWFN2timeTotalF/AWtimecountF;
+    
+            var ENFN2timeTotalF = 0;
+            for(var x=0; x<ENtimesF.length-1; x++){
+              ENFN2timeTotalF += ((ENtimesF[x+1] - ENtimesF[x])*24*60);
+            }
+            var ENaverageF = ENFN2timeTotalF/ENtimecountF;
+    
+            var GHFN2timeTotalF = 0;
+            for(var x=0; x<GHtimesF.length-1; x++){
+              GHFN2timeTotalF += ((GHtimesF[x+1] - GHtimesF[x])*24*60);
+            }
+            var GHaverageF = GHFN2timeTotalF/GHtimecountF;
+    
+            var MSFN2timeTotalF = 0;
+            for(var x=0; x<MStimesF.length-1; x++){
+              MSFN2timeTotalF += ((MStimesF[x+1] - MStimesF[x])*24*60);
+            }
+            var MSaverageF = MSFN2timeTotalF/MStimecountF;
+    
+            var PFN2timeTotalF = 0;
+            for(var x=0; x<PtimesF.length-1; x++){
+              PFN2timeTotalF += ((PtimesF[x+1] - PtimesF[x])*24*60);
+            }
+            var PaverageF = PFN2timeTotalF/PtimecountF;
+    
+            //Silver Time Average Saturday
+            var CRIFN2timeTotalSAT = 0;
+            for(var x=0; x<CRItimesSAT.length-1; x++){
+              CRIFN2timeTotalSAT += ((CRItimesSAT[x+1] - CRItimesSAT[x])*24*60);
+            }
+            var CRIaverageSAT = CRIFN2timeTotalSAT/CRItimecountSAT;
+    
+            var DCFN2timeTotalSAT = 0;
+            for(var x=0; x<DCtimesSAT.length-1; x++){
+              DCFN2timeTotalSAT += ((DCtimesSAT[x+1] - DCtimesSAT[x])*24*60);
+            }
+            var DCaverageSAT = DCFN2timeTotalSAT/DCtimecountSUN;
+    
+            var ESFN2timeTotalSAT = 0;
+            for(var x=0; x<EStimesSAT.length-1; x++){
+              ESFN2timeTotalSAT += ((EStimesSAT[x+1] - EStimesSAT[x])*24*60);
+            }
+            var ESaverageSAT = ESFN2timeTotalSAT/EStimecountSUN;
+    
+            var AEFN2timeTotalSAT = 0;
+            for(var x=0; x<AEtimesSAT.length-1; x++){
+              AEFN2timeTotalSAT += ((AEtimesSAT[x+1] - AEtimesSAT[x])*24*60);
+            }
+            var AEaverageSAT = AEFN2timeTotalSAT/AEtimecountSUN;
+    
+            var UEFN2timeTotalSAT = 0;
+            for(var x=0; x<UEtimesSAT.length-1; x++){
+              UEFN2timeTotalSAT += ((UEtimesSAT[x+1] - UEtimesSAT[x])*24*60);
+            }
+            var UEaverageSAT = UEFN2timeTotalSAT/UEtimecountSUN;
+            
+            var ASEFN2timeTotalSAT = 0;
+            for(var x=0; x<ASEtimesSAT.length-1; x++){
+              ASEFN2timeTotalSAT += ((ASEtimesSAT[x+1] - ASEtimesSAT[x])*24*60);
+            }
+            var ASEaverageSAT = ASEFN2timeTotalSAT/ASEtimecountSUN;
+    
+            var HNFN2timeTotalSAT = 0;
+            for(var x=0; x<HNtimesSAT.length-1; x++){
+              HNFN2timeTotalSAT += ((HNtimesSAT[x+1] - HNtimesSAT[x])*24*60);
+            }
+            var HNaverageSAT = HNFN2timeTotalSAT/HNtimecountSUN;
+    
+            var MHFN2timeTotalSAT = 0;
+            for(var x=0; x<MHtimesSAT.length-1; x++){
+              MHFN2timeTotalSAT += ((MHtimesSAT[x+1] - MHtimesSAT[x])*24*60);
+            }
+            var MHaverageSAT = MHFN2timeTotalSAT/MHtimecountSUN;
+    
+            var L6FN2timeTotalSAT = 0;
+            for(var x=0; x<L6timesSAT.length-1; x++){
+              L6FN2timeTotalSAT += ((L6timesSAT[x+1] - L6timesSAT[x])*24*60);
+            }
+            var L6averageSAT = L6FN2timeTotalSAT/L6timecountSUN;
+    
+            var L5FN2timeTotalSAT = 0;
+            for(var x=0; x<L5timesSAT.length-1; x++){
+              L5FN2timeTotalSAT += ((L5timesSAT[x+1] - L5timesSAT[x])*24*60);
+            }
+            var L5averageSAT = L5FN2timeTotalSAT/L5timecountSUN;
+    
+            var EDFN2timeTotalSAT = 0;
+            for(var x=0; x<EDtimesSAT.length-1; x++){
+              EDFN2timeTotalSAT += ((EDtimesSAT[x+1] - EDtimesSAT[x])*24*60);
+            }
+            var EDaverageSAT = EDFN2timeTotalSAT/EDtimecountSUN;
+    
+            var FNFN2timeTotalSAT = 0;
+            for(var x=0; x<FNtimesSAT.length-1; x++){
+              FNFN2timeTotalSAT += ((FNtimesSAT[x+1] - FNtimesSAT[x])*24*60);
+            }
+            var FNaverageSAT = FNFN2timeTotalSAT/FNtimecountSUN;
+    
+            var ASWFN2timeTotalSAT = 0;
+            for(var x=0; x<ASWtimesSAT.length-1; x++){
+              ASWFN2timeTotalSAT += ((ASWtimesSAT[x+1] - ASWtimesSAT[x])*24*60);
+            }
+            var ASWaverageSAT = ASWFN2timeTotalSAT/ASWtimecountSUN;
+    
+            var UWFN2timeTotalSAT = 0;
+            for(var x=0; x<UWtimesSAT.length-1; x++){
+              UWFN2timeTotalSAT += ((UWtimesSAT[x+1] - UWtimesSAT[x])*24*60);
+            }
+            var UWaverageSAT = UWFN2timeTotalSAT/UWtimecountSUN;
+    
+            var AWFN2timeTotalSAT = 0;
+            for(var x=0; x<AWtimesSAT.length-1; x++){
+              AWFN2timeTotalSAT += ((AWtimesSAT[x+1] - AWtimesSAT[x])*24*60);
+            }
+            var AWaverageSAT = AWFN2timeTotalSAT/AWtimecountSUN;
+    
+            var ENFN2timeTotalSAT = 0;
+            for(var x=0; x<ENtimesSAT.length-1; x++){
+              ENFN2timeTotalSAT += ((ENtimesSAT[x+1] - ENtimesSAT[x])*24*60);
+            }
+            var ENaverageSAT = ENFN2timeTotalSAT/ENtimecountSUN;
+    
+            var GHFN2timeTotalSAT = 0;
+            for(var x=0; x<GHtimesSAT.length-1; x++){
+              GHFN2timeTotalSAT += ((GHtimesSAT[x+1] - GHtimesSAT[x])*24*60);
+            }
+            var GHaverageSAT = GHFN2timeTotalSAT/GHtimecountSUN;
+    
+            var MSFN2timeTotalSAT = 0;
+            for(var x=0; x<MStimesSAT.length-1; x++){
+              MSFN2timeTotalSAT += ((MStimesSAT[x+1] - MStimesSAT[x])*24*60);
+            }
+            var MSaverageSAT = MSFN2timeTotalSAT/MStimecountSUN;
+    
+            var PFN2timeTotalSAT = 0;
+            for(var x=0; x<PtimesSAT.length-1; x++){
+              PFN2timeTotalSAT += ((PtimesSAT[x+1] - PtimesSAT[x])*24*60);
+            }
+            var PaverageSAT = PFN2timeTotalSAT/PtimecountSAT;
+    
+    
+            //Silver Time Average Sunday
+            var CRIFN2timeTotalSUN = 0;
+            for(var x=0; x<CRItimesSUN.length-1; x++){
+              CRIFN2timeTotalSUN += ((CRItimesSUN[x+1] - CRItimesSUN[x])*24*60);
+            }
+            var CRIaverageSUN = CRIFN2timeTotalSUN/CRItimecountSUN;
+    
+            var DCFN2timeTotalSUN = 0;
+            for(var x=0; x<DCtimesSUN.length-1; x++){
+              DCFN2timeTotalSUN += ((DCtimesSUN[x+1] - DCtimesSUN[x])*24*60);
+            }
+            var DCaverageSUN = DCFN2timeTotalSUN/DCtimecountSUN;
+    
+            var ESFN2timeTotalSUN = 0;
+            for(var x=0; x<EStimesSUN.length-1; x++){
+              ESFN2timeTotalSUN += ((EStimesSUN[x+1] - EStimesSUN[x])*24*60);
+            }
+            var ESaverageSUN = ESFN2timeTotalSUN/EStimecountSUN;
+    
+            var AEFN2timeTotalSUN = 0;
+            for(var x=0; x<AEtimesSUN.length-1; x++){
+              AEFN2timeTotalSUN += ((AEtimesSUN[x+1] - AEtimesSUN[x])*24*60);
+            }
+            var AEaverageSUN = AEFN2timeTotalSUN/AEtimecountSUN;
+    
+            var UEFN2timeTotalSUN = 0;
+            for(var x=0; x<UEtimesSUN.length-1; x++){
+              UEFN2timeTotalSUN += ((UEtimesSUN[x+1] - UEtimesSUN[x])*24*60);
+            }
+            var UEaverageSUN = UEFN2timeTotalSUN/UEtimecountSUN;
+            
+            var ASEFN2timeTotalSUN = 0;
+            for(var x=0; x<ASEtimesSUN.length-1; x++){
+              ASEFN2timeTotalSUN += ((ASEtimesSUN[x+1] - ASEtimesSUN[x])*24*60);
+            }
+            var ASEaverageSUN = ASEFN2timeTotalSUN/ASEtimecountSUN;
+    
+            var HNFN2timeTotalSUN = 0;
+            for(var x=0; x<HNtimesSUN.length-1; x++){
+              HNFN2timeTotalSUN += ((HNtimesSUN[x+1] - HNtimesSUN[x])*24*60);
+            }
+            var HNaverageSUN = HNFN2timeTotalSUN/HNtimecountSUN;
+    
+            var MHFN2timeTotalSUN = 0;
+            for(var x=0; x<MHtimesSUN.length-1; x++){
+              MHFN2timeTotalSUN += ((MHtimesSUN[x+1] - MHtimesSUN[x])*24*60);
+            }
+            var MHaverageSUN = MHFN2timeTotalSUN/MHtimecountSUN;
+    
+            var L6FN2timeTotalSUN = 0;
+            for(var x=0; x<L6timesSUN.length-1; x++){
+              L6FN2timeTotalSUN += ((L6timesSUN[x+1] - L6timesSUN[x])*24*60);
+            }
+            var L6averageSUN = L6FN2timeTotalSUN/L6timecountSUN;
+    
+            var L5FN2timeTotalSUN = 0;
+            for(var x=0; x<L5timesSUN.length-1; x++){
+              L5FN2timeTotalSUN += ((L5timesSUN[x+1] - L5timesSUN[x])*24*60);
+            }
+            var L5averageSUN = L5FN2timeTotalSUN/L5timecountSUN;
+    
+            var EDFN2timeTotalSUN = 0;
+            for(var x=0; x<EDtimesSUN.length-1; x++){
+              EDFN2timeTotalSUN += ((EDtimesSUN[x+1] - EDtimesSUN[x])*24*60);
+            }
+            var EDaverageSUN = EDFN2timeTotalSUN/EDtimecountSUN;
+    
+            var FNFN2timeTotalSUN = 0;
+            for(var x=0; x<FNtimesSUN.length-1; x++){
+              FNFN2timeTotalSUN += ((FNtimesSUN[x+1] - FNtimesSUN[x])*24*60);
+            }
+            var FNaverageSUN = FNFN2timeTotalSUN/FNtimecountSUN;
+    
+            var ASWFN2timeTotalSUN = 0;
+            for(var x=0; x<ASWtimesSUN.length-1; x++){
+              ASWFN2timeTotalSUN += ((ASWtimesSUN[x+1] - ASWtimesSUN[x])*24*60);
+            }
+            var ASWaverageSUN = ASWFN2timeTotalSUN/ASWtimecountSUN;
+    
+            var UWFN2timeTotalSUN = 0;
+            for(var x=0; x<UWtimesSUN.length-1; x++){
+              UWFN2timeTotalSUN += ((UWtimesSUN[x+1] - UWtimesSUN[x])*24*60);
+            }
+            var UWaverageSUN = UWFN2timeTotalSUN/UWtimecountSUN;
+    
+            var AWFN2timeTotalSUN = 0;
+            for(var x=0; x<AWtimesSUN.length-1; x++){
+              AWFN2timeTotalSUN += ((AWtimesSUN[x+1] - AWtimesSUN[x])*24*60);
+            }
+            var AWaverageSUN = AWFN2timeTotalSUN/AWtimecountSUN;
+    
+            var ENFN2timeTotalSUN = 0;
+            for(var x=0; x<ENtimesSUN.length-1; x++){
+              ENFN2timeTotalSUN += ((ENtimesSUN[x+1] - ENtimesSUN[x])*24*60);
+            }
+            var ENaverageSUN = ENFN2timeTotalSUN/ENtimecountSUN;
+    
+            var GHFN2timeTotalSUN = 0;
+            for(var x=0; x<GHtimesSUN.length-1; x++){
+              GHFN2timeTotalSUN += ((GHtimesSUN[x+1] - GHtimesSUN[x])*24*60);
+            }
+            var GHaverageSUN = GHFN2timeTotalSUN/GHtimecountSUN;
+    
+            var MSFN2timeTotalSUN = 0;
+            for(var x=0; x<MStimesSUN.length-1; x++){
+              MSFN2timeTotalSUN += ((MStimesSUN[x+1] - MStimesSUN[x])*24*60);
+            }
+            var MSaverageSUN = MSFN2timeTotalSUN/MStimecountSUN;
+    
+            var PFN2timeTotalSUN = 0;
+            for(var x=0; x<PtimesSUN.length-1; x++){
+              PFN2timeTotalSUN += ((PtimesSUN[x+1] - PtimesSUN[x])*24*60);
+            }
+            var PaverageSUN = PFN2timeTotalSUN/PtimecountSUN;
 
 
             //Green Time Average
@@ -1596,30 +2745,86 @@
 
 
             //Update Silver Stats
-            document.getElementById('SilverStop1Stats').innerHTML = "<b>CRI Deck:</b>" + "<br>Average wait: " + (CRIaverage).toFixed(2) + "min" + "<br>Average on: " + (CRIon/CRIoncount).toFixed(2) + "<br>Average off: " + (CRIoff/CRIoffcount).toFixed(2);
-            document.getElementById('SilverStop2Stats').innerHTML = "<b>Duke Centennial Hall:</b>" + "<br>Average wait: " + (DCaverage).toFixed(2) + "min" + "<br>Average on: " + (DCon/DConcount).toFixed(2) + "<br>Average off: " + (DCoff/DCoffcount).toFixed(2);
+            document.getElementById('SilverStop1Stats').innerHTML = "<b>CRI Deck: </b>" + "<br>Average wait M: " + (CRIaverageM).toFixed(2) + 'min' + "<br>Average wait TU: " + (CRIaverageTU).toFixed(2) + 'min' + "<br>Average wait W: " + (CRIaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (CRIaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (CRIaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (CRIaverageSAT).toFixed(2) + "min"  + "<br>Average wait SUN: " + (CRIaverageSUN).toFixed(2) + "min"  + "<br>Average on: " + (CRIon/CRIoncount).toFixed(2) + "<br>Average off: " + (CRIoff/CRIoffcount).toFixed(2);
+
+            document.getElementById('SilverStop2Stats').innerHTML = "<b>Duke Centennial Hall:</b>" + "<br>Average wait M: " + (DCaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (DCaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (DCaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (DCaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (DCaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (DCaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (DCaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (DCon/DConcount).toFixed(2) + "<br>Average off: " + (DCoff/DCoffcount).toFixed(2);
+
             if(!(ESon == 0 && ESoff == 0)){
-              document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Average wait: " + (ESaverage).toFixed(2) + "min" + "<br>Average on: " + (ESon/ESoncount).toFixed(2) + "<br>Average off: " + (ESoff/ESoffcount).toFixed(2);
+              document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Average wait M: " + (ESaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (ESaverageTU).toFixed(2) + "min"
+              + "<br>Average wait W: " + (ESaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (ESaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (ESaverageF).toFixed(2) + "min"
+              + "<br>Average wait SAT: " + (ESaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (ESaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (ESon/ESoncount).toFixed(2) + "<br>Average off: " + (ESoff/ESoffcount).toFixed(2);
             }else{
               document.getElementById('SilverStop3Stats').innerHTML = "<b>Epic South:</b>" + "<br>Excel File does not contain this stop."
             }
-            document.getElementById('SilverStop4Stats').innerHTML = "<b>Athletics Complex East:</b>" + "<br>Average wait: " + (AEaverage).toFixed(2) + "min" + "<br>Average on: " + (AEon/AEoncount).toFixed(2) + "<br>Average off: " + (AEoff/AEoffcount).toFixed(2);
-            document.getElementById('SilverStop5Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average wait: " + (UEaverage).toFixed(2) + "min" + "<br>Average on: " + (UEon/UEoncount).toFixed(2) + "<br>Average off: " + (UEoff/UEoffcount).toFixed(2);
-            document.getElementById('SilverStop6Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average wait: " + (ASEaverage).toFixed(2) + "min" + "<br>Average on: " + (ASEon/ASEoncount).toFixed(2) + "<br>Average off: " + (ASEoff/ASEoffcount).toFixed(2);
-            document.getElementById('SilverStop7Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average wait: " + (HNaverage).toFixed(2) + "min" + "<br>Average on: " + (HNon/HNoncount).toFixed(2) + "<br>Average off: " + (HNoff/HNoffcount).toFixed(2);
-            document.getElementById('SilverStop8Stats').innerHTML = "<b>Martin Hall:</b>" + "<br>Average wait: " + (MHaverage).toFixed(2) + "min" + "<br>Average on: " + (MHon/MHoncount).toFixed(2) + "<br>Average off: " + (MHoff/MHoffcount).toFixed(2);
-            document.getElementById('SilverStop9Stats').innerHTML = "<b>Lot 6:</b>" + "<br>Average wait: " + (L6average).toFixed(2) + "min" + "<br>Average on: " + (L6on/L6oncount).toFixed(2) + "<br>Average off: " + (L6off/L6offcount).toFixed(2);
-            document.getElementById('SilverStop10Stats').innerHTML = "<b>Lot 5A:</b>" + "<br>Average wait: " + (L5average).toFixed(2) + "min" + "<br>Average on: " + (L5on/L5oncount).toFixed(2) + "<br>Average off: " + (L5off/L5offcount).toFixed(2);
-            document.getElementById('SilverStop11Stats').innerHTML = "<b>East Deck 2:</b>" + "<br>Average wait: " + (EDaverage).toFixed(2) + "min" + "<br>Average on: " + (EDon/EDoncount).toFixed(2) + "<br>Average off: " + (EDoff/EDoffcount).toFixed(2);
-            document.getElementById('SilverStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average wait: " + (FNaverage).toFixed(2) + "min" + "<br>Average on: " + (FNon/FNoncount).toFixed(2) + "<br>Average off: " + (FNoff/FNoffcount).toFixed(2);
-            document.getElementById('SilverStop13Stats').innerHTML = "<b>Science Building:</b>" + "<br>Average wait: " + (ASWaverage).toFixed(2) + "min" + "<br>Average on: " + (ASWon/ASWoncount).toFixed(2) + "<br>Average off: " + (ASWoff/ASWoffcount).toFixed(2);
-            document.getElementById('SilverStop14Stats').innerHTML = "<b>Student Union West:</b>" + "<br>Average wait: " + (UWaverage).toFixed(2) + "min" + "<br>Average on: " + (UWon/UWoncount).toFixed(2) + "<br>Average off: " + (UWoff/UWoffcount).toFixed(2);
-            document.getElementById('SilverStop15Stats').innerHTML = "<b>Athletics Complex West:</b>" + "<br>Average wait: " + (AWaverage).toFixed(2) + "min" + "<br>Average on: " + (AWon/AWoncount).toFixed(2) + "<br>Average off: " + (AWoff/AWoffcount).toFixed(2);
-            document.getElementById('SilverStop16Stats').innerHTML = "<b>Epic North:</b>" + "<br>Average wait: " + (ENaverage).toFixed(2) + "min" + "<br>Average on: " + (ENon/ENoncount).toFixed(2) + "<br>Average off: " + (ENoff/ENoffcount).toFixed(2);
-            document.getElementById('SilverStop17Stats').innerHTML = "<b>Grigg Hall:</b>" + "<br>Average wait: " + (GHaverage).toFixed(2) + "min" + "<br>Average on: " + (GHon/GHoncount).toFixed(2) + "<br>Average off: " + (GHoff/GHoffcount).toFixed(2);
-            document.getElementById('SilverStop18Stats').innerHTML = "<b>Motor Sports:</b>" + "<br>Average wait: " + (MSaverage).toFixed(2) + "min" + "<br>Average on: " + (MSon/MSoncount).toFixed(2) + "<br>Average off: " + (MSoff/MSoffcount).toFixed(2);
-            document.getElementById('SilverStop19Stats').innerHTML = "<b>Portal:</b>" + "<br>Average wait: " + (Paverage).toFixed(2) + "min" + "<br>Average on: " + (Pon/Poncount).toFixed(2) + "<br>Average off: " + (Poff/Poffcount).toFixed(2);
-            
+
+            document.getElementById('SilverStop4Stats').innerHTML = "<b>Athletics Complex East:</b>" + "<br>Average wait M: " + (AEaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (AEaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (AEaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (AEaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (AEaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (AEaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (AEaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (AEon/AEoncount).toFixed(2) + "<br>Average off: " + (AEoff/AEoffcount).toFixed(2);
+
+            document.getElementById('SilverStop5Stats').innerHTML = "<b>Student Union East:</b>" + "<br>Average wait M: " + (UEaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (UEaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (UEaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (UEaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (UEaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (UEaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (UEaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (UEon/UEoncount).toFixed(2) + "<br>Average off: " + (UEoff/UEoffcount).toFixed(2);
+
+            document.getElementById('SilverStop6Stats').innerHTML = "<b>Auxilary Services:</b>" + "<br>Average wait M: " + (ASEaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (ASEaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (ASEaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (ASEaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (ASEaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (ASEaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (ASEaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (ASEon/ASEoncount).toFixed(2) + "<br>Average off: " + (ASEoff/ASEoffcount).toFixed(2);
+
+            document.getElementById('SilverStop7Stats').innerHTML = "<b>Student Health North:</b>" + "<br>Average wait M: " + (HNaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (HNaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (HNaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (HNaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (HNaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (HNaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (HNaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (HNon/HNoncount).toFixed(2) + "<br>Average off: " + (HNoff/HNoffcount).toFixed(2);
+
+            document.getElementById('SilverStop8Stats').innerHTML = "<b>Martin Hall:</b>" + "<br>Average wait M: " + (MHaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (MHaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (MHaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (MHaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (MHaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (MHaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (MHaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (MHon/MHoncount).toFixed(2) + "<br>Average off: " + (MHoff/MHoffcount).toFixed(2);
+
+            document.getElementById('SilverStop9Stats').innerHTML = "<b>Lot 6:</b>" + "<br>Average wait M: " + (L6averageM).toFixed(2) + "min" + "<br>Average wait TU: " + (L6averageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (L6averageW).toFixed(2) + "min" + "<br>Average wait TH: " + (L6averageTH).toFixed(2) + "min" + "<br>Average wait F: " + (L6averageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (L6averageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (L6averageSUN).toFixed(2) + "min" + "<br>Average on: " + (L6on/L6oncount).toFixed(2) + "<br>Average off: " + (L6off/L6offcount).toFixed(2);
+
+            document.getElementById('SilverStop10Stats').innerHTML = "<b>Lot 5A:</b>" + "<br>Average wait M: " + (L5averageM).toFixed(2) + "min" + "<br>Average wait TU: " + (L5averageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (L5averageW).toFixed(2) + "min" + "<br>Average wait TH: " + (L5averageTH).toFixed(2) + "min" + "<br>Average wait F: " + (L5averageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (L5averageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (L5averageSUN).toFixed(2) + "min" + "<br>Average on: " + (L5on/L5oncount).toFixed(2) + "<br>Average off: " + (L5off/L5offcount).toFixed(2);
+
+            document.getElementById('SilverStop11Stats').innerHTML = "<b>East Deck 2:</b>" + "<br>Average wait M: " + (EDaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (EDaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (EDaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (EDaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (EDaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (EDaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (EDaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (EDon/EDoncount).toFixed(2) + "<br>Average off: " + (EDoff/EDoffcount).toFixed(2);
+
+            document.getElementById('SilverStop12Stats').innerHTML = "<b>Fretwell North:</b>" + "<br>Average wait M: " + (FNaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (FNaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (FNaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (FNaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (FNaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (FNaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (FNaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (FNon/FNoncount).toFixed(2) + "<br>Average off: " + (FNoff/FNoffcount).toFixed(2);
+
+            document.getElementById('SilverStop13Stats').innerHTML = "<b>Science Building:</b>" + "<br>Average wait M: " + (ASWaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (ASWaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (ASWaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (ASWaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (ASWaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (ASWaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (ASWaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (ASWon/ASWoncount).toFixed(2) + "<br>Average off: " + (ASWoff/ASWoffcount).toFixed(2);
+
+            document.getElementById('SilverStop14Stats').innerHTML = "<b>Student Union West:</b>" + "<br>Average wait M: " + (UWaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (UWaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (UWaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (UWaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (UWaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (UWaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (UWaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (UWon/UWoncount).toFixed(2) + "<br>Average off: " + (UWoff/UWoffcount).toFixed(2);
+
+            document.getElementById('SilverStop15Stats').innerHTML = "<b>Athletics Complex West:</b>" + "<br>Average wait M: " + (AWaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (AWaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (AWaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (AWaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (AWaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (AWaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (AWaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (AWon/AWoncount).toFixed(2) + "<br>Average off: " + (AWoff/AWoffcount).toFixed(2);
+
+            document.getElementById('SilverStop16Stats').innerHTML = "<b>Epic North:</b>" + "<br>Average wait M: " + (ENaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (ENaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (ENaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (ENaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (ENaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (ENaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (ENaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (ENon/ENoncount).toFixed(2) + "<br>Average off: " + (ENoff/ENoffcount).toFixed(2);
+
+            document.getElementById('SilverStop17Stats').innerHTML = "<b>Grigg Hall:</b>" + "<br>Average wait M: " + (GHaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (GHaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (GHaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (GHaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (GHaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (GHaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (GHaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (GHon/GHoncount).toFixed(2) + "<br>Average off: " + (GHoff/GHoffcount).toFixed(2);
+
+            document.getElementById('SilverStop18Stats').innerHTML = "<b>Motor Sports:</b>" + "<br>Average wait M: " + (MSaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (MSaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (MSaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (MSaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (MSaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (MSaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (MSaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (MSon/MSoncount).toFixed(2) + "<br>Average off: " + (MSoff/MSoffcount).toFixed(2);
+
+            document.getElementById('SilverStop19Stats').innerHTML = "<b>Portal:</b>" + "<br>Average wait M: " + (PaverageM).toFixed(2) + "min" + "<br>Average wait TU: " + (PaverageTU).toFixed(2) + "min"
+            + "<br>Average wait W: " + (PaverageW).toFixed(2) + "min" + "<br>Average wait TH: " + (PaverageTH).toFixed(2) + "min" + "<br>Average wait F: " + (PaverageF).toFixed(2) + "min"
+            + "<br>Average wait SAT: " + (PaverageSAT).toFixed(2) + "min" + "<br>Average wait SUN: " + (PaverageSUN).toFixed(2) + "min" + "<br>Average on: " + (Pon/Poncount).toFixed(2) + "<br>Average off: " + (Poff/Poffcount).toFixed(2);
+
+                  
             //Update Green Stats
             document.getElementById('GreenStop1Stats').innerHTML = "<b>North Deck:</b>" + "<br>Average wait: " + (NDaverage).toFixed(2) + "min" + "<br>Average on: " + (NDon/NDoncount).toFixed(2) + "<br>Average off: " + (NDoff/NDoffcount).toFixed(2);
             document.getElementById('GreenStop2Stats').innerHTML = "<b>Wallis West/Light Rail West:</b>" + "<br>Average wait: " + (WWaverage).toFixed(2) + "min" + "<br>Average on: " + (WWon/WWoncount).toFixed(2) + "<br>Average off: " + (WWoff/WWoffcount).toFixed(2);
@@ -1675,4 +2880,39 @@
 
     </script>
   </main>
+      <table class="downloads">
+    <tr>
+      <td>
+        <a><b>Downloadable Files</b></a>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="TransportData\niner-transit-data\2020-2021 Pax Data.xlsx"> 2020 - 2021 Pax Data</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="TransportData\niner-transit-data\2019-2020 Stop Data.xlsx"> 2019 - 2020 Pax Data</a>
+        </td>
+    </tr>
+   
+    <tr>
+        <td>
+            <a href="TransportData\niner-transit-data\2018-2019 Stop Data PART 2.xlsx"> 2018 - 2019 Stop Data PART 2</a>
+        </td>
+    </tr>
+   
+    <tr>
+        <td>
+            <a href="TransportData\niner-transit-data\2018-2019 Stop Data PART 1.xlsx"> 2018 - 2019 Stop Data PART 1</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+<footer>
+  <p class="footer">&copy;2022 PATs Services. All rights reserved.</p>
+</footer>
 </body>
