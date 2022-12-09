@@ -10,6 +10,14 @@
     position: absolute;
     left:1000;
 }
+.downloads{
+    position: relative;
+    left: 200;
+}
+.footer{
+    position: relative;
+    left:1200;
+}
 .check{
     position:relative;
     left: 100;
